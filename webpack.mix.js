@@ -18,7 +18,7 @@ mix.js('resources/js/app.js', 'public/js')
         require('tailwindcss'),
         require('autoprefixer'),
     ])
-    .sass('resources/scss/app.scss', 'public/css')
+    .styles('resources/scss/*.scss', 'public/css/app.css')
     .webpackConfig(require('./webpack.config'));
 
 mix.disableNotifications(0);
