@@ -1,4 +1,9 @@
-@import 'home-page';
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/regular";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/brands";
 
-$primary: white;
-$secondary: #67b1c2;
+$secondary: white;
+$primary: #67b1c2;
+
+@import 'home-page';

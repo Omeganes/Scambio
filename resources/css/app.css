@@ -3,6 +3,7 @@
 @import 'tailwindcss/utilities';
 @import "bootstrap";
 
+
 a {
     text-decoration: none;
     color: unset;
