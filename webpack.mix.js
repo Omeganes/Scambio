@@ -18,10 +18,11 @@ mix.js('resources/js/app.js', 'public/js')
         require('tailwindcss'),
         require('autoprefixer'),
     ])
-    .styles('resources/scss/*.scss', 'public/css/app.css')
+    .sass('resources/scss/custom.scss', 'public/css')
+    .minify(['public/css/custom.css', 'public/css/app.css'])
     .webpackConfig(require('./webpack.config'));
 
-mix.disableNotifications(0);
+mix.disableNotifications();
 
 mix.browserSync('0.0.0.0:8000');
 
