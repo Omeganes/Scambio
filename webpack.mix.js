@@ -11,14 +11,20 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
+mix.js(['resources/js/app.js', 'resources/js/lib/font-awesome.js'], 'public/js/app.js')
     .react()
     .postCss('resources/css/app.css', 'public/css', [
         require('postcss-import'),
         require('tailwindcss'),
         require('autoprefixer'),
     ])
+    .sass('resources/scss/custom.scss', 'public/css')
+    .minify(['public/css/custom.css', 'public/css/app.css'])
     .webpackConfig(require('./webpack.config'));
+
+mix.disableNotifications();
+
+mix.browserSync('0.0.0.0:8000');
 
 if (mix.inProduction()) {
     mix.version();

@@ -7791,6 +7791,178 @@ function Label(_ref) {
 
 /***/ }),
 
+/***/ "./resources/js/Components/NavBar.js":
+/*!*******************************************!*\
+  !*** ./resources/js/Components/NavBar.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ NavBar)
+/* harmony export */ });
+/* harmony import */ var _Components_ApplicationLogo__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Components/ApplicationLogo */ "./resources/js/Components/ApplicationLogo.js");
+/* harmony import */ var _Components_Dropdown__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Components/Dropdown */ "./resources/js/Components/Dropdown.js");
+/* harmony import */ var _Components_NavLink__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Components/NavLink */ "./resources/js/Components/NavLink.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _Components_ResponsiveNavLink__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Components/ResponsiveNavLink */ "./resources/js/Components/ResponsiveNavLink.js");
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr && (typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]); if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+
+
+
+function NavBar(_ref) {
+  var auth = _ref.auth;
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      showingNavigationDropdown = _useState2[0],
+      setShowingNavigationDropdown = _useState2[1];
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("nav", {
+    className: "bg-white border-b border-gray-100",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+      className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+        className: "flex justify-between h-16",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+          className: "flex",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+            className: "flex-shrink-0 flex items-center",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_5__.InertiaLink, {
+              href: "/",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_ApplicationLogo__WEBPACK_IMPORTED_MODULE_0__.default, {
+                className: "block h-9 w-auto text-gray-500"
+              })
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+            className: "hidden space-x-8 sm:-my-px sm:ml-10 sm:flex",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_NavLink__WEBPACK_IMPORTED_MODULE_2__.default, {
+              href: route('home'),
+              active: route().current('home'),
+              children: "Scambio"
+            })
+          })]
+        }), auth && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+          className: "hidden sm:flex sm:items-center sm:ml-6",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+            className: "ml-3 relative",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_Components_Dropdown__WEBPACK_IMPORTED_MODULE_1__.default, {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_Dropdown__WEBPACK_IMPORTED_MODULE_1__.default.Trigger, {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+                  className: "inline-flex rounded-md",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("button", {
+                    type: "button",
+                    className: "inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150",
+                    children: [auth.user.name, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("svg", {
+                      className: "ml-2 -mr-0.5 h-4 w-4",
+                      xmlns: "http://www.w3.org/2000/svg",
+                      viewBox: "0 0 20 20",
+                      fill: "currentColor",
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("path", {
+                        fillRule: "evenodd",
+                        d: "M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z",
+                        clipRule: "evenodd"
+                      })
+                    })]
+                  })
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_Dropdown__WEBPACK_IMPORTED_MODULE_1__.default.Content, {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_Dropdown__WEBPACK_IMPORTED_MODULE_1__.default.Link, {
+                  href: route('logout'),
+                  method: "post",
+                  as: "button",
+                  children: "Log Out"
+                })
+              })]
+            })
+          })
+        }), auth && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+          className: "-mr-2 flex items-center sm:hidden",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
+            onClick: function onClick() {
+              return setShowingNavigationDropdown(function (previousState) {
+                return !previousState;
+              });
+            },
+            className: "inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("svg", {
+              className: "h-6 w-6",
+              stroke: "currentColor",
+              fill: "none",
+              viewBox: "0 0 24 24",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("path", {
+                className: !showingNavigationDropdown ? 'inline-flex' : 'hidden',
+                strokeLinecap: "round",
+                strokeLinejoin: "round",
+                strokeWidth: "2",
+                d: "M4 6h16M4 12h16M4 18h16"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("path", {
+                className: showingNavigationDropdown ? 'inline-flex' : 'hidden',
+                strokeLinecap: "round",
+                strokeLinejoin: "round",
+                strokeWidth: "2",
+                d: "M6 18L18 6M6 6l12 12"
+              })]
+            })
+          })
+        })]
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+      className: (showingNavigationDropdown ? 'block' : 'hidden') + ' sm:hidden',
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+        className: "pt-2 pb-3 space-y-1",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_ResponsiveNavLink__WEBPACK_IMPORTED_MODULE_4__.default, {
+          method: "post",
+          href: route('dashboard'),
+          active: route().current('dashboard'),
+          children: "Dashboard"
+        })
+      }), auth && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+        className: "pt-4 pb-1 border-t border-gray-200",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+          className: "px-4",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+            className: "font-medium text-base text-gray-800",
+            children: auth.user.name
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+            className: "font-medium text-sm text-gray-500",
+            children: auth.user.email
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+          className: "mt-3 space-y-1",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_ResponsiveNavLink__WEBPACK_IMPORTED_MODULE_4__.default, {
+            method: "post",
+            href: route('logout'),
+            as: "button",
+            children: "Log Out"
+          })
+        })]
+      })]
+    })]
+  });
+}
+
+/***/ }),
+
 /***/ "./resources/js/Components/NavLink.js":
 /*!********************************************!*\
   !*** ./resources/js/Components/NavLink.js ***!
@@ -8112,6 +8284,47 @@ function Guest(_ref) {
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
       className: "w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg",
+      children: children
+    })]
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/Layouts/Main.js":
+/*!**************************************!*\
+  !*** ./resources/js/Layouts/Main.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Main)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _Components_NavBar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Components/NavBar */ "./resources/js/Components/NavBar.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+function Main(_ref) {
+  var auth = _ref.auth,
+      withNav = _ref.withNav,
+      header = _ref.header,
+      children = _ref.children;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+    className: "min-h-screen bg-gray-100",
+    children: [withNav && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Components_NavBar__WEBPACK_IMPORTED_MODULE_1__.default, {
+      auth: auth
+    }), header && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("header", {
+      className: "bg-white shadow",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        className: "max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8",
+        children: header
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("main", {
       children: children
     })]
   });
@@ -8774,270 +8987,97 @@ function Dashboard(props) {
 
 /***/ }),
 
-/***/ "./resources/js/Pages/Welcome.js":
-/*!***************************************!*\
-  !*** ./resources/js/Pages/Welcome.js ***!
-  \***************************************/
+/***/ "./resources/js/Pages/Home.js":
+/*!************************************!*\
+  !*** ./resources/js/Pages/Home.js ***!
+  \************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ Welcome)
+/* harmony export */   "default": () => (/* binding */ Home)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _Layouts_Main__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Layouts/Main */ "./resources/js/Layouts/Main.js");
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
 
 
-function Welcome(props) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-    className: "relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-      className: "fixed top-0 right-0 px-6 py-4 sm:block",
-      children: props.auth.user ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.InertiaLink, {
-        href: "/dashboard",
-        className: "text-sm text-gray-700 underline",
-        children: "Dashboard"
-      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.InertiaLink, {
-          href: route('login'),
-          className: "text-sm text-gray-700 underline",
-          children: "Log in"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.InertiaLink, {
-          href: route('register'),
-          className: "ml-4 text-sm text-gray-700 underline",
-          children: "Register"
+function Home(props) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Layouts_Main__WEBPACK_IMPORTED_MODULE_1__.default // header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">Home</h2>}
+  , {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      id: 'home-page',
+      className: "d-flex h-100 text-center text-white",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        className: "cover-container d-flex w-100 h-100 p-3 mx-auto flex-column",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("header", {
+          className: "mb-auto",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h3", {
+              className: "float-md-start mb-0 nav-title",
+              children: "Scambio"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("nav", {
+              className: "nav nav-masthead justify-content-center float-md-end",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.InertiaLink, {
+                className: 'nav-link active',
+                href: route('home'),
+                children: "Home"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.InertiaLink, {
+                className: 'nav-link',
+                href: '#',
+                children: "Categories"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.InertiaLink, {
+                className: 'nav-link',
+                href: '#',
+                children: "Contact Us"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.InertiaLink, {
+                className: 'nav-link',
+                href: '/dashboard',
+                children: "Profile"
+              })]
+            })]
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("main", {
+          className: "px-3 d-flex justify-content-around",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            className: 'd-block',
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
+              children: "Scambio"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+              className: "lead",
+              children: "Replace your assets with others and save your time"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+              className: "lead",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+                href: "#",
+                className: "btn btn-lg btn-secondary fw-bold border-white bg-white",
+                children: "Learn more"
+              })
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            className: 'd-block',
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
+              className: "re-icon fas fa-people-carry fa-9x",
+              "aria-hidden": "true"
+            })
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("footer", {
+          className: "mt-auto text-white-50",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
+            children: ["All rights Reserved ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+              href: "http://localhost:3000",
+              className: "text-white",
+              children: "Scambio"
+            })]
+          })
         })]
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-      className: "max-w-6xl mx-auto sm:px-6 lg:px-8",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "flex justify-center pt-8 sm:justify-start sm:pt-0",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("svg", {
-          viewBox: "0 0 651 192",
-          fill: "none",
-          xmlns: "http://www.w3.org/2000/svg",
-          className: "h-16 w-auto text-gray-700 sm:h-20",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("g", {
-            clipPath: "url(#clip0)",
-            fill: "#EF3B2D",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("path", {
-              d: "M248.032 44.676h-16.466v100.23h47.394v-14.748h-30.928V44.676zM337.091 87.202c-2.101-3.341-5.083-5.965-8.949-7.875-3.865-1.909-7.756-2.864-11.669-2.864-5.062 0-9.69.931-13.89 2.792-4.201 1.861-7.804 4.417-10.811 7.661-3.007 3.246-5.347 6.993-7.016 11.239-1.672 4.249-2.506 8.713-2.506 13.389 0 4.774.834 9.26 2.506 13.459 1.669 4.202 4.009 7.925 7.016 11.169 3.007 3.246 6.609 5.799 10.811 7.66 4.199 1.861 8.828 2.792 13.89 2.792 3.913 0 7.804-.955 11.669-2.863 3.866-1.908 6.849-4.533 8.949-7.875v9.021h15.607V78.182h-15.607v9.02zm-1.431 32.503c-.955 2.578-2.291 4.821-4.009 6.73-1.719 1.91-3.795 3.437-6.229 4.582-2.435 1.146-5.133 1.718-8.091 1.718-2.96 0-5.633-.572-8.019-1.718-2.387-1.146-4.438-2.672-6.156-4.582-1.719-1.909-3.032-4.152-3.938-6.73-.909-2.577-1.36-5.298-1.36-8.161 0-2.864.451-5.585 1.36-8.162.905-2.577 2.219-4.819 3.938-6.729 1.718-1.908 3.77-3.437 6.156-4.582 2.386-1.146 5.059-1.718 8.019-1.718 2.958 0 5.656.572 8.091 1.718 2.434 1.146 4.51 2.674 6.229 4.582 1.718 1.91 3.054 4.152 4.009 6.729.953 2.577 1.432 5.298 1.432 8.162-.001 2.863-.479 5.584-1.432 8.161zM463.954 87.202c-2.101-3.341-5.083-5.965-8.949-7.875-3.865-1.909-7.756-2.864-11.669-2.864-5.062 0-9.69.931-13.89 2.792-4.201 1.861-7.804 4.417-10.811 7.661-3.007 3.246-5.347 6.993-7.016 11.239-1.672 4.249-2.506 8.713-2.506 13.389 0 4.774.834 9.26 2.506 13.459 1.669 4.202 4.009 7.925 7.016 11.169 3.007 3.246 6.609 5.799 10.811 7.66 4.199 1.861 8.828 2.792 13.89 2.792 3.913 0 7.804-.955 11.669-2.863 3.866-1.908 6.849-4.533 8.949-7.875v9.021h15.607V78.182h-15.607v9.02zm-1.432 32.503c-.955 2.578-2.291 4.821-4.009 6.73-1.719 1.91-3.795 3.437-6.229 4.582-2.435 1.146-5.133 1.718-8.091 1.718-2.96 0-5.633-.572-8.019-1.718-2.387-1.146-4.438-2.672-6.156-4.582-1.719-1.909-3.032-4.152-3.938-6.73-.909-2.577-1.36-5.298-1.36-8.161 0-2.864.451-5.585 1.36-8.162.905-2.577 2.219-4.819 3.938-6.729 1.718-1.908 3.77-3.437 6.156-4.582 2.386-1.146 5.059-1.718 8.019-1.718 2.958 0 5.656.572 8.091 1.718 2.434 1.146 4.51 2.674 6.229 4.582 1.718 1.91 3.054 4.152 4.009 6.729.953 2.577 1.432 5.298 1.432 8.162 0 2.863-.479 5.584-1.432 8.161zM650.772 44.676h-15.606v100.23h15.606V44.676zM365.013 144.906h15.607V93.538h26.776V78.182h-42.383v66.724zM542.133 78.182l-19.616 51.096-19.616-51.096h-15.808l25.617 66.724h19.614l25.617-66.724h-15.808zM591.98 76.466c-19.112 0-34.239 15.706-34.239 35.079 0 21.416 14.641 35.079 36.239 35.079 12.088 0 19.806-4.622 29.234-14.688l-10.544-8.158c-.006.008-7.958 10.449-19.832 10.449-13.802 0-19.612-11.127-19.612-16.884h51.777c2.72-22.043-11.772-40.877-33.023-40.877zm-18.713 29.28c.12-1.284 1.917-16.884 18.589-16.884 16.671 0 18.697 15.598 18.813 16.884h-37.402zM184.068 43.892c-.024-.088-.073-.165-.104-.25-.058-.157-.108-.316-.191-.46-.056-.097-.137-.176-.203-.265-.087-.117-.161-.242-.265-.345-.085-.086-.194-.148-.29-.223-.109-.085-.206-.182-.327-.252l-.002-.001-.002-.002-35.648-20.524a2.971 2.971 0 00-2.964 0l-35.647 20.522-.002.002-.002.001c-.121.07-.219.167-.327.252-.096.075-.205.138-.29.223-.103.103-.178.228-.265.345-.066.089-.147.169-.203.265-.083.144-.133.304-.191.46-.031.085-.08.162-.104.25-.067.249-.103.51-.103.776v38.979l-29.706 17.103V24.493a3 3 0 00-.103-.776c-.024-.088-.073-.165-.104-.25-.058-.157-.108-.316-.191-.46-.056-.097-.137-.176-.203-.265-.087-.117-.161-.242-.265-.345-.085-.086-.194-.148-.29-.223-.109-.085-.206-.182-.327-.252l-.002-.001-.002-.002L40.098 1.396a2.971 2.971 0 00-2.964 0L1.487 21.919l-.002.002-.002.001c-.121.07-.219.167-.327.252-.096.075-.205.138-.29.223-.103.103-.178.228-.265.345-.066.089-.147.169-.203.265-.083.144-.133.304-.191.46-.031.085-.08.162-.104.25-.067.249-.103.51-.103.776v122.09c0 1.063.568 2.044 1.489 2.575l71.293 41.045c.156.089.324.143.49.202.078.028.15.074.23.095a2.98 2.98 0 001.524 0c.069-.018.132-.059.2-.083.176-.061.354-.119.519-.214l71.293-41.045a2.971 2.971 0 001.489-2.575v-38.979l34.158-19.666a2.971 2.971 0 001.489-2.575V44.666a3.075 3.075 0 00-.106-.774zM74.255 143.167l-29.648-16.779 31.136-17.926.001-.001 34.164-19.669 29.674 17.084-21.772 12.428-43.555 24.863zm68.329-76.259v33.841l-12.475-7.182-17.231-9.92V49.806l12.475 7.182 17.231 9.92zm2.97-39.335l29.693 17.095-29.693 17.095-29.693-17.095 29.693-17.095zM54.06 114.089l-12.475 7.182V46.733l17.231-9.92 12.475-7.182v74.537l-17.231 9.921zM38.614 7.398l29.693 17.095-29.693 17.095L8.921 24.493 38.614 7.398zM5.938 29.632l12.475 7.182 17.231 9.92v79.676l.001.005-.001.006c0 .114.032.221.045.333.017.146.021.294.059.434l.002.007c.032.117.094.222.14.334.051.124.088.255.156.371a.036.036 0 00.004.009c.061.105.149.191.222.288.081.105.149.22.244.314l.008.01c.084.083.19.142.284.215.106.083.202.178.32.247l.013.005.011.008 34.139 19.321v34.175L5.939 144.867V29.632h-.001zm136.646 115.235l-65.352 37.625V148.31l48.399-27.628 16.953-9.677v33.862zm35.646-61.22l-29.706 17.102V66.908l17.231-9.92 12.475-7.182v33.841z"
-            })
-          })
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          className: "grid grid-cols-1 md:grid-cols-2",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "p-6",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-              className: "flex items-center",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("svg", {
-                fill: "none",
-                stroke: "currentColor",
-                strokeLinecap: "round",
-                strokeLinejoin: "round",
-                strokeWidth: "2",
-                viewBox: "0 0 24 24",
-                className: "w-8 h-8 text-gray-500",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("path", {
-                  d: "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                className: "ml-4 text-lg leading-7 font-semibold",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
-                  href: "https://laravel.com/docs",
-                  className: "underline text-gray-900 dark:text-white",
-                  children: "Documentation"
-                })
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-              className: "ml-12",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                className: "mt-2 text-gray-600 dark:text-gray-400 text-sm",
-                children: "Laravel has wonderful, thorough documentation covering every aspect of the framework. Whether you are new to the framework or have previous experience with Laravel, we recommend reading all of the documentation from beginning to end."
-              })
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-              className: "flex items-center",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("svg", {
-                fill: "none",
-                stroke: "currentColor",
-                strokeLinecap: "round",
-                strokeLinejoin: "round",
-                strokeWidth: "2",
-                viewBox: "0 0 24 24",
-                className: "w-8 h-8 text-gray-500",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("path", {
-                  d: "M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("path", {
-                  d: "M15 13a3 3 0 11-6 0 3 3 0 016 0z"
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                className: "ml-4 text-lg leading-7 font-semibold",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
-                  href: "https://laracasts.com",
-                  className: "underline text-gray-900 dark:text-white",
-                  children: "Laracasts"
-                })
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-              className: "ml-12",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                className: "mt-2 text-gray-600 dark:text-gray-400 text-sm",
-                children: "Laracasts offers thousands of video tutorials on Laravel, PHP, and JavaScript development. Check them out, see for yourself, and massively level up your development skills in the process."
-              })
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "p-6 border-t border-gray-200 dark:border-gray-700",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-              className: "flex items-center",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("svg", {
-                fill: "none",
-                stroke: "currentColor",
-                strokeLinecap: "round",
-                strokeLinejoin: "round",
-                strokeWidth: "2",
-                viewBox: "0 0 24 24",
-                className: "w-8 h-8 text-gray-500",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("path", {
-                  d: "M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                className: "ml-4 text-lg leading-7 font-semibold",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
-                  href: "https://laravel-news.com/",
-                  className: "underline text-gray-900 dark:text-white",
-                  children: "Laravel News"
-                })
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-              className: "ml-12",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                className: "mt-2 text-gray-600 dark:text-gray-400 text-sm",
-                children: "Laravel News is a community driven portal and newsletter aggregating all of the latest and most important news in the Laravel ecosystem, including new package releases and tutorials."
-              })
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "p-6 border-t border-gray-200 dark:border-gray-700 md:border-l",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-              className: "flex items-center",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("svg", {
-                fill: "none",
-                stroke: "currentColor",
-                strokeLinecap: "round",
-                strokeLinejoin: "round",
-                strokeWidth: "2",
-                viewBox: "0 0 24 24",
-                className: "w-8 h-8 text-gray-500",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("path", {
-                  d: "M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                className: "ml-4 text-lg leading-7 font-semibold text-gray-900 dark:text-white",
-                children: "Vibrant Ecosystem"
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-              className: "ml-12",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-                className: "mt-2 text-gray-600 dark:text-gray-400 text-sm",
-                children: ["Laravel's robust library of first-party tools and libraries, such as", ' ', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
-                  href: "https://forge.laravel.com",
-                  className: "underline",
-                  children: "Forge"
-                }), ",", ' ', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
-                  href: "https://vapor.laravel.com",
-                  className: "underline",
-                  children: "Vapor"
-                }), ",", ' ', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
-                  href: "https://nova.laravel.com",
-                  className: "underline",
-                  children: "Nova"
-                }), ", and", ' ', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
-                  href: "https://envoyer.io",
-                  className: "underline",
-                  children: "Envoyer"
-                }), ' ', "help you take your projects to the next level. Pair them with powerful open source libraries like", ' ', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
-                  href: "https://laravel.com/docs/billing",
-                  className: "underline",
-                  children: "Cashier"
-                }), ",", ' ', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
-                  href: "https://laravel.com/docs/dusk",
-                  className: "underline",
-                  children: "Dusk"
-                }), ",", ' ', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
-                  href: "https://laravel.com/docs/broadcasting",
-                  className: "underline",
-                  children: "Echo"
-                }), ",", ' ', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
-                  href: "https://laravel.com/docs/horizon",
-                  className: "underline",
-                  children: "Horizon"
-                }), ",", ' ', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
-                  href: "https://laravel.com/docs/sanctum",
-                  className: "underline",
-                  children: "Sanctum"
-                }), ",", ' ', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
-                  href: "https://laravel.com/docs/telescope",
-                  className: "underline",
-                  children: "Telescope"
-                }), ", and more."]
-              })
-            })]
-          })]
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-        className: "flex justify-center mt-4 sm:items-center sm:justify-between",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          className: "text-center text-sm text-gray-500 sm:text-left",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "flex items-center",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("svg", {
-              fill: "none",
-              strokeLinecap: "round",
-              strokeLinejoin: "round",
-              strokeWidth: "2",
-              viewBox: "0 0 24 24",
-              stroke: "currentColor",
-              className: "-mt-px w-5 h-5 text-gray-400",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("path", {
-                d: "M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
-              })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
-              href: "https://laravel.bigcartel.com",
-              className: "ml-1 underline",
-              children: "Shop"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("svg", {
-              fill: "none",
-              stroke: "currentColor",
-              strokeLinecap: "round",
-              strokeLinejoin: "round",
-              strokeWidth: "2",
-              viewBox: "0 0 24 24",
-              className: "ml-4 -mt-px w-5 h-5 text-gray-400",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("path", {
-                d: "M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-              })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
-              href: "https://github.com/sponsors/taylorotwell",
-              className: "ml-1 underline",
-              children: "Sponsor"
-            })]
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          className: "ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0",
-          children: ["Laravel v", props.laravelVersion, " (PHP v", props.phpVersion, ")"]
-        })]
-      })]
-    })]
+    })
   });
 }
 
@@ -9105,6 +9145,533 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/lib/font-awesome.js":
+/*!******************************************!*\
+  !*** ./resources/js/lib/font-awesome.js ***!
+  \******************************************/
+/***/ ((module, exports, __webpack_require__) => {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+window.FontAwesomeKitConfig = {
+  "asyncLoading": {
+    "enabled": false
+  },
+  "autoA11y": {
+    "enabled": true
+  },
+  "baseUrl": "https://ka-f.fontawesome.com",
+  "baseUrlKit": "https://kit.fontawesome.com",
+  "detectConflictsUntil": null,
+  "iconUploads": {},
+  "id": 45555143,
+  "license": "free",
+  "method": "css",
+  "minify": {
+    "enabled": true
+  },
+  "token": "d1b32dee55",
+  "v4FontFaceShim": {
+    "enabled": true
+  },
+  "v4shim": {
+    "enabled": true
+  },
+  "version": "5.15.3"
+};
+!function (t) {
+   true ? !(__WEBPACK_AMD_DEFINE_FACTORY__ = (t),
+		__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+		(__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) :
+		__WEBPACK_AMD_DEFINE_FACTORY__),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) : 0;
+}(function () {
+  "use strict";
+
+  function t(e) {
+    return (t = "function" == typeof Symbol && "symbol" == _typeof(Symbol.iterator) ? function (t) {
+      return _typeof(t);
+    } : function (t) {
+      return t && "function" == typeof Symbol && t.constructor === Symbol && t !== Symbol.prototype ? "symbol" : _typeof(t);
+    })(e);
+  }
+
+  function e(t, e, n) {
+    return e in t ? Object.defineProperty(t, e, {
+      value: n,
+      enumerable: !0,
+      configurable: !0,
+      writable: !0
+    }) : t[e] = n, t;
+  }
+
+  function n(t, e) {
+    var n = Object.keys(t);
+
+    if (Object.getOwnPropertySymbols) {
+      var r = Object.getOwnPropertySymbols(t);
+      e && (r = r.filter(function (e) {
+        return Object.getOwnPropertyDescriptor(t, e).enumerable;
+      })), n.push.apply(n, r);
+    }
+
+    return n;
+  }
+
+  function r(t) {
+    for (var r = 1; r < arguments.length; r++) {
+      var o = null != arguments[r] ? arguments[r] : {};
+      r % 2 ? n(Object(o), !0).forEach(function (n) {
+        e(t, n, o[n]);
+      }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(t, Object.getOwnPropertyDescriptors(o)) : n(Object(o)).forEach(function (e) {
+        Object.defineProperty(t, e, Object.getOwnPropertyDescriptor(o, e));
+      });
+    }
+
+    return t;
+  }
+
+  function o(t, e) {
+    return function (t) {
+      if (Array.isArray(t)) return t;
+    }(t) || function (t, e) {
+      if ("undefined" == typeof Symbol || !(Symbol.iterator in Object(t))) return;
+      var n = [],
+          r = !0,
+          o = !1,
+          i = void 0;
+
+      try {
+        for (var c, a = t[Symbol.iterator](); !(r = (c = a.next()).done) && (n.push(c.value), !e || n.length !== e); r = !0) {
+          ;
+        }
+      } catch (t) {
+        o = !0, i = t;
+      } finally {
+        try {
+          r || null == a["return"] || a["return"]();
+        } finally {
+          if (o) throw i;
+        }
+      }
+
+      return n;
+    }(t, e) || function (t, e) {
+      if (!t) return;
+      if ("string" == typeof t) return i(t, e);
+      var n = Object.prototype.toString.call(t).slice(8, -1);
+      "Object" === n && t.constructor && (n = t.constructor.name);
+      if ("Map" === n || "Set" === n) return Array.from(t);
+      if ("Arguments" === n || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return i(t, e);
+    }(t, e) || function () {
+      throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+    }();
+  }
+
+  function i(t, e) {
+    (null == e || e > t.length) && (e = t.length);
+
+    for (var n = 0, r = new Array(e); n < e; n++) {
+      r[n] = t[n];
+    }
+
+    return r;
+  }
+
+  function c(t, e) {
+    var n = e && e.addOn || "",
+        r = e && e.baseFilename || t.license + n,
+        o = e && e.minify ? ".min" : "",
+        i = e && e.fileSuffix || t.method,
+        c = e && e.subdir || t.method;
+    return t.baseUrl + "/releases/" + ("latest" === t.version ? "latest" : "v".concat(t.version)) + "/" + c + "/" + r + o + "." + i;
+  }
+
+  function a(t) {
+    return t.baseUrlKit + "/" + t.token + "/" + t.id + "/kit-upload.css";
+  }
+
+  function u(t, e) {
+    var n = e || ["fa"],
+        r = "." + Array.prototype.join.call(n, ",."),
+        o = t.querySelectorAll(r);
+    Array.prototype.forEach.call(o, function (e) {
+      var n = e.getAttribute("title");
+      e.setAttribute("aria-hidden", "true");
+      var r = !e.nextElementSibling || !e.nextElementSibling.classList.contains("sr-only");
+
+      if (n && r) {
+        var o = t.createElement("span");
+        o.innerHTML = n, o.classList.add("sr-only"), e.parentNode.insertBefore(o, e.nextSibling);
+      }
+    });
+  }
+
+  var f,
+      s = function s() {},
+      d = "undefined" != typeof __webpack_require__.g && void 0 !== __webpack_require__.g.process && "function" == typeof __webpack_require__.g.process.emit,
+      l = "undefined" == typeof setImmediate ? setTimeout : setImmediate,
+      h = [];
+
+  function m() {
+    for (var t = 0; t < h.length; t++) {
+      h[t][0](h[t][1]);
+    }
+
+    h = [], f = !1;
+  }
+
+  function p(t, e) {
+    h.push([t, e]), f || (f = !0, l(m, 0));
+  }
+
+  function y(t) {
+    var e = t.owner,
+        n = e._state,
+        r = e._data,
+        o = t[n],
+        i = t.then;
+
+    if ("function" == typeof o) {
+      n = "fulfilled";
+
+      try {
+        r = o(r);
+      } catch (t) {
+        w(i, t);
+      }
+    }
+
+    b(i, r) || ("fulfilled" === n && v(i, r), "rejected" === n && w(i, r));
+  }
+
+  function b(e, n) {
+    var r;
+
+    try {
+      if (e === n) throw new TypeError("A promises callback cannot return that same promise.");
+
+      if (n && ("function" == typeof n || "object" === t(n))) {
+        var o = n.then;
+        if ("function" == typeof o) return o.call(n, function (t) {
+          r || (r = !0, n === t ? g(e, t) : v(e, t));
+        }, function (t) {
+          r || (r = !0, w(e, t));
+        }), !0;
+      }
+    } catch (t) {
+      return r || w(e, t), !0;
+    }
+
+    return !1;
+  }
+
+  function v(t, e) {
+    t !== e && b(t, e) || g(t, e);
+  }
+
+  function g(t, e) {
+    "pending" === t._state && (t._state = "settled", t._data = e, p(S, t));
+  }
+
+  function w(t, e) {
+    "pending" === t._state && (t._state = "settled", t._data = e, p(O, t));
+  }
+
+  function A(t) {
+    t._then = t._then.forEach(y);
+  }
+
+  function S(t) {
+    t._state = "fulfilled", A(t);
+  }
+
+  function O(t) {
+    t._state = "rejected", A(t), !t._handled && d && __webpack_require__.g.process.emit("unhandledRejection", t._data, t);
+  }
+
+  function j(t) {
+    __webpack_require__.g.process.emit("rejectionHandled", t);
+  }
+
+  function E(t) {
+    if ("function" != typeof t) throw new TypeError("Promise resolver " + t + " is not a function");
+    if (this instanceof E == !1) throw new TypeError("Failed to construct 'Promise': Please use the 'new' operator, this object constructor cannot be called as a function.");
+    this._then = [], function (t, e) {
+      function n(t) {
+        w(e, t);
+      }
+
+      try {
+        t(function (t) {
+          v(e, t);
+        }, n);
+      } catch (t) {
+        n(t);
+      }
+    }(t, this);
+  }
+
+  E.prototype = {
+    constructor: E,
+    _state: "pending",
+    _then: null,
+    _data: void 0,
+    _handled: !1,
+    then: function then(t, e) {
+      var n = {
+        owner: this,
+        then: new this.constructor(s),
+        fulfilled: t,
+        rejected: e
+      };
+      return !e && !t || this._handled || (this._handled = !0, "rejected" === this._state && d && p(j, this)), "fulfilled" === this._state || "rejected" === this._state ? p(y, n) : this._then.push(n), n.then;
+    },
+    "catch": function _catch(t) {
+      return this.then(null, t);
+    }
+  }, E.all = function (t) {
+    if (!Array.isArray(t)) throw new TypeError("You must pass an array to Promise.all().");
+    return new E(function (e, n) {
+      var r = [],
+          o = 0;
+
+      function i(t) {
+        return o++, function (n) {
+          r[t] = n, --o || e(r);
+        };
+      }
+
+      for (var c, a = 0; a < t.length; a++) {
+        (c = t[a]) && "function" == typeof c.then ? c.then(i(a), n) : r[a] = c;
+      }
+
+      o || e(r);
+    });
+  }, E.race = function (t) {
+    if (!Array.isArray(t)) throw new TypeError("You must pass an array to Promise.race().");
+    return new E(function (e, n) {
+      for (var r, o = 0; o < t.length; o++) {
+        (r = t[o]) && "function" == typeof r.then ? r.then(e, n) : e(r);
+      }
+    });
+  }, E.resolve = function (e) {
+    return e && "object" === t(e) && e.constructor === E ? e : new E(function (t) {
+      t(e);
+    });
+  }, E.reject = function (t) {
+    return new E(function (e, n) {
+      n(t);
+    });
+  };
+
+  var _ = "function" == typeof Promise ? Promise : E;
+
+  function P(t, e) {
+    var n = e.fetch,
+        r = e.XMLHttpRequest,
+        o = e.token,
+        i = t;
+    return "URLSearchParams" in window ? (i = new URL(t)).searchParams.set("token", o) : i = i + "?token=" + encodeURIComponent(o), i = i.toString(), new _(function (t, e) {
+      if ("function" == typeof n) n(i, {
+        mode: "cors",
+        cache: "default"
+      }).then(function (t) {
+        if (t.ok) return t.text();
+        throw new Error("");
+      }).then(function (e) {
+        t(e);
+      })["catch"](e);else if ("function" == typeof r) {
+        var o = new r();
+        o.addEventListener("loadend", function () {
+          this.responseText ? t(this.responseText) : e(new Error(""));
+        });
+        ["abort", "error", "timeout"].map(function (t) {
+          o.addEventListener(t, function () {
+            e(new Error(""));
+          });
+        }), o.open("GET", i), o.send();
+      } else {
+        e(new Error(""));
+      }
+    });
+  }
+
+  function C(t, e, n) {
+    var r = t;
+    return [[/(url\("?)\.\.\/\.\.\/\.\./g, function (t, n) {
+      return "".concat(n).concat(e);
+    }], [/(url\("?)\.\.\/webfonts/g, function (t, r) {
+      return "".concat(r).concat(e, "/releases/v").concat(n, "/webfonts");
+    }], [/(url\("?)https:\/\/kit-free([^.])*\.fontawesome\.com/g, function (t, n) {
+      return "".concat(n).concat(e);
+    }]].forEach(function (t) {
+      var e = o(t, 2),
+          n = e[0],
+          i = e[1];
+      r = r.replace(n, i);
+    }), r;
+  }
+
+  function F(t, e) {
+    var n = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : function () {},
+        o = e.document || o,
+        i = u.bind(u, o, ["fa", "fab", "fas", "far", "fal", "fad", "fak"]),
+        f = Object.keys(t.iconUploads || {}).length > 0;
+    t.autoA11y.enabled && n(i);
+    var s = [{
+      id: "fa-main",
+      addOn: void 0
+    }];
+    t.v4shim.enabled && s.push({
+      id: "fa-v4-shims",
+      addOn: "-v4-shims"
+    }), t.v4FontFaceShim.enabled && s.push({
+      id: "fa-v4-font-face",
+      addOn: "-v4-font-face"
+    }), f && s.push({
+      id: "fa-kit-upload",
+      customCss: !0
+    });
+    var d = s.map(function (n) {
+      return new _(function (o, i) {
+        P(n.customCss ? a(t) : c(t, {
+          addOn: n.addOn,
+          minify: t.minify.enabled
+        }), e).then(function (i) {
+          o(U(i, r(r({}, e), {}, {
+            baseUrl: t.baseUrl,
+            version: t.version,
+            id: n.id,
+            contentFilter: function contentFilter(t, e) {
+              return C(t, e.baseUrl, e.version);
+            }
+          })));
+        })["catch"](i);
+      });
+    });
+    return _.all(d);
+  }
+
+  function U(t, e) {
+    var n = e.contentFilter || function (t, e) {
+      return t;
+    },
+        r = document.createElement("style"),
+        o = document.createTextNode(n(t, e));
+
+    return r.appendChild(o), r.media = "all", e.id && r.setAttribute("id", e.id), e && e.detectingConflicts && e.detectionIgnoreAttr && r.setAttributeNode(document.createAttribute(e.detectionIgnoreAttr)), r;
+  }
+
+  function k(t, e) {
+    e.autoA11y = t.autoA11y.enabled, "pro" === t.license && (e.autoFetchSvg = !0, e.fetchSvgFrom = t.baseUrl + "/releases/" + ("latest" === t.version ? "latest" : "v".concat(t.version)) + "/svgs", e.fetchUploadedSvgFrom = t.uploadsUrl);
+    var n = [];
+    return t.v4shim.enabled && n.push(new _(function (n, o) {
+      P(c(t, {
+        addOn: "-v4-shims",
+        minify: t.minify.enabled
+      }), e).then(function (t) {
+        n(I(t, r(r({}, e), {}, {
+          id: "fa-v4-shims"
+        })));
+      })["catch"](o);
+    })), n.push(new _(function (n, o) {
+      P(c(t, {
+        minify: t.minify.enabled
+      }), e).then(function (t) {
+        var o = I(t, r(r({}, e), {}, {
+          id: "fa-main"
+        }));
+        n(function (t, e) {
+          var n = e && void 0 !== e.autoFetchSvg ? e.autoFetchSvg : void 0,
+              r = e && void 0 !== e.autoA11y ? e.autoA11y : void 0;
+          void 0 !== r && t.setAttribute("data-auto-a11y", r ? "true" : "false");
+          n && (t.setAttributeNode(document.createAttribute("data-auto-fetch-svg")), t.setAttribute("data-fetch-svg-from", e.fetchSvgFrom), t.setAttribute("data-fetch-uploaded-svg-from", e.fetchUploadedSvgFrom));
+          return t;
+        }(o, e));
+      })["catch"](o);
+    })), _.all(n);
+  }
+
+  function I(t, e) {
+    var n = document.createElement("SCRIPT"),
+        r = document.createTextNode(t);
+    return n.appendChild(r), n.referrerPolicy = "strict-origin", e.id && n.setAttribute("id", e.id), e && e.detectingConflicts && e.detectionIgnoreAttr && n.setAttributeNode(document.createAttribute(e.detectionIgnoreAttr)), n;
+  }
+
+  function L(t) {
+    var _e,
+        n = [],
+        r = document,
+        o = r.documentElement.doScroll,
+        i = (o ? /^loaded|^c/ : /^loaded|^i|^c/).test(r.readyState);
+
+    i || r.addEventListener("DOMContentLoaded", _e = function e() {
+      for (r.removeEventListener("DOMContentLoaded", _e), i = 1; _e = n.shift();) {
+        _e();
+      }
+    }), i ? setTimeout(t, 0) : n.push(t);
+  }
+
+  function T(t) {
+    "undefined" != typeof MutationObserver && new MutationObserver(t).observe(document, {
+      childList: !0,
+      subtree: !0
+    });
+  }
+
+  try {
+    if (window.FontAwesomeKitConfig) {
+      var x = window.FontAwesomeKitConfig,
+          M = {
+        detectingConflicts: x.detectConflictsUntil && new Date() <= new Date(x.detectConflictsUntil),
+        detectionIgnoreAttr: "data-fa-detection-ignore",
+        fetch: window.fetch,
+        token: x.token,
+        XMLHttpRequest: window.XMLHttpRequest,
+        document: document
+      },
+          D = document.currentScript,
+          N = D ? D.parentElement : document.head;
+      (function () {
+        var t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {},
+            e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {};
+        return "js" === t.method ? k(t, e) : "css" === t.method ? F(t, e, function (t) {
+          L(t), T(t);
+        }) : void 0;
+      })(x, M).then(function (t) {
+        t.map(function (t) {
+          try {
+            N.insertBefore(t, D ? D.nextSibling : null);
+          } catch (e) {
+            N.appendChild(t);
+          }
+        }), M.detectingConflicts && D && L(function () {
+          D.setAttributeNode(document.createAttribute(M.detectionIgnoreAttr));
+
+          var t = function (t, e) {
+            var n = document.createElement("script");
+            return e && e.detectionIgnoreAttr && n.setAttributeNode(document.createAttribute(e.detectionIgnoreAttr)), n.src = c(t, {
+              baseFilename: "conflict-detection",
+              fileSuffix: "js",
+              subdir: "js",
+              minify: t.minify.enabled
+            }), n;
+          }(x, M);
+
+          document.body.appendChild(t);
+        });
+      })["catch"](function (t) {
+        console.error("".concat("Font Awesome Kit:", " ").concat(t));
+      });
+    }
+  } catch (t) {
+    console.error("".concat("Font Awesome Kit:", " ").concat(t));
+  }
+});
 
 /***/ }),
 
@@ -27057,6 +27624,19 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
   // Check for `exports` after `define` in case a build optimizer adds it.
   else {}
 }.call(this));
+
+
+/***/ }),
+
+/***/ "./resources/scss/custom.scss":
+/*!************************************!*\
+  !*** ./resources/scss/custom.scss ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
 
 
 /***/ }),
@@ -59456,8 +60036,8 @@ var map = {
 	"./Auth/VerifyEmail.js": "./resources/js/Pages/Auth/VerifyEmail.js",
 	"./Dashboard": "./resources/js/Pages/Dashboard.js",
 	"./Dashboard.js": "./resources/js/Pages/Dashboard.js",
-	"./Welcome": "./resources/js/Pages/Welcome.js",
-	"./Welcome.js": "./resources/js/Pages/Welcome.js"
+	"./Home": "./resources/js/Pages/Home.js",
+	"./Home.js": "./resources/js/Pages/Home.js"
 };
 
 
@@ -59614,7 +60194,8 @@ webpackContext.id = "./resources/js/Pages sync recursive ^\\.\\/.*$";
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
 /******/ 			"/js/app": 0,
-/******/ 			"css/app": 0
+/******/ 			"css/app": 0,
+/******/ 			"css/custom": 0
 /******/ 		};
 /******/ 		
 /******/ 		// no chunk on demand loading
@@ -59662,8 +60243,10 @@ webpackContext.id = "./resources/js/Pages sync recursive ^\\.\\/.*$";
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/css/app.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/custom"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/custom"], () => (__webpack_require__("./resources/js/lib/font-awesome.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/custom"], () => (__webpack_require__("./resources/scss/custom.scss")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app","css/custom"], () => (__webpack_require__("./resources/css/app.css")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
