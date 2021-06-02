@@ -9019,7 +9019,7 @@ function Home(props) {
           className: "mb-auto",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h3", {
-              className: "float-md-start mb-0",
+              className: "float-md-start mb-0 nav-title",
               children: "Scambio"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("nav", {
               className: "nav nav-masthead justify-content-center float-md-end",
@@ -9035,6 +9035,10 @@ function Home(props) {
                 className: 'nav-link',
                 href: '#',
                 children: "Contact Us"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.InertiaLink, {
+                className: 'nav-link',
+                href: '/dashboard',
+                children: "Profile"
               })]
             })]
           })

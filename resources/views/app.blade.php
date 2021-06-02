@@ -8,8 +8,9 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Reggae+One&display=swap" rel="stylesheet">
+        {{--TODO--}}
+        <script src="https://kit.fontawesome.com/d1b32dee55.js" crossorigin="anonymous"></script>
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.min.css') }}">
         <link rel="stylesheet" href="{{ mix('css/custom.min.css') }}">

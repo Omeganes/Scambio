@@ -12,7 +12,7 @@ export default function Home(props) {
                 <div className="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
                     <header className="mb-auto">
                         <div>
-                            <h3 className="float-md-start mb-0">{process.env.MIX_APP_NAME}</h3>
+                            <h3 className="float-md-start mb-0 nav-title">{process.env.MIX_APP_NAME}</h3>
                             <nav className="nav nav-masthead justify-content-center float-md-end">
                                 <InertiaLink className={'nav-link active'} href={route('home')}>
                                     Home
@@ -24,6 +24,9 @@ export default function Home(props) {
                                 {/*TODO*/}
                                 <InertiaLink className={'nav-link'} href={'#'}>
                                     Contact Us
+                                </InertiaLink>
+                                <InertiaLink className={'nav-link'} href={'/dashboard'}>
+                                    Profile
                                 </InertiaLink>
                             </nav>
                         </div>
@@ -41,7 +44,6 @@ export default function Home(props) {
                             <i className="re-icon fas fa-people-carry fa-9x" aria-hidden="true"/>
                         </div>
                     </main>
-
                     <footer className="mt-auto text-white-50">
                         <p>All rights Reserved <a href={process.env.MIX_APP_URL} className="text-white">{process.env.MIX_APP_NAME}</a></p>
                     </footer>
