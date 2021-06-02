@@ -4,17 +4,24 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
+use Inertia\Response;
 
 class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
-    public function index()
+    public function index(): Response
     {
-        //
+        $categories = Category::all();
+
+//        TODO
+        return Inertia::render('Categories/Categories', [
+            'data' => $categories
+        ]);
     }
 
     /**
