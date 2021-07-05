@@ -19,7 +19,7 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
-    $categories = Category::with('products')->get();
+    $categories = Category::latest()->with('products')->get();
     return view('home', ['categories' => $categories]);
 })->name('home');
 
@@ -36,7 +36,15 @@ Route::get('/dashboard', function () {
 
 Route::resource('categories', CategoryController::class)
     ->only('index')->middleware('auth');
-Route::resource('categories.products', ProductController::class)->only('index');
-Route::resource('products', ProductController::class)->only('show');
+Route::resource('categories.products', ProductController::class)
+    ->only('index')->middleware('auth');
+
+/*
+|--------------------------------------------------------------------------
+| Products Routes
+|--------------------------------------------------------------------------
+*/
+Route::resource('products', ProductController::class)
+    ->only('show', 'create')->middleware('auth');
 
 require __DIR__.'/auth.php';

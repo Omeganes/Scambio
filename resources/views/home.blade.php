@@ -90,7 +90,7 @@
             <div class="container-fluid">
                 <div id="carousel-example-{{$category->id}}" class="carousel slide" data-ride="carousel" data-interval="false">
                     <div class="carousel-inner row w-100 mx-auto" role="listbox">
-                        @for($i = 0; $i< $category->products->count(); $i++)
+                        @for($i = 0; $i< 5; $i++)
                             <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3 {{ $i != 0 ?: "active"}}">
                                 <img src="{{$category->products[$i]->images[0]}}" class="img-fluid mx-auto d-block" alt="img1">
                             </div>
