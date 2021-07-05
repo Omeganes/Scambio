@@ -14,10 +14,10 @@ const mix = require('laravel-mix');
 mix.js(['resources/js/app.js', 'resources/js/lib/font-awesome.js'], 'public/js/app.js')
     .react()
     .postCss('resources/css/app.css', 'public/css', [
-        // TODO
-        // require('postcss-import'),
-        // require('tailwindcss'),
-        // require('autoprefixer'),
+    //     // TODO
+    //     // require('postcss-import'),
+    //     // require('tailwindcss'),
+    //     // require('autoprefixer'),
     ])
     .postCss('resources/css/styles.css', 'public/css')
     .sass('resources/scss/custom.scss', 'public/css')
