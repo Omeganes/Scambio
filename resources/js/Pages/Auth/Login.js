@@ -2,13 +2,11 @@ import Button from '@/Components/Button';
 import Checkbox from '@/Components/Checkbox';
 import Guest from '@/Layouts/Guest';
 import Input from '@/Components/Input';
-import Label from '@/Components/Label';
 import React, { useEffect } from 'react';
 import ValidationErrors from '@/Components/ValidationErrors';
-import { InertiaLink } from '@inertiajs/inertia-react';
 import { useForm } from '@inertiajs/inertia-react';
 
-export default function Login({ status, canResetPassword }) {
+export default function Login({ status }) {
     const { data, setData, post, processing, errors, reset } = useForm({
         email: '',
         password: '',
@@ -33,61 +31,50 @@ export default function Login({ status, canResetPassword }) {
 
     return (
         <Guest>
-            {status && <div className="mb-4 font-medium text-sm text-green-600">{status}</div>}
+            <div className={'form-signin'}>
+                {status && <div className="mb-4 font-medium text-sm text-green-600">{status}</div>}
 
-            <ValidationErrors errors={errors} />
+                <ValidationErrors errors={errors} />
 
-            <form onSubmit={submit}>
-                <div>
-                    <Label forInput="email" value="Email" />
 
-                    <Input
-                        type="text"
-                        name="email"
-                        value={data.email}
-                        className="mt-1 block w-full"
-                        autoComplete="username"
-                        isFocused={true}
-                        handleChange={onHandleChange}
-                    />
-                </div>
+                <form onSubmit={submit}>
+                    <img className="mb-4 img" src="assets/img/logpic.png" alt="" width="72" height="57" />
+                    <h1 className="h3 mb-3 fw-normal">Login to Scambio!</h1>
 
-                <div className="mt-4">
-                    <Label forInput="password" value="Password" />
+                    <div>
+                        <Input
+                            type="text"
+                            name="email"
+                            value={data.email}
+                            autoComplete="username"
+                            isFocused={true}
+                            handleChange={onHandleChange}
+                            className="form-control top"
+                            placeholder="user name" required
+                        />
 
-                    <Input
-                        type="password"
-                        name="password"
-                        value={data.password}
-                        className="mt-1 block w-full"
-                        autoComplete="current-password"
-                        handleChange={onHandleChange}
-                    />
-                </div>
+                        <Input
+                            type="password"
+                            name="password"
+                            value={data.password}
+                            autoComplete="current-password"
+                            handleChange={onHandleChange}
+                            className="form-control bottom" placeholder="password"
+                            required
+                        />
 
-                <div className="block mt-4">
-                    <label className="flex items-center">
                         <Checkbox name="remember" value={data.remember} handleChange={onHandleChange} />
-
                         <span className="ml-2 text-sm text-gray-600">Remember me</span>
-                    </label>
-                </div>
-
-                <div className="flex items-center justify-end mt-4">
-                    {canResetPassword && (
-                        <InertiaLink
-                            href={route('password.request')}
-                            className="underline text-sm text-gray-600 hover:text-gray-900"
-                        >
-                            Forgot your password?
-                        </InertiaLink>
-                    )}
-
-                    <Button className="ml-4" processing={processing}>
-                        Log in
+                    </div>
+                    <Button className="w-100 btn btn-lg btn-primary" processing={processing}>
+                        Log me in
                     </Button>
-                </div>
-            </form>
+
+                    {/* TODO */}
+                    <a href="Signup.html">sign up first</a>
+                    <p className="mt-5 mb-3 text-muted">&copy; 2020–2021</p>
+                </form>
+            </div>
         </Guest>
     );
 }
