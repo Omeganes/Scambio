@@ -17,7 +17,7 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('name');
             $table->text('description');
-            $table->text('images');
+            $table->text('images')->nullable();
             $table->integer('price');
             $table->enum('status', ['new', 'used'])->default('new');
             $table->foreignId('category_id')->constrained()->onDelete('cascade');
