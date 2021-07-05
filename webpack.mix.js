@@ -11,7 +11,7 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js(['resources/js/app.js', 'resources/js/lib/font-awesome.js'], 'public/js/app.js')
+mix.js(['resources/js/app.js', 'resources/js/lib/font-awesome.js', 'resources/js/lib/bootstrap.bundle.min.js'], 'public/js/app.js')
     .react()
     .postCss('resources/css/app.css', 'public/css', [
     //     // TODO

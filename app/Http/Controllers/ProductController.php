@@ -52,11 +52,13 @@ class ProductController extends Controller
      * Display the specified resource.
      *
      * @param Product $product
-     * @return Response
+     * @return \Inertia\Response
      */
-    public function show(Product $product)
+    public function show(Product $product): \Inertia\Response
     {
-        dd('hi');
+        return Inertia::render('Products/Show',[
+            'product' => $product
+        ]);
     }
 
     /**

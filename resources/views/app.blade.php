@@ -14,7 +14,6 @@
         <link rel="stylesheet" href="{{ mix('css/app.min.css') }}">
         <link rel="stylesheet" href="{{ mix('css/custom.min.css') }}">
 
-{{--        @include('shared._head')--}}
 
         <!-- Scripts -->
         @routes
