@@ -4,7 +4,7 @@ import Guest from '@/Layouts/Guest';
 import Input from '@/Components/Input';
 import React, { useEffect } from 'react';
 import ValidationErrors from '@/Components/ValidationErrors';
-import { useForm } from '@inertiajs/inertia-react';
+import {InertiaLink, useForm} from '@inertiajs/inertia-react';
 
 export default function Login({ status }) {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -31,7 +31,7 @@ export default function Login({ status }) {
 
     return (
         <Guest>
-            <div className={'form-signin'}>
+            <div className={'form-signin position-absolute top-50 start-50 translate-middle'}>
                 {status && <div className="mb-4 font-medium text-sm text-green-600">{status}</div>}
 
                 <ValidationErrors errors={errors} />
@@ -71,7 +71,9 @@ export default function Login({ status }) {
                     </Button>
 
                     {/* TODO */}
-                    <a href="Signup.html">sign up first</a>
+                    <InertiaLink href={route('register')}>
+                        Sign up first
+                    </InertiaLink>
                     <p className="mt-5 mb-3 text-muted">&copy; 2020–2021</p>
                 </form>
             </div>
