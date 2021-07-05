@@ -36,8 +36,8 @@
         <div class="row titleclass">
             <div class="col-lg-6">
                 <h1>Replace your assets with others and save your time</h1>
-                <a href="{{route('login')}}"> <button type="button " class="btn btn-dark btn-lg download-button"><i class="fas fa-sign-in-alt"></i> Login </button></a>
-                <a href="{{'#'}}"><button type="button" class="btn btn-outline-light btn-lg download-button">Add goods</button></a>
+                <a href="{{route('login')}}"> <button type="button" class="btn btn-dark btn-lg download-button"><i class="fas fa-sign-in-alt"></i> Login </button></a>
+                <a href="{{route('products.create')}}"><button type="button" class="btn btn-outline-light btn-lg download-button">Add goods</button></a>
             </div>
             <div class="col-lg-6">
                 <i class="re-icon fas fa-people-carry fa-9x"></i>

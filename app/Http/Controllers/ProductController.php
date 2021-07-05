@@ -30,11 +30,14 @@ class ProductController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return Response
+     * @return \Inertia\Response
      */
-    public function create()
+    public function create(): \Inertia\Response
     {
-        //
+        $categories = Category::get(['id', 'name']);
+        return Inertia::render('Products/Create', [
+            'categories' => $categories
+        ]);
     }
 
     /**
@@ -45,7 +48,8 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+// TODO
+        dd($request->all());
     }
 
     /**
@@ -57,7 +61,8 @@ class ProductController extends Controller
     public function show(Product $product): \Inertia\Response
     {
         return Inertia::render('Products/Show',[
-            'product' => $product
+            'product' => $product,
+            'owner' => $product['user']
         ]);
     }
 
