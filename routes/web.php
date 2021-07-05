@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
 use App\Models\Category;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -33,7 +34,9 @@ Route::get('/dashboard', function () {
 |--------------------------------------------------------------------------
 */
 
-Route::resource('categories', CategoryController::class);
-
+Route::resource('categories', CategoryController::class)
+    ->only('index')->middleware('auth');
+Route::resource('categories.products', ProductController::class)->only('index');
+Route::resource('products', ProductController::class)->only('show');
 
 require __DIR__.'/auth.php';
