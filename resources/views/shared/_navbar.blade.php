@@ -12,7 +12,7 @@
                 <ul class="navbar-nav me-5 mb-lg-0">
                 <li><a href="#" class="nav-item me-5">Contact us</a></li>
                 <li><a href="#" class="nav-item me-5">Categories</a></li>
-                <li><a href="{{route('dashboard')}}" class="nav-item me-5">{auth.user.name}</a></li>
+                <li><a href="{{route('dashboard')}}" class="nav-item me-5">{{auth()->user()->name}}</a></li>
                 <li><a href="{{route('logout')}}" class="nav-item me-5">Log out</a></li>
                 </ul>
             </div>

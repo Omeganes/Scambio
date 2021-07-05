@@ -19,7 +19,7 @@ export default function Authenticated({ auth, children }) {
                                 <li><InertiaLink href={'#'} className={'nav-item me-5'}>Contact us</InertiaLink></li>
                                 <li><InertiaLink href={'#'} className={'nav-item me-5'}>Categories</InertiaLink></li>
                                 <li><InertiaLink href={route('dashboard')} className={'nav-item me-5'}>{auth.user.name}</InertiaLink></li>
-                                <li><InertiaLink href={route('logout')} method="post" className={'nav-item me-5'}>Log out</InertiaLink></li>
+                                <li><a href={route('logout')} className={'nav-item me-5'}>Log out</a></li>
                             </ul>
                         </div>
                     </div>
