@@ -6,7 +6,7 @@ export default function Authenticated({ auth, children }) {
         <div>
             <nav className="navbar navbar-expand-lg navbar-dark navbar-light text-white p-5">
                 <div className="container-fluid">
-                    <InertiaLink className="navbar-brand" href={route('home')}>Scambio</InertiaLink>
+                    <a className="navbar-brand" href={route('home')}>Scambio</a>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation">
@@ -17,7 +17,7 @@ export default function Authenticated({ auth, children }) {
                         <div>
                             <ul className={'navbar-nav me-5 mb-lg-0'}>
                                 <li><InertiaLink href={'#'} className={'nav-item me-5'}>Contact us</InertiaLink></li>
-                                <li><InertiaLink href={'#'} className={'nav-item me-5'}>Categories</InertiaLink></li>
+                                <li><InertiaLink href={route('categories.index')} className={'nav-item me-5'}>Categories</InertiaLink></li>
                                 <li><InertiaLink href={route('dashboard')} className={'nav-item me-5'}>{auth.user.name}</InertiaLink></li>
                                 <li><a href={route('logout')} className={'nav-item me-5'}>Log out</a></li>
                             </ul>

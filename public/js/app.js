@@ -8094,7 +8094,7 @@ function Authenticated(_ref) {
       className: "navbar navbar-expand-lg navbar-dark navbar-light text-white p-5",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
         className: "container-fluid",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.InertiaLink, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
           className: "navbar-brand",
           href: route('home'),
           children: "Scambio"
@@ -8125,7 +8125,7 @@ function Authenticated(_ref) {
                 })
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.InertiaLink, {
-                  href: '#',
+                  href: route('categories.index'),
                   className: 'nav-item me-5',
                   children: "Categories"
                 })
@@ -8840,13 +8840,46 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ Categories)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _Layouts_Authenticated__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Layouts/Authenticated */ "./resources/js/Layouts/Authenticated.js");
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
-function Categories(_ref) {
-  var data = _ref.data;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-    id: 'categories'
+
+
+
+function Categories(props) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Layouts_Authenticated__WEBPACK_IMPORTED_MODULE_1__.default, {
+    auth: props.auth,
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      id: 'categories',
+      className: 'container d-flex flex-wrap justify-content-around',
+      children: props.data.map(function (category) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: "col-md-5",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            className: "row g-0 bg-light rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              className: "col p-4 d-flex flex-column position-static justify-content-center",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.InertiaLink, {
+                href: route('categories.show', category.id),
+                className: "display-6",
+                children: category.name
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              className: "col-auto d-none d-lg-block",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+                src: category.image,
+                className: "bd-placeholder-img",
+                width: "200",
+                height: "250",
+                alt: 'category-image'
+              })
+            })]
+          })
+        });
+      })
+    })
   });
 }
 
@@ -8871,12 +8904,7 @@ __webpack_require__.r(__webpack_exports__);
 
 function Dashboard(props) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Layouts_Authenticated__WEBPACK_IMPORTED_MODULE_0__.default, {
-    auth: props.auth,
-    errors: props.errors,
-    header: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
-      className: "font-semibold text-xl text-gray-800 leading-tight",
-      children: "Dashboard"
-    })
+    auth: props.auth
   });
 }
 

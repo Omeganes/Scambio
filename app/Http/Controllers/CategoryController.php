@@ -18,7 +18,6 @@ class CategoryController extends Controller
     {
         $categories = Category::all();
 
-//        TODO
         return Inertia::render('Categories/Categories', [
             'data' => $categories
         ]);

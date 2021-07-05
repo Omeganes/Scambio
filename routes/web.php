@@ -18,7 +18,7 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
-    $categories = Category::all();
+    $categories = Category::with('products')->get();
     return view('home', ['categories' => $categories]);
 })->name('home');
 

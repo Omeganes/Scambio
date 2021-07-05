@@ -19,7 +19,7 @@
                         <a class="nav-link" href="#footer">Contact us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#categ">Categories</a>
+                        <a class="nav-link" href="{{route('categories.index')}}">Categories</a>
                     </li>
                     <li class="nav-item">
                         <form class="form-inline">
@@ -36,8 +36,8 @@
         <div class="row titleclass">
             <div class="col-lg-6">
                 <h1>Replace your assets with others and save your time</h1>
-                <a href="login.html"> <button type="button " class="btn btn-dark btn-lg download-button"><i class="fas fa-sign-in-alt"></i> Login </button></a>
-                <a href="stock-photo/dist/index.html"><button type="button " class="btn btn-outline-light btn-lg download-button"> Add goods</button></a>
+                <a href="{{route('login')}}"> <button type="button " class="btn btn-dark btn-lg download-button"><i class="fas fa-sign-in-alt"></i> Login </button></a>
+                <a href="{{'#'}}"><button type="button" class="btn btn-outline-light btn-lg download-button">Add goods</button></a>
             </div>
             <div class="col-lg-6">
                 <i class="re-icon fas fa-people-carry fa-9x"></i>
@@ -88,38 +88,19 @@
         <h1 style="color:#011c14">{{$category->name}}</h1>
         <div class="top-content">
             <div class="container-fluid">
-                <div id="carousel-example1" class="carousel slide" data-ride="carousel" data-interval="false">
+                <div id="carousel-example-{{$category->id}}" class="carousel slide" data-ride="carousel" data-interval="false">
                     <div class="carousel-inner row w-100 mx-auto" role="listbox">
-                        <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3 active">
-                            <img src="assets/img/backgrounds/1.jpg" class="img-fluid mx-auto d-block" alt="img1">
-                        </div>
-                        <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                            <img src="assets/img/backgrounds/2.jpg" class="img-fluid mx-auto d-block" alt="img2">
-                        </div>
-                        <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                            <img src="assets/img/backgrounds/3.jpg" class="img-fluid mx-auto d-block" alt="img3">
-                        </div>
-                        <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                            <img src="assets/img/backgrounds/4.jpg" class="img-fluid mx-auto d-block" alt="img4">
-                        </div>
-                        <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                            <img src="assets/img/backgrounds/5.jpg" class="img-fluid mx-auto d-block" alt="img5">
-                        </div>
-                        <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                            <img src="assets/img/backgrounds/6.jpg" class="img-fluid mx-auto d-block" alt="img6">
-                        </div>
-                        <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                            <img src="assets/img/backgrounds/7.jpg" class="img-fluid mx-auto d-block" alt="img7">
-                        </div>
-                        <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                            <img src="assets/img/backgrounds/8.jpg" class="img-fluid mx-auto d-block" alt="img8">
-                        </div>
+                        @for($i = 0; $i< $category->products->count(); $i++)
+                            <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3 {{ $i != 0 ?: "active"}}">
+                                <img src="{{$category->products[$i]->images[0]}}" class="img-fluid mx-auto d-block" alt="img1">
+                            </div>
+                        @endfor
                     </div>
-                    <a class="carousel-control-prev" href="#carousel-example1" role="button" data-slide="prev">
+                    <a class="carousel-control-prev" href="#carousel-example-{{$category->id}}" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="sr-only">Previous</span>
                     </a>
-                    <a class="carousel-control-next" href="#carousel-example1" role="button" data-slide="next">
+                    <a class="carousel-control-next" href="#carousel-example-{{$category->id}}" role="button" data-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="sr-only">Next</span>
                     </a>
