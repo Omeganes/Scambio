@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Models\Category;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -17,7 +18,8 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
-    return view('home');
+    $categories = Category::all();
+    return view('home', ['categories' => $categories]);
 })->name('home');
 
 Route::get('/dashboard', function () {

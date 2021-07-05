@@ -83,160 +83,52 @@
 
 <!-- categ -->
 
-<section id="categ">
-    <h1 style="color:#011c14">Books</h1>
-    <div class="top-content">
-        <div class="container-fluid">
-            <div id="carousel-example1" class="carousel slide" data-ride="carousel" data-interval="false">
-                <div class="carousel-inner row w-100 mx-auto" role="listbox">
-                    <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3 active">
-                        <img src="assets/img/backgrounds/1.jpg" class="img-fluid mx-auto d-block" alt="img1">
+@foreach($categories as $category)
+    <section id="categ">
+        <h1 style="color:#011c14">{{$category->name}}</h1>
+        <div class="top-content">
+            <div class="container-fluid">
+                <div id="carousel-example1" class="carousel slide" data-ride="carousel" data-interval="false">
+                    <div class="carousel-inner row w-100 mx-auto" role="listbox">
+                        <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3 active">
+                            <img src="assets/img/backgrounds/1.jpg" class="img-fluid mx-auto d-block" alt="img1">
+                        </div>
+                        <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+                            <img src="assets/img/backgrounds/2.jpg" class="img-fluid mx-auto d-block" alt="img2">
+                        </div>
+                        <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+                            <img src="assets/img/backgrounds/3.jpg" class="img-fluid mx-auto d-block" alt="img3">
+                        </div>
+                        <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+                            <img src="assets/img/backgrounds/4.jpg" class="img-fluid mx-auto d-block" alt="img4">
+                        </div>
+                        <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+                            <img src="assets/img/backgrounds/5.jpg" class="img-fluid mx-auto d-block" alt="img5">
+                        </div>
+                        <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+                            <img src="assets/img/backgrounds/6.jpg" class="img-fluid mx-auto d-block" alt="img6">
+                        </div>
+                        <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+                            <img src="assets/img/backgrounds/7.jpg" class="img-fluid mx-auto d-block" alt="img7">
+                        </div>
+                        <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+                            <img src="assets/img/backgrounds/8.jpg" class="img-fluid mx-auto d-block" alt="img8">
+                        </div>
                     </div>
-                    <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                        <img src="assets/img/backgrounds/2.jpg" class="img-fluid mx-auto d-block" alt="img2">
-                    </div>
-                    <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                        <img src="assets/img/backgrounds/3.jpg" class="img-fluid mx-auto d-block" alt="img3">
-                    </div>
-                    <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                        <img src="assets/img/backgrounds/4.jpg" class="img-fluid mx-auto d-block" alt="img4">
-                    </div>
-                    <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                        <img src="assets/img/backgrounds/5.jpg" class="img-fluid mx-auto d-block" alt="img5">
-                    </div>
-                    <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                        <img src="assets/img/backgrounds/6.jpg" class="img-fluid mx-auto d-block" alt="img6">
-                    </div>
-                    <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                        <img src="assets/img/backgrounds/7.jpg" class="img-fluid mx-auto d-block" alt="img7">
-                    </div>
-                    <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                        <img src="assets/img/backgrounds/8.jpg" class="img-fluid mx-auto d-block" alt="img8">
-                    </div>
+                    <a class="carousel-control-prev" href="#carousel-example1" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carousel-example1" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
                 </div>
-                <a class="carousel-control-prev" href="#carousel-example1" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carousel-example1" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
             </div>
+
         </div>
-
-    </div>
-
-
-
-
-
-
-</section>
-
-<!-- categ -->
-
-<section id="categ">
-    <h1 style="color:#011c14">Computers</h1>
-    <div class="top-content">
-        <div class="container-fluid">
-            <div id="carousel-example2" class="carousel slide" data-ride="carousel" data-interval="false">
-                <div class="carousel-inner row w-100 mx-auto" role="listbox">
-                    <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3 active">
-                        <img src="assets/img/backgrounds/1.jpg" class="img-fluid mx-auto d-block" alt="img1">
-                    </div>
-                    <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                        <img src="assets/img/backgrounds/2.jpg" class="img-fluid mx-auto d-block" alt="img2">
-                    </div>
-                    <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                        <img src="assets/img/backgrounds/3.jpg" class="img-fluid mx-auto d-block" alt="img3">
-                    </div>
-                    <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                        <img src="assets/img/backgrounds/4.jpg" class="img-fluid mx-auto d-block" alt="img4">
-                    </div>
-                    <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                        <img src="assets/img/backgrounds/5.jpg" class="img-fluid mx-auto d-block" alt="img5">
-                    </div>
-                    <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                        <img src="assets/img/backgrounds/6.jpg" class="img-fluid mx-auto d-block" alt="img6">
-                    </div>
-                    <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                        <img src="assets/img/backgrounds/7.jpg" class="img-fluid mx-auto d-block" alt="img7">
-                    </div>
-                    <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                        <img src="assets/img/backgrounds/8.jpg" class="img-fluid mx-auto d-block" alt="img8">
-                    </div>
-                </div>
-                <a class="carousel-control-prev" href="#carousel-example2" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carousel-example2" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
-        </div>
-    </div>
-
-
-
-
-
-
-</section>
-<!-- categ -->
-
-<section id="categ">
-    <h1 style="color:#011c14">Furniture</h1>
-    <div class="top-content">
-        <div class="container-fluid">
-            <div id="carousel-example3" class="carousel slide" data-ride="carousel" data-interval="false">
-                <div class="carousel-inner row w-100 mx-auto" role="listbox">
-                    <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3 active">
-                        <img src="assets/img/backgrounds/1.jpg" class="img-fluid mx-auto d-block" alt="img1">
-                    </div>
-                    <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                        <img src="assets/img/backgrounds/2.jpg" class="img-fluid mx-auto d-block" alt="img2">
-                    </div>
-                    <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                        <img src="assets/img/backgrounds/3.jpg" class="img-fluid mx-auto d-block" alt="img3">
-                    </div>
-                    <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                        <img src="assets/img/backgrounds/4.jpg" class="img-fluid mx-auto d-block" alt="img4">
-                    </div>
-                    <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                        <img src="assets/img/backgrounds/5.jpg" class="img-fluid mx-auto d-block" alt="img5">
-                    </div>
-                    <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                        <img src="assets/img/backgrounds/6.jpg" class="img-fluid mx-auto d-block" alt="img6">
-                    </div>
-                    <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                        <img src="assets/img/backgrounds/7.jpg" class="img-fluid mx-auto d-block" alt="img7">
-                    </div>
-                    <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                        <img src="assets/img/backgrounds/8.jpg" class="img-fluid mx-auto d-block" alt="img8">
-                    </div>
-                </div>
-                <a class="carousel-control-prev" href="#carousel-example3" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carousel-example3" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
-        </div>
-    </div>
-
-
-
-
-    <a href="allcat.html" class="left">All categories</a>
-
-
-</section>
+    </section>
+@endforeach
 
 
 <footer id="footer">
