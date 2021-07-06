@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect, useRef, useState} from 'react'
 import Authenticated from "@/Layouts/Authenticated";
 import {useForm} from "@inertiajs/inertia-react";
 import Input from '@/Components/Input';
@@ -6,6 +6,21 @@ import ValidationErrors from "@/Components/ValidationErrors";
 import Button from "@/Components/Button";
 
 export default function Create(props) {
+
+    const [image, setImage] = useState();
+    const [preview, setPreview] = useState('');
+
+    useEffect(() => {
+        if (image) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setPreview(reader.result)
+            }
+            reader.readAsDataURL(image);
+        } else {
+            setPreview(null);
+        }
+    })
 
     const { data, setData, post, processing, errors } = useForm({
         name: '',
@@ -21,7 +36,6 @@ export default function Create(props) {
 
     const submit =  async (e) => {
         e.preventDefault();
-
         await post(route('products.store'));
     };
 
@@ -110,6 +124,22 @@ export default function Create(props) {
                                         Used
                                     </label>
                                 </div>
+
+                                <label htmlFor={'file-upload'} className={'btn btn-info'}>Upload Image</label>
+                                <input
+                                    multiple={true}
+                                    id={'file-upload'}
+                                    type={'file'}
+                                    style={{display: "none"}}
+                                    accept={'image/*'}
+                                    onChange={(ev) => {
+                                        const file = ev.target.files[0];
+                                        if(file) {
+                                            setImage(file);
+                                        }
+                                    }}
+                                />
+                                <img src={preview} alt={'preview'} style={{maxWidth: '200px', maxHeight: '150px'}} />
                             </div>
                         </fieldset>
                         <Button className="btn btn-primary" processing={processing}>
