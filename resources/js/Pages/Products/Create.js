@@ -97,18 +97,18 @@ export default function Create(props) {
                                     <input className="form-check-input" type="radio" name="status" id="status-new"
                                            value="new" checked
                                            onChange={handleChange}/>
-                                        <label className="form-check-label" htmlFor="status-new">
-                                            New
-                                        </label>
+                                    <label className="form-check-label" htmlFor="status-new">
+                                        New
+                                    </label>
                                 </div>
                                 <div className="form-check">
                                     <input className="form-check-input" type="radio" name="status" id="status-used"
                                            value="used"
                                            onChange={handleChange}
                                     />
-                                        <label className="form-check-label" htmlFor="status-used">
-                                            Used
-                                        </label>
+                                    <label className="form-check-label" htmlFor="status-used">
+                                        Used
+                                    </label>
                                 </div>
                             </div>
                         </fieldset>

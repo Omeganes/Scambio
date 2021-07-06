@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Session;
 use Inertia\Inertia;
 
 class ProductController extends Controller
@@ -43,13 +44,16 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param Request $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(Request $request): Response
     {
-// TODO
-        dd($request->all());
+        $validated = Product::validate($request);
+        $product = new Product($validated);
+        auth()->user()->products()->save($product);
+        Session::flash('success','Good added successfully!');
+        return Inertia::location('/');
     }
 
     /**
@@ -80,7 +84,7 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param Request $request
      * @param Product $product
      * @return Response
      */

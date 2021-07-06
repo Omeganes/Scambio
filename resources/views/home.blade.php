@@ -33,6 +33,8 @@
 
         <!-- Title -->
 
+        @include('shared._flash')
+
         <div class="row titleclass">
             <div class="col-lg-6">
                 <h1>Replace your assets with others and save your time</h1>
