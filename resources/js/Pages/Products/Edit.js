@@ -5,23 +5,25 @@ import Input from '@/Components/Input';
 import ValidationErrors from "@/Components/ValidationErrors";
 import Button from "@/Components/Button";
 
-export default function Create({auth, categories}) {
+export default function Edit({auth, product, categories}) {
 
     const { data, setData, post, processing, errors } = useForm({
-        name: '',
-        description: '',
-        price: '',
-        category_id: categories[0].id,
-        status: 'new',
-        images: []
+        name: product.name,
+        description: product.description,
+        price: product.price,
+        category_id: product.category_id,
+        status: product.status,
+        images: [],
+        _method: 'PATCH'
     });
 
-    const [selectedImages, setSelectedImages] = useState([]);
+    const [selectedImages, setSelectedImages] = useState(product.images);
 
     const handleImageChange = (ev) => {
         setData(ev.target.name, ev.target.files);
         if(ev.target.files) {
             const fileArr = Array.from(ev.target.files).map( file => URL.createObjectURL(file) )
+            setSelectedImages([])
             setSelectedImages((prevImage) => prevImage.concat(fileArr))
             Array.from(ev.target.files).map(
                 (file) => Url.revokeObjectURL(file)
@@ -31,11 +33,13 @@ export default function Create({auth, categories}) {
 
     const renderPhotos = (source) => {
         return source.map((image, index) =>
-            <div className={`carousel-item rounded ${index === 0 && "active"}`}>
+            <div key={index} className={`carousel-item rounded ${index === 0 && "active"}`}>
                 <img src={image} className="d-block w-100 rounded" alt="..." />
             </div>
         )
     }
+
+
 
     const handleChange = (event) => {
         setData(event.target.name, event.target.type === 'checkbox' ? event.target.checked : event.target.value);
@@ -43,7 +47,7 @@ export default function Create({auth, categories}) {
 
     const submit =  async (e) => {
         e.preventDefault();
-        await post(route('products.store'));
+        await post(route('products.update', product.id));
     };
 
     return(
@@ -57,8 +61,8 @@ export default function Create({auth, categories}) {
 
                         <ValidationErrors errors={errors} />
 
-                        <form onSubmit={submit}>
-                            <h4 className={'mb-5 text-muted'}>Add a new item</h4>
+                        <form onSubmit={submit} encType={'multipart'}>
+                            <h4 className={'mb-5 text-muted'}>Editing <small className={'text-dark'}>{product.name}</small></h4>
                             <div className="row mb-3">
                                 <label htmlFor="input-name" className="col-sm-2 col-form-label">Name</label>
                                 <div className="col-sm-10">
@@ -112,9 +116,11 @@ export default function Create({auth, categories}) {
                                 <label htmlFor="description-input" className="form-label">Description</label>
                                 <textarea
                                     onChange={handleChange}
-                                    name={'description'} className="form-control" id="description-input" rows="3" required
+                                    name={'description'}
+                                    className="form-control"
+                                    id="description-input" rows="3"
                                     value={data.description}
-                                />
+                                    required/>
                             </div>
                             <fieldset className="row mb-3">
                                 <legend className="col-form-label col-sm-2 pt-0">Status</legend>
