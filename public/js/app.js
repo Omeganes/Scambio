@@ -9087,15 +9087,15 @@ function Create(props) {
   };
 
   var renderPhotos = function renderPhotos(source) {
-    return source.map(function (photo) {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("img", {
-        src: photo,
-        alt: 'preview-image',
-        style: {
-          maxWidth: "300px",
-          maxHeight: "200px"
-        }
-      }, photo);
+    return source.map(function (image, index) {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+        className: "carousel-item rounded ".concat(index === 0 && "active"),
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("img", {
+          src: image,
+          className: "d-block w-100 rounded",
+          alt: "..."
+        })
+      });
     });
   };
 
@@ -9142,155 +9142,196 @@ function Create(props) {
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Layouts_Authenticated__WEBPACK_IMPORTED_MODULE_2__.default, {
     auth: props.auth,
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-      className: 'container d-flex justify-content-around align-items-center',
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-        className: 'right bg-light p-5 shadow-lg p-3 mb-5 bg-body rounded position-relative',
-        style: {
-          maxWidth: "50%"
-        },
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_ValidationErrors__WEBPACK_IMPORTED_MODULE_5__.default, {
-          errors: errors
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("form", {
-          onSubmit: submit,
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-            className: "row mb-3",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
-              htmlFor: "input-name",
-              className: "col-sm-2 col-form-label",
-              children: "Name"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-              className: "col-sm-10",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_Input__WEBPACK_IMPORTED_MODULE_4__.default, {
-                type: "text",
-                name: 'name',
-                value: data.name,
-                isFocused: true,
-                handleChange: handleChange,
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+      className: 'container row justify-content-between align-items-center',
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+        className: 'd-flex justify-content-around align-items-center col-md-6',
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+          className: 'right bg-light shadow-lg p-3 mb-5 bg-body rounded position-relative',
+          style: {
+            maxWidth: "50%"
+          },
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_ValidationErrors__WEBPACK_IMPORTED_MODULE_5__.default, {
+            errors: errors
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("form", {
+            onSubmit: submit,
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+              className: "row mb-3",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
+                htmlFor: "input-name",
+                className: "col-sm-2 col-form-label",
+                children: "Name"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+                className: "col-sm-10",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_Input__WEBPACK_IMPORTED_MODULE_4__.default, {
+                  type: "text",
+                  name: 'name',
+                  value: data.name,
+                  isFocused: true,
+                  handleChange: handleChange,
+                  className: "form-control",
+                  id: "input-name",
+                  required: true
+                })
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+              className: "row mb-3",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
+                htmlFor: "input-price",
+                className: "col-sm-2 col-form-label",
+                children: "Price"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+                className: "col-sm-10",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_Input__WEBPACK_IMPORTED_MODULE_4__.default, {
+                  type: "number",
+                  min: '1',
+                  name: 'price',
+                  value: data.price,
+                  handleChange: handleChange,
+                  className: "form-control",
+                  id: "input-price",
+                  required: true
+                })
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("fieldset", {
+              className: "row mb-3",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("legend", {
+                className: "col-form-label col-sm-3 pt-0",
+                children: "Category"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+                className: "col-sm-9",
+                children: props.categories.map(function (category, index) {
+                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+                    className: "form-check",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
+                      className: "form-check-input",
+                      type: "radio",
+                      name: "category_id",
+                      id: "category-".concat(category.id),
+                      value: category.id,
+                      onChange: handleChange,
+                      checked: data.category_id == category.id
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
+                      className: "form-check-label",
+                      htmlFor: "category-".concat(category.id),
+                      children: category.name
+                    })]
+                  }, index);
+                })
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+              className: "mb-3",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
+                htmlFor: "description-input",
+                className: "form-label",
+                children: "Description"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("textarea", {
+                onChange: handleChange,
+                name: 'description',
                 className: "form-control",
-                id: "input-name",
+                id: "description-input",
+                rows: "3",
                 required: true
-              })
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-            className: "row mb-3",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
-              htmlFor: "input-price",
-              className: "col-sm-2 col-form-label",
-              children: "Price"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-              className: "col-sm-10",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_Input__WEBPACK_IMPORTED_MODULE_4__.default, {
-                type: "number",
-                min: '1',
-                name: 'price',
-                value: data.price,
-                handleChange: handleChange,
-                className: "form-control",
-                id: "input-price",
-                required: true
-              })
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("fieldset", {
-            className: "row mb-3",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("legend", {
-              className: "col-form-label col-sm-3 pt-0",
-              children: "Category"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-              className: "col-sm-9",
-              children: props.categories.map(function (category, index) {
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("fieldset", {
+              className: "row mb-3",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("legend", {
+                className: "col-form-label col-sm-2 pt-0",
+                children: "Status"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+                className: "col-sm-10",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
                   className: "form-check",
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
                     className: "form-check-input",
                     type: "radio",
-                    name: "category_id",
-                    id: "category-".concat(category.id),
-                    value: category.id,
-                    onChange: handleChange,
-                    checked: data.category_id == category.id
+                    name: "status",
+                    id: "status-new",
+                    value: "new",
+                    checked: data.status === 'new',
+                    onChange: handleChange
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
                     className: "form-check-label",
-                    htmlFor: "category-".concat(category.id),
-                    children: category.name
+                    htmlFor: "status-new",
+                    children: "New"
                   })]
-                }, index);
-              })
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-            className: "mb-3",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
-              htmlFor: "description-input",
-              className: "form-label",
-              children: "Description"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("textarea", {
-              onChange: handleChange,
-              name: 'description',
-              className: "form-control",
-              id: "description-input",
-              rows: "3",
-              required: true
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("fieldset", {
-            className: "row mb-3",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("legend", {
-              className: "col-form-label col-sm-2 pt-0",
-              children: "Status"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-              className: "col-sm-10",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-                className: "form-check",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
-                  className: "form-check-input",
-                  type: "radio",
-                  name: "status",
-                  id: "status-new",
-                  value: "new",
-                  checked: data.status === 'new',
-                  onChange: handleChange
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+                  className: "form-check",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
+                    className: "form-check-input",
+                    type: "radio",
+                    name: "status",
+                    id: "status-used",
+                    value: "used",
+                    checked: data.status === 'used',
+                    onChange: handleChange
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
+                    className: "form-check-label",
+                    htmlFor: "status-used",
+                    children: "Used"
+                  })]
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
-                  className: "form-check-label",
-                  htmlFor: "status-new",
-                  children: "New"
+                  htmlFor: 'file-upload',
+                  className: 'btn btn-info',
+                  children: "Upload Image"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
+                  multiple: true,
+                  id: 'file-upload',
+                  type: 'file',
+                  style: {
+                    display: "none"
+                  },
+                  accept: 'image/*',
+                  name: 'images',
+                  onChange: handleImageChange
                 })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-                className: "form-check",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
-                  className: "form-check-input",
-                  type: "radio",
-                  name: "status",
-                  id: "status-used",
-                  value: "used",
-                  checked: data.status === 'used',
-                  onChange: handleChange
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
-                  className: "form-check-label",
-                  htmlFor: "status-used",
-                  children: "Used"
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
-                htmlFor: 'file-upload',
-                className: 'btn btn-info',
-                children: "Upload Image"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
-                multiple: true,
-                id: 'file-upload',
-                type: 'file',
-                style: {
-                  display: "none"
-                },
-                accept: 'image/*',
-                name: 'images',
-                onChange: handleImageChange
-              }), renderPhotos(selectedImages)]
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_Button__WEBPACK_IMPORTED_MODULE_6__.default, {
+              className: "btn btn-primary",
+              processing: processing,
+              children: "Add good"
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_Button__WEBPACK_IMPORTED_MODULE_6__.default, {
-            className: "btn btn-primary",
-            processing: processing,
-            children: "Add good"
           })]
-        })]
-      })
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+        className: 'd-flex justify-content-around flex-wrap col-md-5',
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+          id: "carouselExampleControls",
+          className: "carousel slide shadow-lg mb-5 bg-body rounded",
+          "data-bs-ride": "carousel",
+          style: {
+            maxWidth: "500px"
+          },
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+            className: "carousel-inner",
+            children: renderPhotos(selectedImages)
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("button", {
+            className: "carousel-control-prev",
+            type: "button",
+            "data-bs-target": "#carouselExampleControls",
+            "data-bs-slide": "prev",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
+              className: "carousel-control-prev-icon",
+              "aria-hidden": "true"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
+              className: "visually-hidden",
+              children: "Previous"
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("button", {
+            className: "carousel-control-next",
+            type: "button",
+            "data-bs-target": "#carouselExampleControls",
+            "data-bs-slide": "next",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
+              className: "carousel-control-next-icon",
+              "aria-hidden": "true"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
+              className: "visually-hidden",
+              children: "Next"
+            })]
+          })]
+        })
+      })]
     })
   });
 }
