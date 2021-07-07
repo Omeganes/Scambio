@@ -49,6 +49,8 @@ class ProductController extends Controller
      */
     public function store(Request $request): Response
     {
+//        TODO
+        dd($request->all());
         $validated = Product::validate($request);
         $product = new Product($validated);
         auth()->user()->products()->save($product);

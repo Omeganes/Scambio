@@ -7,27 +7,32 @@ import Button from "@/Components/Button";
 
 export default function Create(props) {
 
-    const [image, setImage] = useState();
-    const [preview, setPreview] = useState('');
+    const [selectedImages, setSelectedImages] = useState([]);
 
-    useEffect(() => {
-        if (image) {
-            const reader = new FileReader();
-            reader.onloadend = () => {
-                setPreview(reader.result)
-            }
-            reader.readAsDataURL(image);
-        } else {
-            setPreview(null);
+    const handleImageChange = (ev) => {
+        setData(ev.target.name, ev.target.files);
+        if(ev.target.files) {
+            const fileArr = Array.from(ev.target.files).map( file => URL.createObjectURL(file) )
+            setSelectedImages((prevImage) => prevImage.concat(fileArr))
+            Array.from(ev.target.files).map(
+                (file) => Url.revokeObjectURL(file)
+            )
         }
-    })
+    }
+
+    const renderPhotos = (source) => {
+        return source.map((photo) =>
+            <img src={photo} key={photo} alt={'preview-image'} style={{maxWidth: "300px", maxHeight: "200px"}}/>
+        )
+    }
 
     const { data, setData, post, processing, errors } = useForm({
         name: '',
         description: '',
         price: '',
-        category_id: '',
+        category_id: props.categories[0].id,
         status: 'new',
+        images: []
     });
 
     const handleChange = (event) => {
@@ -89,6 +94,7 @@ export default function Create(props) {
                                                 id={`category-${category.id}`}
                                                 value={category.id}
                                                 onChange={handleChange}
+                                                checked={data.category_id == category.id}
                                             />
                                             <label className="form-check-label" htmlFor={`category-${category.id}`}>
                                                 {category.name}
@@ -109,7 +115,8 @@ export default function Create(props) {
                             <div className="col-sm-10">
                                 <div className="form-check">
                                     <input className="form-check-input" type="radio" name="status" id="status-new"
-                                           value="new" checked
+                                           value="new"
+                                           checked={data.status === 'new'}
                                            onChange={handleChange}/>
                                     <label className="form-check-label" htmlFor="status-new">
                                         New
@@ -118,6 +125,7 @@ export default function Create(props) {
                                 <div className="form-check">
                                     <input className="form-check-input" type="radio" name="status" id="status-used"
                                            value="used"
+                                           checked={data.status === 'used'}
                                            onChange={handleChange}
                                     />
                                     <label className="form-check-label" htmlFor="status-used">
@@ -132,14 +140,10 @@ export default function Create(props) {
                                     type={'file'}
                                     style={{display: "none"}}
                                     accept={'image/*'}
-                                    onChange={(ev) => {
-                                        const file = ev.target.files[0];
-                                        if(file) {
-                                            setImage(file);
-                                        }
-                                    }}
+                                    name={'images'}
+                                    onChange={handleImageChange}
                                 />
-                                <img src={preview} alt={'preview'} style={{maxWidth: '200px', maxHeight: '150px'}} />
+                                {renderPhotos(selectedImages)}
                             </div>
                         </fieldset>
                         <Button className="btn btn-primary" processing={processing}>

@@ -9065,36 +9065,47 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function Create(props) {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]),
       _useState2 = _slicedToArray(_useState, 2),
-      image = _useState2[0],
-      setImage = _useState2[1];
+      selectedImages = _useState2[0],
+      setSelectedImages = _useState2[1];
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(''),
-      _useState4 = _slicedToArray(_useState3, 2),
-      preview = _useState4[0],
-      setPreview = _useState4[1];
+  var handleImageChange = function handleImageChange(ev) {
+    setData(ev.target.name, ev.target.files);
 
-  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
-    if (image) {
-      var reader = new FileReader();
-
-      reader.onloadend = function () {
-        setPreview(reader.result);
-      };
-
-      reader.readAsDataURL(image);
-    } else {
-      setPreview(null);
+    if (ev.target.files) {
+      var fileArr = Array.from(ev.target.files).map(function (file) {
+        return URL.createObjectURL(file);
+      });
+      setSelectedImages(function (prevImage) {
+        return prevImage.concat(fileArr);
+      });
+      Array.from(ev.target.files).map(function (file) {
+        return Url.revokeObjectURL(file);
+      });
     }
-  });
+  };
+
+  var renderPhotos = function renderPhotos(source) {
+    return source.map(function (photo) {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("img", {
+        src: photo,
+        alt: 'preview-image',
+        style: {
+          maxWidth: "300px",
+          maxHeight: "200px"
+        }
+      }, photo);
+    });
+  };
 
   var _useForm = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_3__.useForm)({
     name: '',
     description: '',
     price: '',
-    category_id: '',
-    status: 'new'
+    category_id: props.categories[0].id,
+    status: 'new',
+    images: []
   }),
       data = _useForm.data,
       setData = _useForm.setData,
@@ -9196,7 +9207,8 @@ function Create(props) {
                     name: "category_id",
                     id: "category-".concat(category.id),
                     value: category.id,
-                    onChange: handleChange
+                    onChange: handleChange,
+                    checked: data.category_id == category.id
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
                     className: "form-check-label",
                     htmlFor: "category-".concat(category.id),
@@ -9234,7 +9246,7 @@ function Create(props) {
                   name: "status",
                   id: "status-new",
                   value: "new",
-                  checked: true,
+                  checked: data.status === 'new',
                   onChange: handleChange
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
                   className: "form-check-label",
@@ -9249,6 +9261,7 @@ function Create(props) {
                   name: "status",
                   id: "status-used",
                   value: "used",
+                  checked: data.status === 'used',
                   onChange: handleChange
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
                   className: "form-check-label",
@@ -9267,21 +9280,9 @@ function Create(props) {
                   display: "none"
                 },
                 accept: 'image/*',
-                onChange: function onChange(ev) {
-                  var file = ev.target.files[0];
-
-                  if (file) {
-                    setImage(file);
-                  }
-                }
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("img", {
-                src: preview,
-                alt: 'preview',
-                style: {
-                  maxWidth: '200px',
-                  maxHeight: '150px'
-                }
-              })]
+                name: 'images',
+                onChange: handleImageChange
+              }), renderPhotos(selectedImages)]
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_Button__WEBPACK_IMPORTED_MODULE_6__.default, {
             className: "btn btn-primary",
