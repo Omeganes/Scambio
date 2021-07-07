@@ -113,9 +113,12 @@ class ProductController extends Controller
      * @param Product $product
      * @return Response
      */
-    public function destroy(Product $product)
+    public function destroy(Product $product): Response
     {
-        //
+        $product->delete();
+
+        Session::flash('info','Item deleted successfully!');
+        return Inertia::location(route('home'));
     }
 
     /**
