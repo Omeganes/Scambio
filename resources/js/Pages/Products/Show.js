@@ -8,7 +8,7 @@ export default function Show(props) {
             auth={props.auth}
         >
             <div className={'container d-flex justify-content-around align-items-center'}>
-                <div id="carouselExampleControls" className="left carousel slide shadow-lg mb-5 bg-body rounded" data-bs-ride="carousel" style={{maxWidth: "500px"}}>
+                <div id="carouselExampleControls" className="left carousel slide mb-5" data-bs-ride="carousel" style={{maxWidth: "500px"}}>
                     <div className="carousel-inner">
                         {
                             props.product.images.map( (image,index) => (

@@ -29,14 +29,16 @@ class Product extends Model
     }
 
 
-    public static function validate(Request $request)
+    public static function validate(Request $request): array
     {
         return $request->validate([
             'name' => 'required|string|min:3',
             'description' => 'required|string|min:3',
             'price' => 'required|numeric|min:1',
             'status' => 'required|in:new,used',
-            'category_id' => 'required|exists:categories,id'
+            'category_id' => 'required|exists:categories,id',
+            'images' => 'required|array|min:1',
+            'images.*' => 'required|image|max:2048'
         ]);
     }
 }

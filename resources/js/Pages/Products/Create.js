@@ -136,7 +136,7 @@ export default function Create(props) {
                                         </label>
                                     </div>
 
-                                    <label htmlFor={'file-upload'} className={'btn btn-info'}>Upload Image</label>
+                                    <label htmlFor={'file-upload'} className={'btn btn-info text-white'}>Upload Images</label>
                                     <input
                                         multiple={true}
                                         id={'file-upload'}
@@ -155,10 +155,14 @@ export default function Create(props) {
                     </div>
                 </div>
 
-                <div className={'d-flex justify-content-around flex-wrap col-md-5'}>
-                    <div id="carouselExampleControls" className="carousel slide shadow-lg mb-5 bg-body rounded" data-bs-ride="carousel" style={{maxWidth: "500px"}}>
+                <div className={'d-flex justify-content-around col-md-5'}>
+                    <div id="carouselExampleControls" className="carousel slide mb-5" data-bs-ride="carousel" style={{width: "500px"}}>
                         <div className="carousel-inner">
-                            {renderPhotos(selectedImages)}
+                            { selectedImages.length === 0 ?
+                                <div className={`carousel-item rounded shadow-lg p-5 bg-white active`}>
+                                    <h1 className={'display-6 text-muted h-100'}>No images uploaded yet</h1>
+                                </div>
+                                :renderPhotos(selectedImages)}
                         </div>
                         <button className="carousel-control-prev" type="button"
                                 data-bs-target="#carouselExampleControls" data-bs-slide="prev">

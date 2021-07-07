@@ -49,9 +49,13 @@ class ProductController extends Controller
      */
     public function store(Request $request): Response
     {
-//        TODO
-        dd($request->all());
         $validated = Product::validate($request);
+        $imagesArr = [];
+        foreach ($validated['images'] as $image) {
+            $path = $image->store('images', 'public');
+            array_push($imagesArr, asset('storage/' . $path));
+        }
+        $validated['images'] = $imagesArr;
         $product = new Product($validated);
         auth()->user()->products()->save($product);
         Session::flash('success','Good added successfully!');

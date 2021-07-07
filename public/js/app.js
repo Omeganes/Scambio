@@ -9272,8 +9272,8 @@ function Create(props) {
                   })]
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
                   htmlFor: 'file-upload',
-                  className: 'btn btn-info',
-                  children: "Upload Image"
+                  className: 'btn btn-info text-white',
+                  children: "Upload Images"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
                   multiple: true,
                   id: 'file-upload',
@@ -9294,17 +9294,23 @@ function Create(props) {
           })]
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-        className: 'd-flex justify-content-around flex-wrap col-md-5',
+        className: 'd-flex justify-content-around col-md-5',
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
           id: "carouselExampleControls",
-          className: "carousel slide shadow-lg mb-5 bg-body rounded",
+          className: "carousel slide mb-5",
           "data-bs-ride": "carousel",
           style: {
-            maxWidth: "500px"
+            width: "500px"
           },
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
             className: "carousel-inner",
-            children: renderPhotos(selectedImages)
+            children: selectedImages.length === 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+              className: "carousel-item rounded shadow-lg p-5 bg-white active",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h1", {
+                className: 'display-6 text-muted h-100',
+                children: "No images uploaded yet"
+              })
+            }) : renderPhotos(selectedImages)
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("button", {
             className: "carousel-control-prev",
             type: "button",
@@ -9467,7 +9473,7 @@ function Show(props) {
       className: 'container d-flex justify-content-around align-items-center',
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
         id: "carouselExampleControls",
-        className: "left carousel slide shadow-lg mb-5 bg-body rounded",
+        className: "left carousel slide mb-5",
         "data-bs-ride": "carousel",
         style: {
           maxWidth: "500px"
