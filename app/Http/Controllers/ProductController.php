@@ -50,16 +50,11 @@ class ProductController extends Controller
     public function store(Request $request): Response
     {
         $validated = Product::validate($request);
-        $imagesArr = [];
-        foreach ($validated['images'] as $image) {
-            $path = $image->store('images', 'public');
-            array_push($imagesArr, asset('storage/' . $path));
-        }
-        $validated['images'] = $imagesArr;
+        $validated['images'] = self::saveImages($validated['images']);
         $product = new Product($validated);
         auth()->user()->products()->save($product);
-        Session::flash('success','Good added successfully!');
-        return Inertia::location('/');
+        Session::flash('success','Item added successfully!');
+        return Inertia::location(route('home'));
     }
 
     /**
@@ -80,11 +75,15 @@ class ProductController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param Product $product
-     * @return Response
+     * @return \Inertia\Response
      */
-    public function edit(Product $product)
+    public function edit(Product $product): \Inertia\Response
     {
-        //
+        $categories = Category::get(['id', 'name']);
+        return Inertia::render('Products/Edit', [
+            'product' => $product,
+            'categories' => $categories
+        ]);
     }
 
     /**
@@ -94,9 +93,18 @@ class ProductController extends Controller
      * @param Product $product
      * @return Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, Product $product): Response
     {
-        //
+        $validated = Product::validate($request);
+        if( empty($validated['images']) ) {
+            unset($validated['images']);
+        } else {
+            $validated['images'] = self::saveImages($validated['images']);
+        }
+        $product->update($validated);
+
+        Session::flash('success','Item updated successfully!');
+        return Inertia::location(route('home'));
     }
 
     /**
@@ -108,5 +116,21 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         //
+    }
+
+    /**
+     * Save an array of images
+     *
+     * @param $images
+     * @return array
+     */
+    private static function saveImages($images): array
+    {
+        $imagesArr = [];
+        foreach ($images as $image) {
+            $path = $image->store('images', 'public');
+            array_push($imagesArr, asset('storage/' . $path));
+        }
+        return $imagesArr;
     }
 }

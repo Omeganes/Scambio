@@ -44,7 +44,6 @@ Route::resource('categories.products', ProductController::class)
 | Products Routes
 |--------------------------------------------------------------------------
 */
-Route::resource('products', ProductController::class)
-    ->only('show', 'create', 'store')->middleware('auth');
+Route::resource('products', ProductController::class)->middleware('auth');
 
 require __DIR__.'/auth.php';

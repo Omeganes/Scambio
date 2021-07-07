@@ -37,7 +37,11 @@ class Product extends Model
             'price' => 'required|numeric|min:1',
             'status' => 'required|in:new,used',
             'category_id' => 'required|exists:categories,id',
-            'images' => 'required|array|min:1',
+            'images' => [
+                $request->method() === 'PATCH'? 'present' : 'required',
+                'array',
+                $request->method() === 'PATCH'? 'min:0' : 'min:1'
+            ],
             'images.*' => 'required|image|max:2048'
         ]);
     }
