@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import Authenticated from "@/Layouts/Authenticated";
 import {useForm} from "@inertiajs/inertia-react";
 import Input from '@/Components/Input';
@@ -13,8 +13,8 @@ export default function Create({auth}) {
         name: user.name,
         email: user.email,
         password: '',
-        confirm_password: '',
-        phone: user.phone,
+        password_confirmation: '',
+        phone: user.phone || '',
         account_number: '',
         _method: 'PATCH'
     });
@@ -38,69 +38,50 @@ export default function Create({auth}) {
 
                     <ValidationErrors errors={errors} />
 
-                    <form onSubmit={submit}>
-                        <h4 className={'mb-5 text-muted'}>Add a new item</h4>
-                        <div className="row mb-3">
-                            <label htmlFor="input-name" className="col-sm-2 col-form-label">Name</label>
-                            <div className="col-sm-10">
-                                <Input
-                                    type="text"
-                                    name={'name'}
-                                    value={data.name}
-                                    isFocused={true}
-                                    handleChange={handleChange}
-                                    className="form-control"
-                                    id="input-name" required />
-                            </div>
-                        </div>
-                        <div className="row mb-3">
-                            <label htmlFor="input-price" className="col-sm-2 col-form-label">Price</label>
-                            <div className="col-sm-10">
-                                <Input
-                                    type="number"
-                                    min={'1'}
-                                    name={'price'}
-                                    value={data.price}
-                                    handleChange={handleChange}
-                                    className="form-control"
-                                    id="input-price" required/>
-                            </div>
-                        </div>
-                        <div className="mb-3">
-                            <label htmlFor="description-input" className="form-label">Description</label>
-                            <textarea
-                                onChange={handleChange}
-                                name={'description'} className="form-control" id="description-input" rows="3" required
-                                value={data.description}
+                    <form onSubmit={submit} className={'row g-3'}>
+                        <div className="col-md-6">
+                            <label htmlFor="name-input" className="form-label">Name</label>
+                            <Input type="text" className="form-control" id="name-input"
+                                   name={'name'} value={data.name} isFocused={true} handleChange={handleChange}
                             />
                         </div>
-                        <fieldset className="row mb-3">
-                            <legend className="col-form-label col-sm-2 pt-0">Status</legend>
-                            <div className="col-sm-10">
-                                <div className="form-check">
-                                    <input className="form-check-input" type="radio" name="status" id="status-new"
-                                           value="new"
-                                           checked={data.status === 'new'}
-                                           onChange={handleChange}/>
-                                    <label className="form-check-label" htmlFor="status-new">
-                                        New
-                                    </label>
-                                </div>
-                                <div className="form-check">
-                                    <input className="form-check-input" type="radio" name="status" id="status-used"
-                                           value="used"
-                                           checked={data.status === 'used'}
-                                           onChange={handleChange}
-                                    />
-                                    <label className="form-check-label" htmlFor="status-used">
-                                        Used
-                                    </label>
-                                </div>
-                            </div>
-                        </fieldset>
-                        <Button className="btn btn-primary" processing={processing}>
-                            Add belonging
-                        </Button>
+                        <div className="col-md-6">
+                            <label htmlFor="phone-input" className="form-label">Phone Number</label>
+                            <Input type="email" className="form-control" id="phone-input" name={'phone'}
+                                   value={data.phone} placeholder={'0123456789'} handleChange={handleChange}
+                            />
+                        </div>
+                        <div className="col-12">
+                            <label htmlFor="email-input" className="form-label">Email</label>
+                            <Input type="text" className="form-control" id="email-input"
+                                   name={'email'} value={data.email} handleChange={handleChange}
+                            />
+                        </div>
+                        <div className="col-md-6">
+                            <label htmlFor="password-input" className="form-label">Password</label>
+                            <Input type="text" className="form-control" id="password-input" name={'password'}
+                                   value={data.password} handleChange={handleChange}
+                            />
+                        </div>
+                        <div className="col-md-6">
+                            <label htmlFor="password-confirmation-input" className="form-label">Confirm Password</label>
+                            <Input type="password" className="form-control" id="password-confirmation-input"
+                                   name={'password_confirmation'} value={data.password_confirmation}
+                                   handleChange={handleChange}
+                            />
+                        </div>
+                        <div className="col-12">
+                            <label htmlFor="account-number-input" className="form-label">Credit Card number</label>
+                            <Input type="text" className="form-control" id="account-number-input"
+                                   name={'account_number'} placeholder="1234-5678-9012-3456"
+                                   handleChange={handleChange}
+                            />
+                        </div>
+                        <div className="col-12">
+                            <Button type="submit" className="btn btn-primary" processing={processing}>
+                                Edit Profile
+                            </Button>
+                        </div>
                     </form>
                 </div>
             </div>
