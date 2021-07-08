@@ -9691,16 +9691,16 @@ function Edit(_ref) {
 
 /***/ }),
 
-/***/ "./resources/js/Pages/Products/Products.js":
-/*!*************************************************!*\
-  !*** ./resources/js/Pages/Products/Products.js ***!
-  \*************************************************/
+/***/ "./resources/js/Pages/Products/Index.js":
+/*!**********************************************!*\
+  !*** ./resources/js/Pages/Products/Index.js ***!
+  \**********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ Categories)
+/* harmony export */   "default": () => (/* binding */ Index)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _Layouts_Authenticated__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Layouts/Authenticated */ "./resources/js/Layouts/Authenticated.js");
@@ -9711,9 +9711,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function Categories(props) {
+function Index(_ref) {
+  var auth = _ref.auth,
+      products = _ref.products,
+      current_category = _ref.current_category,
+      categories = _ref.categories;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Layouts_Authenticated__WEBPACK_IMPORTED_MODULE_1__.default, {
-    auth: props.auth,
+    auth: auth,
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
       className: 'd-flex container',
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
@@ -9737,7 +9741,7 @@ function Categories(props) {
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("ul", {
           className: "nav nav-pills flex-column mb-auto",
-          children: props.categories.map(function (category) {
+          children: categories.map(function (category) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.InertiaLink, {
                 href: route('categories.products.index', category.id),
@@ -9752,8 +9756,8 @@ function Categories(props) {
         className: 'container',
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
           className: 'display-3 text-white',
-          children: props.current_category.name
-        }), props.products.map(function (product) {
+          children: current_category.name
+        }), products.map(function (product) {
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
               className: "row g-0 bg-light rounded overflow-hidden flex-md-row mb-4 shadow-lg h-md-250 position-relative",
@@ -64912,8 +64916,8 @@ var map = {
 	"./Products/Create.js": "./resources/js/Pages/Products/Create.js",
 	"./Products/Edit": "./resources/js/Pages/Products/Edit.js",
 	"./Products/Edit.js": "./resources/js/Pages/Products/Edit.js",
-	"./Products/Products": "./resources/js/Pages/Products/Products.js",
-	"./Products/Products.js": "./resources/js/Pages/Products/Products.js",
+	"./Products/Index": "./resources/js/Pages/Products/Index.js",
+	"./Products/Index.js": "./resources/js/Pages/Products/Index.js",
 	"./Products/Show": "./resources/js/Pages/Products/Show.js",
 	"./Products/Show.js": "./resources/js/Pages/Products/Show.js"
 };

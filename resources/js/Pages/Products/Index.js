@@ -2,10 +2,10 @@ import React from 'react'
 import Authenticated from "@/Layouts/Authenticated";
 import {InertiaLink} from "@inertiajs/inertia-react";
 
-export default function Categories(props) {
+export default function Index({auth, products, current_category, categories}) {
     return(
         <Authenticated
-            auth={props.auth}
+            auth={auth}
         >
             <div className={'d-flex container'}>
                 <div className="d-flex flex-column flex-shrink-0 p-3 text-white" style={{width: "280px"}}>
@@ -19,7 +19,7 @@ export default function Categories(props) {
                     <hr/>
                     <ul className="nav nav-pills flex-column mb-auto">
                         {
-                            props.categories.map( category => (
+                            categories.map( category => (
                                 <li key={category.id}>
                                     <InertiaLink href={route('categories.products.index', category.id)} className="nav-link link-light">
                                         {category.name}
@@ -31,9 +31,9 @@ export default function Categories(props) {
                 </div>
 
                 <div id={'products'} className={'container'}>
-                    <h1 className={'display-3 text-white'}>{props.current_category.name}</h1>
+                    <h1 className={'display-3 text-white'}>{current_category.name}</h1>
                     {
-                        props.products.map( product => (
+                        products.map( product => (
                             <div key={product.id}>
                                 <div
                                     className="row g-0 bg-light rounded overflow-hidden flex-md-row mb-4 shadow-lg h-md-250 position-relative">

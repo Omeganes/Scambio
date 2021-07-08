@@ -18,11 +18,14 @@ class ProductController extends Controller
     public function index(Category $category): \Inertia\Response
     {
         $categories = Category::all();
-        $products = $category['products'];
 
-        return Inertia::render('Products/Products', [
+        $category->load(['products' => function ($q) {
+            $q->orderBy('updated_at', 'desc');
+        }]);
+
+        return Inertia::render('Products/Index', [
             'current_category' => $category,
-            'products' => $products,
+            'products' => $category['products'],
             'categories' => $categories
         ]);
 
