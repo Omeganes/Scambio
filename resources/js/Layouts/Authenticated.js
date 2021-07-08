@@ -18,8 +18,21 @@ export default function Authenticated({ auth, children }) {
                             <ul className={'navbar-nav me-5 mb-lg-0'}>
                                 <li><InertiaLink href={'#'} className={'nav-item me-5'}>Contact us</InertiaLink></li>
                                 <li><InertiaLink href={route('categories.index')} className={'nav-item me-5'}>Categories</InertiaLink></li>
-                                <li><InertiaLink href={route('dashboard')} className={'nav-item me-5'}>{auth.user.name}</InertiaLink></li>
-                                <li><a href={route('logout')} className={'nav-item me-5'}>Log out</a></li>
+                                <div className="dropdown">
+                                    <a className="nav-item me-5 dropdown-toggle" href="#" role="button"
+                                       id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                        {auth.user.name}
+                                    </a>
+
+                                    <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        <li><InertiaLink className="dropdown-item" href={route('dashboard')}>Profile</InertiaLink></li>
+                                        <li><a className="dropdown-item" href="#">Edit Profile</a></li>
+                                        <li>
+                                            <hr className="dropdown-divider" />
+                                        </li>
+                                        <li><a className="dropdown-item" href={route('logout')}>Log out</a></li>
+                                    </ul>
+                                </div>
                             </ul>
                         </div>
                     </div>
