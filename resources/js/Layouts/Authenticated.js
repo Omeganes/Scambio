@@ -26,7 +26,7 @@ export default function Authenticated({ auth, children }) {
 
                                     <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                         <li><InertiaLink className="dropdown-item" href={route('dashboard')}>Profile</InertiaLink></li>
-                                        <li><a className="dropdown-item" href="#">Edit Profile</a></li>
+                                        <li><a className="dropdown-item" href={route('dashboard.edit')}>Edit Profile</a></li>
                                         <li>
                                             <hr className="dropdown-divider" />
                                         </li>
