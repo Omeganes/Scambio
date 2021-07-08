@@ -39,6 +39,6 @@ Route::resource('categories.products', ProductController::class)
 | Products Routes
 |--------------------------------------------------------------------------
 */
-Route::resource('products', ProductController::class);
+Route::resource('products', ProductController::class)->except('index');
 
 require __DIR__.'/auth.php';
