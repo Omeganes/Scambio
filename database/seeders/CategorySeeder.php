@@ -15,9 +15,13 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        Category::factory(5)
-            ->has(
-                Product::factory()->count(10)
-            )->create();
+        $categoriesArr = ['Computers', 'Books', 'Mobiles', 'Household Devices', 'Furniture'];
+
+        foreach ($categoriesArr as $categoryName) {
+            Category::create([
+                'name' => $categoryName,
+                'image' => 'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg'
+            ]);
+        }
     }
 }

@@ -28,6 +28,7 @@ class ProductFactory extends Factory
             'price' => $this->faker->numberBetween(1, 1000),
             'status' => $this->faker->randomElement(['new', 'used']),
             'user_id' => $this->faker->numberBetween(1, 10),
+            'category_id' => $this->faker->numberBetween(1,5)
         ];
     }
 }
