@@ -37,7 +37,7 @@ export default function Show(props) {
                     <h5>Owner Name: <span className={'text-info'}>{props.owner.name}</span></h5>
                     <h5>Email: <span className={'text-secondary'}>{props.owner.email}</span></h5>
                     <h5>Phone: <span className={'text-secondary'}>{props.owner.phone || "No phone provided"}</span></h5>
-                    <h6>Exchanges done by the user: <span className={'text-secondary'}>{props.owner.exchanges_count}</span></h6>
+                    <h6 className={'mb-5'}>Exchanges done by the user: <span className={'text-secondary'}>{props.owner.exchanges_count}</span></h6>
                     <div className="position-absolute bottom-0 end-0 m-3">
                         <h3 className={'text-success'}>{props.product.price} LE</h3>
                         <InertiaLink href={'#'} type="button" className="btn btn-outline-info">Request</InertiaLink>

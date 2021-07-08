@@ -9894,6 +9894,7 @@ function Show(props) {
             children: props.owner.phone || "No phone provided"
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("h6", {
+          className: 'mb-5',
           children: ["Exchanges done by the user: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
             className: 'text-secondary',
             children: props.owner.exchanges_count
