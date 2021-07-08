@@ -11,6 +11,18 @@ use Inertia\Inertia;
 
 class ProductController extends Controller
 {
+
+    /**
+     * Create the controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->authorizeResource(Product::class, 'product');
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *

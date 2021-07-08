@@ -3,7 +3,6 @@
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Models\Category;
-use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -44,6 +43,6 @@ Route::resource('categories.products', ProductController::class)
 | Products Routes
 |--------------------------------------------------------------------------
 */
-Route::resource('products', ProductController::class)->middleware('auth');
+Route::resource('products', ProductController::class);
 
 require __DIR__.'/auth.php';
