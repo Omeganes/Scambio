@@ -2,11 +2,12 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Validation\Rule;
+use Illuminate\Validation\Rules;
 
 class User extends Authenticatable
 {
@@ -44,6 +45,21 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public static function validate($request): array
+    {
+        return $request->validate([
+            'name' => 'required|string|min:3|max:255',
+            'email' => [
+                'required','string', 'email', 'max:255',
+                Rule::unique('users')->ignore(auth()->user()->id),
+            ],
+//            'password' => ['nullable', 'confirmed', Rules\Password::defaults()],
+            'phone' => 'nullable|digits:11',
+            'account_number' => 'nullable|digits:16'
+        ]);
+    }
 
 
     /**

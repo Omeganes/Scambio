@@ -8387,10 +8387,8 @@ function Create(_ref) {
   var _useForm = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_3__.useForm)({
     name: user.name,
     email: user.email,
-    password: '',
-    password_confirmation: '',
     phone: user.phone || '',
-    account_number: '',
+    account_number: user.account_number || '',
     _method: 'PATCH'
   }),
       data = _useForm.data,
@@ -8433,15 +8431,18 @@ function Create(_ref) {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
         className: 'bg-light shadow-lg p-5 mb-5 bg-body rounded position-relative',
         style: {
-          maxWidth: "50%"
+          maxWidth: "30%"
         },
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_ValidationErrors__WEBPACK_IMPORTED_MODULE_5__.default, {
           errors: errors
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("form", {
           onSubmit: submit,
           className: 'row g-3',
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-            className: "col-md-6",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h4", {
+            className: 'mb-5 text-muted',
+            children: "Editing Your Profile"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+            className: "col-12",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
               htmlFor: "name-input",
               className: "form-label",
@@ -8456,13 +8457,13 @@ function Create(_ref) {
               handleChange: handleChange
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-            className: "col-md-6",
+            className: "col-126",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
               htmlFor: "phone-input",
               className: "form-label",
               children: "Phone Number"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_Input__WEBPACK_IMPORTED_MODULE_4__.default, {
-              type: "email",
+              type: "phone",
               className: "form-control",
               id: "phone-input",
               name: 'phone',
@@ -8485,34 +8486,6 @@ function Create(_ref) {
               handleChange: handleChange
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-            className: "col-md-6",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
-              htmlFor: "password-input",
-              className: "form-label",
-              children: "Password"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_Input__WEBPACK_IMPORTED_MODULE_4__.default, {
-              type: "text",
-              className: "form-control",
-              id: "password-input",
-              name: 'password',
-              value: data.password,
-              handleChange: handleChange
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-            className: "col-md-6",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
-              htmlFor: "password-confirmation-input",
-              className: "form-label",
-              children: "Confirm Password"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_Input__WEBPACK_IMPORTED_MODULE_4__.default, {
-              type: "password",
-              className: "form-control",
-              id: "password-confirmation-input",
-              name: 'password_confirmation',
-              value: data.password_confirmation,
-              handleChange: handleChange
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
             className: "col-12",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
               htmlFor: "account-number-input",
@@ -8523,11 +8496,12 @@ function Create(_ref) {
               className: "form-control",
               id: "account-number-input",
               name: 'account_number',
-              placeholder: "1234-5678-9012-3456",
+              placeholder: "16 digits value",
+              value: data.account_number,
               handleChange: handleChange
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-            className: "col-12",
+            className: "col-12 d-flex justify-content-end",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_Button__WEBPACK_IMPORTED_MODULE_6__.default, {
               type: "submit",
               className: "btn btn-primary",
