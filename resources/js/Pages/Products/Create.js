@@ -152,7 +152,7 @@ export default function Create({auth, categories}) {
                                 </div>
                             </fieldset>
                             <Button className="btn btn-primary" processing={processing}>
-                                Add good
+                                Add belonging
                             </Button>
                         </form>
                     </div>

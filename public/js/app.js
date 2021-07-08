@@ -9296,7 +9296,7 @@ function Create(_ref) {
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_Button__WEBPACK_IMPORTED_MODULE_6__.default, {
               className: "btn btn-primary",
               processing: processing,
-              children: "Add good"
+              children: "Add belonging"
             })]
           })]
         })
@@ -9636,7 +9636,7 @@ function Edit(_ref) {
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_Button__WEBPACK_IMPORTED_MODULE_6__.default, {
               className: "btn btn-primary",
               processing: processing,
-              children: "Add good"
+              children: "Edit belonging"
             })]
           })]
         })

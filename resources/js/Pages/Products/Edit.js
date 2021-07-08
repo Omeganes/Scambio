@@ -158,7 +158,7 @@ export default function Edit({auth, product, categories}) {
                                 </div>
                             </fieldset>
                             <Button className="btn btn-primary" processing={processing}>
-                                Add good
+                                Edit belonging
                             </Button>
                         </form>
                     </div>
