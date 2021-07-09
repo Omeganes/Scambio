@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\ExchangeRequest;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Inertia\Inertia;
+use Inertia\Response as InertiaResponse;
 
 class ExchangeRequestController extends Controller
 {
@@ -21,11 +24,16 @@ class ExchangeRequestController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return Response
+     * @param Product $product
+     * @return InertiaResponse
      */
-    public function create(): Response
+    public function create(Product $product): InertiaResponse
     {
-        //
+        $ownedProducts = auth()->user()->products;
+        return Inertia::render('ExchangeRequests/Create', [
+            'product' => $product,
+            'ownedProducts' => $ownedProducts
+        ]);
     }
 
     /**
@@ -36,7 +44,7 @@ class ExchangeRequestController extends Controller
      */
     public function store(Request $request): Response
     {
-        //
+        dd($request->all());
     }
 
     /**

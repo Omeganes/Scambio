@@ -50,6 +50,6 @@ Route::resource('products', ProductController::class);;
 |--------------------------------------------------------------------------
 */
 Route::resource('products.requests', ExchangeRequestController::class)
-    ->only(['store']);
+    ->only(['store', 'create']);
 
 require __DIR__.'/auth.php';
