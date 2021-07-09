@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Validation\Rule;
@@ -31,7 +32,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected array $hidden = [
+    protected $hidden = [
         'password',
         'remember_token',
     ];
@@ -41,7 +42,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected array $casts = [
+    protected $casts = [
         'email_verified_at' => 'datetime',
     ];
 
@@ -55,6 +56,23 @@ class User extends Authenticatable
     public function products(): HasMany
     {
         return $this->hasMany(Product::class);
+    }
+
+    /**
+     * relationship with Exchange requests
+     *
+     * @return HasManyThrough
+     */
+    public function exchangeRequests(): HasManyThrough
+    {
+        return $this->hasManyThrough(
+            ExchangeRequest::class,
+            Product::class,
+            'user_id',
+            'offered_product_id',
+            'id',
+            'id'
+        );
     }
 
 

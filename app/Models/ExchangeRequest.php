@@ -10,7 +10,7 @@ class ExchangeRequest extends Model
 {
     use HasFactory;
 
-    protected array $guarded = [];
+    protected $guarded = [];
 
     ####################################### Relationships #######################################
 
