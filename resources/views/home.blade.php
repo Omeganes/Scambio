@@ -21,12 +21,38 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('categories.index')}}">Categories</a>
                     </li>
+
+                    @if(Auth::user())
+                        <li class="nav-item">
+                            <div class="dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button"
+                                   id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    {{ auth()->user()->name }}
+                                </a>
+
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <li><a class="dropdown-item" href={{route('dashboard')}}>Profile</a></li>
+                                    <li><a class="dropdown-item" href={{route('dashboard.edit')}}>Edit Profile</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider" />
+                                    </li>
+                                    <li><a class="dropdown-item" href={{route('logout')}}>Log out</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    @else
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('login')}}">Login</a>
+                        </li>
+                    @endif
                     <li class="nav-item">
                         <form class="form-inline">
                             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                             <button class="btn btn-outline-success my-2 my-sm-0" type="button">Find</button>
                         </form>
                     </li>
+
+
                 </ul>
             </div>
         </nav>
