@@ -46,7 +46,7 @@ export default function Show({auth, product, owner}) {
                         <h3 className={'text-success'}>{product.price} LE</h3>
                         {
                             owner.id !== auth.user.id &&
-                            <InertiaLink href={'#'} type="button" className="btn btn-outline-info">Request</InertiaLink>
+                            <InertiaLink href={route('products.requests.create', product.id)} type="button" className="btn btn-outline-info">Request</InertiaLink>
                         }
                     </div>
                 </div>

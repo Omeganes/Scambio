@@ -16,7 +16,7 @@ export default function Authenticated({ auth, children }) {
                         <div className="navbar-nav me-auto mb-2 mb-lg-0" />
                         <div>
                             <ul className={'navbar-nav me-5 mb-lg-0'}>
-                                <li><InertiaLink href={'#'} className={'nav-item me-5'}>Contact us</InertiaLink></li>
+                                <li><a href={'/#footer'} className={'nav-item me-5'}>Contact us</a></li>
                                 <li><InertiaLink href={route('categories.index')} className={'nav-item me-5'}>Categories</InertiaLink></li>
                                 <li>
                                     <div className="dropdown">

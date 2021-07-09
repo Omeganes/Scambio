@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ExchangeRequestController;
 use App\Http\Controllers\ProductController;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
@@ -32,7 +33,7 @@ Route::get('/', function () {
 */
 
 Route::resource('categories', CategoryController::class)
-    ->only('index')->middleware('auth');
+    ->only('index');
 Route::get('/categories/{category}/products', [CategoryController::class, 'show'])
     ->name('categories.products.index')->middleware('auth');
 
@@ -42,5 +43,13 @@ Route::get('/categories/{category}/products', [CategoryController::class, 'show'
 |--------------------------------------------------------------------------
 */
 Route::resource('products', ProductController::class);;
+
+/*
+|--------------------------------------------------------------------------
+| Exchange Requests Routes
+|--------------------------------------------------------------------------
+*/
+Route::resource('products.requests', ExchangeRequestController::class)
+    ->only(['store', 'create']);
 
 require __DIR__.'/auth.php';
