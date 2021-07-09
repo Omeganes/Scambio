@@ -27,17 +27,14 @@ class ProductController extends Controller
      * Display a listing of the resource.
      *
      */
-    public function index(Category $category): \Inertia\Response
+    public function index(Request $request): \Inertia\Response
     {
         $categories = Category::all();
 
-        $category->load(['products' => function ($q) {
-            $q->orderBy('updated_at', 'desc');
-        }]);
+        $products = Product::search($request['query'])->get();
 
         return Inertia::render('Products/Index', [
-            'current_category' => $category,
-            'products' => $category['products'],
+            'products' => $products,
             'categories' => $categories
         ]);
 

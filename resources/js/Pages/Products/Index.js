@@ -36,7 +36,7 @@ export default function Index({auth, products, current_category, categories}) {
                     </div>
 
                     <div id={'products'} className={'col-8 container'}>
-                        <h1 className={'display-3 text-white'}>{current_category.name}</h1>
+                        <h1 className={'display-3 text-white'}>{current_category?.name || "Searching"}</h1>
                         {
                             products.map( product => (
                                 <div key={product.id}>

@@ -11,9 +11,9 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
+    protected array $guarded = [];
 
-    protected $casts = [
+    protected array $casts = [
         'images' => 'array'
     ];
 
@@ -39,6 +39,12 @@ class Product extends Model
     }
 
 
+    /**
+     * Model validation rules
+     *
+     * @param Request $request
+     * @return array
+     */
     public static function validate(Request $request): array
     {
         return $request->validate([
@@ -54,5 +60,23 @@ class Product extends Model
             ],
             'images.*' => 'required|image|max:2048'
         ]);
+    }
+
+
+    /**
+     * Filter products by search term
+     *
+     * @param $query
+     * @param $term
+     * @return mixed
+     */
+    public function scopeSearch($query, $term): mixed
+    {
+        if (!is_null($term)) {
+            return $query->where('name', 'ILIKE', "%$term%")
+                ->orWhere('description', 'ILIKE', "%$term%");
+        }
+
+        return $query;
     }
 }

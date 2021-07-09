@@ -10064,7 +10064,7 @@ function Index(_ref) {
           className: 'col-8 container',
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
             className: 'display-3 text-white',
-            children: current_category.name
+            children: (current_category === null || current_category === void 0 ? void 0 : current_category.name) || "Searching"
           }), products.map(function (product) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {

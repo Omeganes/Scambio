@@ -41,7 +41,6 @@ Route::get('/categories/{category}/products', [CategoryController::class, 'show'
 | Products Routes
 |--------------------------------------------------------------------------
 */
-# TODO
-Route::resource('products', ProductController::class);#->except('index');
+Route::resource('products', ProductController::class);;
 
 require __DIR__.'/auth.php';
