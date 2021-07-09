@@ -80,8 +80,9 @@ class ProductController extends Controller
      */
     public function show(Product $product): \Inertia\Response
     {
+        $product->load(['category', 'user']);
         return Inertia::render('Products/Show',[
-            'product' => $product->load('category'),
+            'product' => $product,
             'owner' => $product['user']
         ]);
     }
