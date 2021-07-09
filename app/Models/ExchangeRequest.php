@@ -13,6 +13,16 @@ class ExchangeRequest extends Model
 
     ####################################### Relationships #######################################
 
+
+    /**
+     * The user who requested the exchange
+     * TODO: Review this
+     */
+    public function requestingUser()
+    {
+        $this->hasOneThrough(User::class, Product::class, 'offered_product_id', 'user_id');
+    }
+
     /**
      * Offered product for exchange
      */
