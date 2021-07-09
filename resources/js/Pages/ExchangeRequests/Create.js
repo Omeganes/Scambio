@@ -8,6 +8,7 @@ import Button from "@/Components/Button";
 export default function Create({auth, product, ownedProducts}) {
 
     const { data, setData, post, processing, errors } = useForm({
+        requested_product_id: product.id,
         offered_product_id: ownedProducts[0].id
     });
 
@@ -63,7 +64,7 @@ export default function Create({auth, product, ownedProducts}) {
                             }
                         </fieldset>
                         <Button className="btn btn-primary" processing={processing}>
-                            Add belonging
+                            Send Exchange Request
                         </Button>
                     </form>
                 </div>

@@ -6,11 +6,19 @@ use App\Models\ExchangeRequest;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Session;
 use Inertia\Inertia;
 use Inertia\Response as InertiaResponse;
 
 class ExchangeRequestController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->authorizeResource(ExchangeRequest::class, 'exchangeRequest');
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -44,7 +52,11 @@ class ExchangeRequestController extends Controller
      */
     public function store(Request $request): Response
     {
-        dd($request->all());
+        $validated = ExchangeRequest::validate($request);
+        ExchangeRequest::create($validated);
+
+        Session::flash('success','Request sent successfully!');
+        return Inertia::location(route('home'));
     }
 
     /**

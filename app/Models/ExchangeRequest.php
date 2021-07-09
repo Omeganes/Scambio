@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 
 class ExchangeRequest extends Model
 {
@@ -12,7 +13,6 @@ class ExchangeRequest extends Model
     protected array $guarded = [];
 
     ####################################### Relationships #######################################
-
 
     /**
      * The user who requested the exchange
@@ -39,6 +39,19 @@ class ExchangeRequest extends Model
         $this->hasOne(Product::class, 'requested_product_id');
     }
 
+    ####################################### Methods #######################################
 
+    public static function validate(Request $request)
+    {
+        $validated = $request->validate([
+            'offered_product_id' => 'required|exists:products,id',
+            'requested_product_id' => 'required|exists:products,id'
+        ]);
 
+        if(Product::find($request['offered_product_id'])->user->id !== auth()->user()->id) {
+            abort(403);
+        }
+
+        return $validated;
+    }
 }

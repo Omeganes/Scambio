@@ -19,7 +19,6 @@ class CreateExchangeRequestsTable extends Migration
                 ->onDelete('cascade');
             $table->foreignId('requested_product_id')->references('id')->on('products')
                 ->onDelete('cascade');
-            $table->integer('difference');
             $table->enum('status', ['pending', 'accepted', 'rejected'])->default('pending');
             $table->timestamps();
         });

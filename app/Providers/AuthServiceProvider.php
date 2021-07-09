@@ -2,9 +2,11 @@
 
 namespace App\Providers;
 
+use App\Models\ExchangeRequest;
+use App\Models\Product;
+use App\Policies\ExchangeRequestPolicy;
 use App\Policies\ProductPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
-use Illuminate\Support\Facades\Gate;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -14,7 +16,8 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        ProductPolicy::class => ProductPolicy::class
+        Product::class => ProductPolicy::class,
+        ExchangeRequest::class => ExchangeRequestPolicy::class
     ];
 
     /**

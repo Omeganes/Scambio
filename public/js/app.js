@@ -9287,6 +9287,7 @@ function Create(_ref) {
       ownedProducts = _ref.ownedProducts;
 
   var _useForm = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_3__.useForm)({
+    requested_product_id: product.id,
     offered_product_id: ownedProducts[0].id
   }),
       data = _useForm.data,
@@ -9375,7 +9376,7 @@ function Create(_ref) {
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_Button__WEBPACK_IMPORTED_MODULE_6__.default, {
             className: "btn btn-primary",
             processing: processing,
-            children: "Add belonging"
+            children: "Send Exchange Request"
           })]
         })]
       })
