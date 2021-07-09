@@ -31,7 +31,7 @@ class ProductController extends Controller
     {
         $categories = Category::all();
 
-        $products = Product::search($request['query'])->get();
+        $products = Product::search($request['query'])->latest()->get();
 
         return Inertia::render('Products/Index', [
             'products' => $products,

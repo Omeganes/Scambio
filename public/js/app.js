@@ -8141,43 +8141,62 @@ function Authenticated(_ref) {
                   className: 'nav-item me-5',
                   children: "Categories"
                 })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-                className: "dropdown",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
-                  className: "nav-item me-5 dropdown-toggle",
-                  href: "#",
-                  role: "button",
-                  id: "dropdownMenuLink",
-                  "data-bs-toggle": "dropdown",
-                  "aria-expanded": "false",
-                  children: auth.user.name
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("ul", {
-                  className: "dropdown-menu",
-                  "aria-labelledby": "dropdownMenuLink",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.InertiaLink, {
-                      className: "dropdown-item",
-                      href: route('dashboard'),
-                      children: "Profile"
-                    })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
-                      className: "dropdown-item",
-                      href: route('dashboard.edit'),
-                      children: "Edit Profile"
-                    })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("hr", {
-                      className: "dropdown-divider"
-                    })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
-                      className: "dropdown-item",
-                      href: route('logout'),
-                      children: "Log out"
-                    })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                  className: "dropdown",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+                    className: "nav-item me-5 dropdown-toggle",
+                    href: "#",
+                    role: "button",
+                    id: "dropdownMenuLink",
+                    "data-bs-toggle": "dropdown",
+                    "aria-expanded": "false",
+                    children: auth.user.name
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("ul", {
+                    className: "dropdown-menu",
+                    "aria-labelledby": "dropdownMenuLink",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.InertiaLink, {
+                        className: "dropdown-item",
+                        href: route('dashboard'),
+                        children: "Profile"
+                      })
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+                        className: "dropdown-item",
+                        href: route('dashboard.edit'),
+                        children: "Edit Profile"
+                      })
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("hr", {
+                        className: "dropdown-divider"
+                      })
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+                        className: "dropdown-item",
+                        href: route('logout'),
+                        children: "Log out"
+                      })
+                    })]
                   })]
-                })]
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+                className: "nav-item",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("form", {
+                  className: "form-inline d-flex",
+                  action: route('products.index'),
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+                    className: "form-control mr-sm-2 me-1",
+                    type: "search",
+                    placeholder: "Search",
+                    "aria-label": "Search",
+                    name: "query"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+                    className: "btn btn-outline-secondary my-2 my-sm-0",
+                    type: "submit",
+                    children: "Search"
+                  })]
+                })
               })]
             })
           })]
@@ -10065,7 +10084,7 @@ function Index(_ref) {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
             className: 'display-3 text-white',
             children: (current_category === null || current_category === void 0 ? void 0 : current_category.name) || "Searching"
-          }), products.map(function (product) {
+          }), products.length !== 0 ? products.map(function (product) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
                 className: "row g-0 bg-light rounded overflow-hidden flex-md-row mb-4 shadow-lg h-md-250 position-relative",
@@ -10097,6 +10116,9 @@ function Index(_ref) {
                 })]
               })
             }, product.id);
+          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
+            className: 'display-1',
+            children: "Nothing found! :( "
           })]
         })]
       })

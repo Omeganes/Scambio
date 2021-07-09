@@ -18,21 +18,33 @@ export default function Authenticated({ auth, children }) {
                             <ul className={'navbar-nav me-5 mb-lg-0'}>
                                 <li><InertiaLink href={'#'} className={'nav-item me-5'}>Contact us</InertiaLink></li>
                                 <li><InertiaLink href={route('categories.index')} className={'nav-item me-5'}>Categories</InertiaLink></li>
-                                <div className="dropdown">
-                                    <a className="nav-item me-5 dropdown-toggle" href="#" role="button"
-                                       id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                        {auth.user.name}
-                                    </a>
+                                <li>
+                                    <div className="dropdown">
+                                        <a className="nav-item me-5 dropdown-toggle" href="#" role="button"
+                                           id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                            {auth.user.name}
+                                        </a>
 
-                                    <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                        <li><InertiaLink className="dropdown-item" href={route('dashboard')}>Profile</InertiaLink></li>
-                                        <li><a className="dropdown-item" href={route('dashboard.edit')}>Edit Profile</a></li>
-                                        <li>
-                                            <hr className="dropdown-divider" />
-                                        </li>
-                                        <li><a className="dropdown-item" href={route('logout')}>Log out</a></li>
-                                    </ul>
-                                </div>
+                                        <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                            <li><InertiaLink className="dropdown-item" href={route('dashboard')}>Profile</InertiaLink></li>
+                                            <li><a className="dropdown-item" href={route('dashboard.edit')}>Edit Profile</a></li>
+                                            <li>
+                                                <hr className="dropdown-divider" />
+                                            </li>
+                                            <li><a className="dropdown-item" href={route('logout')}>Log out</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li className="nav-item">
+                                    <form className="form-inline d-flex" action={route('products.index')}>
+                                        <input className="form-control mr-sm-2 me-1" type="search" placeholder="Search"
+                                               aria-label="Search" name="query" />
+                                            <button className="btn btn-outline-secondary my-2 my-sm-0"
+                                                    type="submit">Search
+                                            </button>
+                                    </form>
+                                </li>
+
                             </ul>
                         </div>
                     </div>
