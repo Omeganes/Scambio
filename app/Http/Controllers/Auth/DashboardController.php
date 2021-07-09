@@ -23,7 +23,13 @@ class DashboardController extends Controller
      */
     public function view(): Response
     {
-        return Inertia::render('Dashboard');
+        auth()->user()->load(['products' => function ($q) {
+            $q->orderBy('updated_at', 'desc');
+        }]);
+
+        return Inertia::render('Dashboard', [
+            'products' => auth()->user()->products
+        ]);
     }
 
     /**
