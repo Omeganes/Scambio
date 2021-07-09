@@ -48,9 +48,10 @@ export default function Dashboard({auth, products}) {
                                         className="row g-0 bg-light rounded overflow-hidden flex-md-row mb-4 shadow-lg h-md-250 position-relative">
                                         <div className="col p-4 d-flex flex-column position-relative justify-content-center">
                                             <InertiaLink href={route('products.show', product.id)} className="display-6">{product.name}</InertiaLink>
-                                            <p className={'text-muted'}>{product.description}</p>
+                                            <p className={'text-muted mb-5'}>{product.description}</p>
                                             <div className="position-absolute bottom-0 end-0 m-3">
-                                                <div className={'text-success'}>{product.price} LE</div>
+                                                <div className={'text-success mb-1'}>{product.price} LE</div>
+                                                <InertiaLink href={route('products.edit', product.id)} className={'btn btn-outline-secondary'}>Edit</InertiaLink>
                                             </div>
                                         </div>
                                         <div className="col-auto d-none d-lg-block">
