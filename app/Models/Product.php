@@ -28,6 +28,16 @@ class Product extends Model
         return $this->belongsTo(User::class);
     }
 
+    /**
+     * relation with category
+     *
+     * @return BelongsTo
+     */
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(Category::class);
+    }
+
 
     public static function validate(Request $request): array
     {

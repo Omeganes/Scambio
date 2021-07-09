@@ -81,7 +81,7 @@ class ProductController extends Controller
     public function show(Product $product): \Inertia\Response
     {
         return Inertia::render('Products/Show',[
-            'product' => $product,
+            'product' => $product->load('category'),
             'owner' => $product['user']
         ]);
     }

@@ -17,7 +17,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $categories = Category::latest()->with('products')->get();
+    $categories = Category::latest()->take(3)->with(['products' => function($q) {
+        $q->orderBy('updated_at', 'desc');
+    }])->get();
     return view('home', ['categories' => $categories]);
 })->name('home');
 

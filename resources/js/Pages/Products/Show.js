@@ -33,7 +33,8 @@ export default function Show(props) {
                 <div className={'right bg-light p-5 shadow-lg p-3 mb-5 bg-body rounded position-relative'} style={{maxWidth: "50%"}}>
                     <h1 className={'display-1'}>{props.product.name}</h1>
                     <p className={'text-muted fs-3'}>{props.product.description}</p>
-                    <h3>Status: <span className={'text-success'}>{props.product.status}</span></h3>
+                    <h3>Category: <span className={'text-success'}>{props.product.category.name}</span></h3>
+                    <h4>Status: <span className={'text-warning'}>{props.product.status}</span></h4>
                     <h5>Owner Name: <span className={'text-info'}>{props.owner.name}</span></h5>
                     <h5>Email: <span className={'text-secondary'}>{props.owner.email}</span></h5>
                     <h5>Phone: <span className={'text-secondary'}>{props.owner.phone || "No phone provided"}</span></h5>
