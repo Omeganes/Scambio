@@ -33,14 +33,15 @@ Route::get('/', function () {
 
 Route::resource('categories', CategoryController::class)
     ->only('index')->middleware('auth');
-Route::resource('categories.products', ProductController::class)
-    ->only('index')->middleware('auth');
+Route::get('/categories/{category}/products', [CategoryController::class, 'show'])
+    ->name('categories.products.index')->middleware('auth');
 
 /*
 |--------------------------------------------------------------------------
 | Products Routes
 |--------------------------------------------------------------------------
 */
-Route::resource('products', ProductController::class)->except('index');
+# TODO
+Route::resource('products', ProductController::class);#->except('index');
 
 require __DIR__.'/auth.php';
