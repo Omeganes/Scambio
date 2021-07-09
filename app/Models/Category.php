@@ -12,7 +12,7 @@ class Category extends Model
 
     protected array $guarded = [];
 
-
+    ####################################### Relationships #######################################
     /**
      * Relation with products
      *

@@ -45,6 +45,18 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    ####################################### Relationships #######################################
+
+    /**
+     * Relation with product
+     *
+     * @return HasMany
+     */
+    public function products(): HasMany
+    {
+        return $this->hasMany(Product::class);
+    }
+
 
     public static function validate($request): array
     {
@@ -61,13 +73,5 @@ class User extends Authenticatable
     }
 
 
-    /**
-     * Relation with product
-     *
-     * @return HasMany
-     */
-    public function products(): HasMany
-    {
-        return $this->hasMany(Product::class);
-    }
+
 }

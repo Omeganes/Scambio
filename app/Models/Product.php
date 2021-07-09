@@ -17,6 +17,7 @@ class Product extends Model
         'images' => 'array'
     ];
 
+    ####################################### Relationships #######################################
 
     /**
      * Relation with user
