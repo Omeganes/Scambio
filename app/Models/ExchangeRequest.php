@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Http\Request;
 
 class ExchangeRequest extends Model
@@ -11,6 +12,13 @@ class ExchangeRequest extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    /**
+     * The relationships that should always be loaded.
+     *
+     * @var array
+     */
+    protected $with = ['offeredProduct', 'requestedProduct'];
 
     ####################################### Relationships #######################################
 
@@ -26,17 +34,17 @@ class ExchangeRequest extends Model
     /**
      * Offered product for exchange
      */
-    public function offeredProduct()
+    public function offeredProduct(): HasOne
     {
-        $this->hasOne(Product::class, 'offered_product_id');
+        return $this->hasOne(Product::class, 'id', 'offered_product_id');
     }
 
     /**
      * Requested product for exchange
      */
-    public function requestedProduct()
+    public function requestedProduct(): HasOne
     {
-        $this->hasOne(Product::class, 'requested_product_id');
+        return $this->hasOne(Product::class, 'id', 'requested_product_id');
     }
 
     ####################################### Methods #######################################

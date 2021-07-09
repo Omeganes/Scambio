@@ -31,9 +31,11 @@ export default function Dashboard({auth, products}) {
                                         <a href="#" className="card-link text-info">{auth.user.exchanges_count}</a>
                                     </div>
                                     <br className={'mb-2'} />
-                                    <InertiaLink href={route('dashboard.edit')} className={'btn btn-info text-white'}>
-                                        Edit
-                                    </InertiaLink>
+                                    <div className={'d-flex justify-content-center'}>
+                                        <InertiaLink href={route('requests.index')} className={'btn btn-outline-info'}>
+                                            Show Exchange Requests
+                                        </InertiaLink>
+                                    </div>
                                 </div>
                             </div>
                         </div>

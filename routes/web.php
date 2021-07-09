@@ -49,6 +49,7 @@ Route::resource('products', ProductController::class);;
 | Exchange Requests Routes
 |--------------------------------------------------------------------------
 */
+Route::resource('requests', ExchangeRequestController::class)->only(['index']);
 Route::resource('products.requests', ExchangeRequestController::class)
     ->only(['store', 'create']);
 

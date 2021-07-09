@@ -22,11 +22,13 @@ class ExchangeRequestController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return Response
+     * @return InertiaResponse
      */
-    public function index(): Response
+    public function index(): InertiaResponse
     {
-        //
+        return Inertia::render('ExchangeRequests/Index', [
+            'requests' => auth()->user()->exchangeRequests
+        ]);
     }
 
     /**

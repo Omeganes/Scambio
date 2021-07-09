@@ -1,7 +1,6 @@
-import React, {useEffect, useRef, useState} from 'react'
+import React from 'react'
 import Authenticated from "@/Layouts/Authenticated";
 import {useForm} from "@inertiajs/inertia-react";
-import Input from '@/Components/Input';
 import ValidationErrors from "@/Components/ValidationErrors";
 import Button from "@/Components/Button";
 
