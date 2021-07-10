@@ -127,6 +127,9 @@ class ExchangeRequest extends Model
     }
 
 
+    /**
+     * Rejects the exchange deal
+     */
     public function rejectDeal()
     {
         $this->delete();

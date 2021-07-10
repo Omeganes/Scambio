@@ -9443,7 +9443,7 @@ function Index(_ref) {
   var auth = _ref.auth,
       product = _ref.product;
 
-  var handleClick = /*#__PURE__*/function () {
+  var handleAcceptClick = /*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(ev) {
       var requestID;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
@@ -9462,8 +9462,32 @@ function Index(_ref) {
       }, _callee);
     }));
 
-    return function handleClick(_x) {
+    return function handleAcceptClick(_x) {
       return _ref2.apply(this, arguments);
+    };
+  }();
+
+  var handleRejectClick = /*#__PURE__*/function () {
+    var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(ev) {
+      var requestID;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              requestID = ev.target.value;
+              _context2.next = 3;
+              return _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_4__.Inertia.delete((0,_vendor_tightenco_ziggy_src_js__WEBPACK_IMPORTED_MODULE_5__.default)('products.requests.destroy', [product.id, requestID]));
+
+            case 3:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    }));
+
+    return function handleRejectClick(_x2) {
+      return _ref3.apply(this, arguments);
     };
   }();
 
@@ -9608,13 +9632,14 @@ function Index(_ref) {
                           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
                             className: "dropdown-item bg-success text-white",
                             value: request.id,
-                            onClick: handleClick,
+                            onClick: handleAcceptClick,
                             children: "Accept"
                           })
                         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("li", {
-                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("a", {
+                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
                             className: "dropdown-item bg-danger text-white",
-                            href: "#",
+                            value: request.id,
+                            onClick: handleRejectClick,
                             children: "Reject"
                           })
                         })]

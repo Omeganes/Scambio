@@ -36,11 +36,17 @@ class ExchangeRequestController extends Controller
      * Show the form for creating a new resource.
      *
      * @param Product $product
-     * @return InertiaResponse
+     * @return Response|InertiaResponse
      */
-    public function create(Product $product): InertiaResponse
+    public function create(Product $product): Response|InertiaResponse
     {
         $ownedProducts = auth()->user()->products;
+
+        if($ownedProducts->count() === 0) {
+            Session::flash('warning',"You don't have any items to exchange! :(");
+            return Inertia::location(route('home'));
+        }
+
         return Inertia::render('ExchangeRequests/Create', [
             'product' => $product,
             'ownedProducts' => $ownedProducts
@@ -80,11 +86,15 @@ class ExchangeRequestController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param ExchangeRequest $exchangeRequest
+     * @param Request $req
+     * @param Product $product
+     * @param ExchangeRequest $request
      * @return Response
      */
-    public function destroy(ExchangeRequest $exchangeRequest): Response
+    public function destroy(Request $req, Product $product, ExchangeRequest $request): Response
     {
-        //
+        $request->rejectDeal();
+
+        return Inertia::location(route('home'));
     }
 }

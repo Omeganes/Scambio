@@ -8,9 +8,14 @@ import route from "../../../../vendor/tightenco/ziggy/src/js";
 export default function Index({auth, product}) {
 
 
-    const handleClick = async (ev) => {
+    const handleAcceptClick = async (ev) => {
         const requestID = ev.target.value;
         await Inertia.patch(route('products.requests.update', [product.id, requestID]))
+    }
+
+    const handleRejectClick = async (ev) => {
+        const requestID = ev.target.value;
+        await Inertia.delete(route('products.requests.destroy', [product.id, requestID]))
     }
 
     const renderDifference = (difference) => {
@@ -105,11 +110,15 @@ export default function Index({auth, product}) {
                                                         </button>
                                                         <ul className="dropdown-menu">
                                                             <li>
-                                                                <button className="dropdown-item bg-success text-white" value={request.id} onClick={handleClick}>
+                                                                <button className="dropdown-item bg-success text-white" value={request.id} onClick={handleAcceptClick}>
                                                                     Accept
                                                                 </button>
                                                             </li>
-                                                            <li><a className="dropdown-item bg-danger text-white" href="#">Reject</a></li>
+                                                            <li>
+                                                                <button className="dropdown-item bg-danger text-white" value={request.id} onClick={handleRejectClick}>
+                                                                    Reject
+                                                                </button>
+                                                            </li>
                                                         </ul>
                                                     </div>
                                                 </div>
