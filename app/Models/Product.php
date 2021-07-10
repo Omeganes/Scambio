@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class Product extends Model
 {
@@ -90,5 +91,13 @@ class Product extends Model
         }
 
         return $query;
+    }
+
+
+    protected static function booted()
+    {
+        static::creating(function ($product) {
+            $product->user_id = auth()->user()->id;
+        });
     }
 }

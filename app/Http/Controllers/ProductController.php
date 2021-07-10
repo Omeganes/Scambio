@@ -63,8 +63,7 @@ class ProductController extends Controller
     {
         $validated = Product::validate($request);
         $validated['images'] = self::saveImages($validated['images']);
-        $product = new Product($validated);
-        auth()->user()->products()->save($product);
+        Product::create($validated);
         Session::flash('success','Item added successfully!');
         return Inertia::location(route('home'));
     }
