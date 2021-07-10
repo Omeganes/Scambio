@@ -63,28 +63,6 @@ class ExchangeRequestController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param ExchangeRequest $exchangeRequest
-     * @return Response
-     */
-    public function show(ExchangeRequest $exchangeRequest): Response
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param ExchangeRequest $exchangeRequest
-     * @return Response
-     */
-    public function edit(ExchangeRequest $exchangeRequest): Response
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param Request $request

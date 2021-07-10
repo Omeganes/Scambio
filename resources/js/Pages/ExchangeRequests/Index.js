@@ -90,6 +90,17 @@ export default function Index({auth, product}) {
                                                         <h6 className={'text-warning'}>Difference:</h6>
                                                         {renderDifference(request.requested_product.price - request.offered_product.price)}
                                                     </div>
+
+                                                    <div className="btn-group">
+                                                        <button type="button" className="btn btn-warning">{request.status}</button>
+                                                        <button type="button" className="btn btn-warning dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                                                            <span className="visually-hidden">Toggle Dropdown</span>
+                                                        </button>
+                                                        <ul className="dropdown-menu">
+                                                            <li><a className="dropdown-item bg-success text-white" href="#">accept</a></li>
+                                                            <li><a className="dropdown-item bg-danger text-white" href="#">reject</a></li>
+                                                        </ul>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
