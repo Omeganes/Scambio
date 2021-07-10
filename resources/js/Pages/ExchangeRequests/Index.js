@@ -5,7 +5,22 @@ import {InertiaLink} from "@inertiajs/inertia-react";
 
 export default function Index({auth, product}) {
 
-    console.log(product);
+    const renderDifference = (difference) => {
+        console.log(difference < 0)
+        let color = "secondary"
+        if(difference > 0) {
+            color = "success"
+        } else if (difference < 0) {
+            color = "danger"
+        }
+
+        return (
+            <h5 className={`border border-${color} rounded text-${color} text-center p-1`}>
+                {difference}
+            </h5>
+        )
+    }
+
     return(
         <Authenticated
             auth={auth}
@@ -53,7 +68,7 @@ export default function Index({auth, product}) {
                                     <div key={request.id}>
                                         <div
                                             className="row g-0 bg-light rounded overflow-hidden flex-md-row mb-4 shadow-lg h-md-250 position-relative">
-                                            <div className="col p-4 d-flex position-relative justify-content-between">
+                                            <div className="col p-4 d-flex justify-content-between">
                                                 <div>
                                                     <h6 className={'text-success'}>Your item:</h6>
                                                     <InertiaLink
@@ -70,9 +85,11 @@ export default function Index({auth, product}) {
                                                         View
                                                     </InertiaLink>
                                                 </div>
-                                                <div>
-                                                    Difference:
-                                                    {request.requested_product.price - request.offered_product.price}
+                                                <div className={'d-flex flex-column justify-content-between'}>
+                                                    <div>
+                                                        <h6 className={'text-warning'}>Difference:</h6>
+                                                        {renderDifference(request.requested_product.price - request.offered_product.price)}
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

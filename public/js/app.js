@@ -9417,7 +9417,23 @@ __webpack_require__.r(__webpack_exports__);
 function Index(_ref) {
   var auth = _ref.auth,
       product = _ref.product;
-  console.log(product);
+
+  var renderDifference = function renderDifference(difference) {
+    console.log(difference < 0);
+    var color = "secondary";
+
+    if (difference > 0) {
+      color = "success";
+    } else if (difference < 0) {
+      color = "danger";
+    }
+
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h5", {
+      className: "border border-".concat(color, " rounded text-").concat(color, " text-center p-1"),
+      children: difference
+    });
+  };
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Layouts_Authenticated__WEBPACK_IMPORTED_MODULE_1__.default, {
     auth: auth,
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
@@ -9496,7 +9512,7 @@ function Index(_ref) {
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
                 className: "row g-0 bg-light rounded overflow-hidden flex-md-row mb-4 shadow-lg h-md-250 position-relative",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-                  className: "col p-4 d-flex position-relative justify-content-between",
+                  className: "col p-4 d-flex justify-content-between",
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
                     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h6", {
                       className: 'text-success',
@@ -9516,8 +9532,14 @@ function Index(_ref) {
                       className: 'btn btn-outline-success',
                       children: "View"
                     })]
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-                    children: ["Difference:", request.requested_product.price - request.offered_product.price]
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                    className: 'd-flex flex-column justify-content-between',
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h6", {
+                        className: 'text-warning',
+                        children: "Difference:"
+                      }), renderDifference(request.requested_product.price - request.offered_product.price)]
+                    })
                   })]
                 })
               })
