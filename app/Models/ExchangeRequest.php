@@ -89,22 +89,56 @@ class ExchangeRequest extends Model
      */
     public function acceptDeal()
     {
-        // TODO handle empty credits
-        if($this->differenceInPrice() > 100) {
-            auth()->user()->credit += $this->differenceInPrice();
-            Session::flash('success','Request accepted successfully and credit has been transferred to your account');
-        } else {
-//            TODO: implement voucher generating
+        $difference = $this->differenceInPrice();
+
+        $paidUser = $difference > 0 ? auth()->user() : $this->offeringUser;
+        $payingUser = $difference < 0 ? auth()->user() : $this->offeringUser;
+
+        if($difference != 0 ) {
+            if(abs($difference) > $payingUser->credit) {
+                Session::flash('warning',"$payingUser->name doesn't have enough money");
+                return;
+            }
+
+            $payingUser->credit -= abs($difference);
+
+            if(abs($difference) > 100) {
+                $paidUser->credit += abs($difference);
+            }
+            else {
+                $voucher = new Voucher([
+                    'value' => abs($difference)
+                ]);
+                $paidUser->vouchers()->save($voucher);
+            }
         }
-        auth()->user()->exchanges_count +=1;
-        auth()->user()->save();
+
+        $payingUser->exchanges_count +=1;
+        $paidUser->exchanges_count +=1;
+
+        $payingUser->save();
+        $paidUser->save();
 
         $this->offeredProduct->delete();
         $this->requestedProduct->delete();
         $this->delete();
+
+        Session::flash('success',"Exchange done successfully!");
     }
 
-    public function differenceInPrice()
+
+    public function rejectDeal()
+    {
+        $this->delete();
+
+        Session::flash('info',"Exchange rejected successfully!");
+    }
+    /**
+     * calculate the difference between the two items
+     *
+     * @return mixed
+     */
+    private function differenceInPrice(): mixed
     {
         return $this->requestedProduct->price - $this->offeredProduct->price;
     }

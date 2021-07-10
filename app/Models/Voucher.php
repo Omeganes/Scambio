@@ -46,7 +46,6 @@ class Voucher extends Model
     {
         static::creating(function ($voucher) {
             $voucher->code = Str::random(14);
-            $voucher->user_id = auth()->user()->id;
         });
     }
 
