@@ -9147,6 +9147,7 @@ __webpack_require__.r(__webpack_exports__);
 function Dashboard(_ref) {
   var auth = _ref.auth,
       products = _ref.products;
+  console.log(products);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Layouts_Authenticated__WEBPACK_IMPORTED_MODULE_0__.default, {
     auth: auth,
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
@@ -9232,10 +9233,10 @@ function Dashboard(_ref) {
                     children: product.description
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
                     className: "position-absolute bottom-0 start-0 m-3",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.InertiaLink, {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.InertiaLink, {
                       href: route('products.requests.index', product.id),
-                      className: 'btn btn-outline-secondary',
-                      children: "Show exchange requests"
+                      className: "btn btn-outline-".concat(product.exchange_requests.length === 0 ? 'secondary' : 'primary', " ").concat(product.exchange_requests.length === 0 && 'disabled'),
+                      children: [product.exchange_requests.length, " Exchange Requests"]
                     })
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
                     className: "position-absolute bottom-0 end-0 m-3",

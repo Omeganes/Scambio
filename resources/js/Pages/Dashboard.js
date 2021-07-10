@@ -3,6 +3,7 @@ import React from 'react';
 import {InertiaLink} from "@inertiajs/inertia-react";
 
 export default function Dashboard({auth, products}) {
+    console.log(products)
     return (
         <Authenticated
             auth={auth}
@@ -52,7 +53,7 @@ export default function Dashboard({auth, products}) {
                                             <InertiaLink href={route('products.show', product.id)} className="display-6">{product.name}</InertiaLink>
                                             <p className={'text-muted mb-5'}>{product.description}</p>
                                             <div className="position-absolute bottom-0 start-0 m-3">
-                                                <InertiaLink href={route('products.requests.index', product.id)} className={'btn btn-outline-secondary'}>Show exchange requests</InertiaLink>
+                                                <InertiaLink href={route('products.requests.index', product.id)} className={`btn btn-outline-${product.exchange_requests.length === 0 ? 'secondary' : 'primary'} ${product.exchange_requests.length === 0 && 'disabled'}`}>{product.exchange_requests.length} Exchange Requests</InertiaLink>
                                             </div>
                                             <div className="position-absolute bottom-0 end-0 m-3">
                                                 <div className={'text-success mb-1 end-0'}>{product.price} LE</div>
