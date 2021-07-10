@@ -3,8 +3,9 @@ import Authenticated from "@/Layouts/Authenticated";
 import {InertiaLink} from "@inertiajs/inertia-react";
 
 
-export default function Index({auth, requests}) {
+export default function Index({auth, product}) {
 
+    console.log(product);
     return(
         <Authenticated
             auth={auth}
@@ -35,8 +36,8 @@ export default function Index({auth, requests}) {
                                     </div>
                                     <br className={'mb-2'} />
                                     <div className={'d-flex justify-content-center'}>
-                                        <InertiaLink href={route('requests.index')} className={'btn btn-outline-info'}>
-                                            Show Exchange Requests
+                                        <InertiaLink href={route('dashboard')} className={'btn btn-outline-info'}>
+                                            Return to profile
                                         </InertiaLink>
                                     </div>
                                 </div>
@@ -44,39 +45,41 @@ export default function Index({auth, requests}) {
                         </div>
                     </div>
 
-                    {/* TODO */}
                     <div id={'requests'} className={'col-8 container'}>
-                        <h1 className={'display-5 text-white'}>You Received these requests</h1>
+                        <h1 className={'display-5 text-white'}><span className={'text-dark'}>{product.name}</span> received these exchange requests</h1>
                         {
-                            requests.map( request => (
-                                <div key={request.id}>
-                                    <div
-                                        className="row g-0 bg-light rounded overflow-hidden flex-md-row mb-4 shadow-lg h-md-250 position-relative">
-                                        <div className="col p-4 d-flex position-relative justify-content-between">
-                                            <div>
-                                                <h6 className={'text-success'}>Your item:</h6>
-                                                <InertiaLink
-                                                    href={route('products.show', request.requested_product.id)}
-                                                    className={'display-6'}>
-                                                    {request.requested_product.name}
-                                                </InertiaLink>
-                                                <h6 className={'text-warning mt-5'}>Their item:</h6>
-                                                <h1 className={'display-6'}>{request.offered_product.name}</h1>
-                                                <InertiaLink
-                                                    href={route('products.show', request.offered_product.id)}
-                                                    className={'btn btn-outline-success'}
-                                                >
-                                                    View
-                                                </InertiaLink>
-                                            </div>
-                                            <div>
-                                                Difference:
-                                                {request.requested_product.price - request.offered_product.price}
+                            product.exchange_requests.length !== 0?
+                                product.exchange_requests.map( request => (
+                                    <div key={request.id}>
+                                        <div
+                                            className="row g-0 bg-light rounded overflow-hidden flex-md-row mb-4 shadow-lg h-md-250 position-relative">
+                                            <div className="col p-4 d-flex position-relative justify-content-between">
+                                                <div>
+                                                    <h6 className={'text-success'}>Your item:</h6>
+                                                    <InertiaLink
+                                                        href={route('products.show', request.requested_product.id)}
+                                                        className={'display-6'}>
+                                                        {request.requested_product.name}
+                                                    </InertiaLink>
+                                                    <h6 className={'text-warning mt-5'}>Their item:</h6>
+                                                    <h1 className={'display-6'}>{request.offered_product.name}</h1>
+                                                    <InertiaLink
+                                                        href={route('products.show', request.offered_product.id)}
+                                                        className={'btn btn-outline-success'}
+                                                    >
+                                                        View
+                                                    </InertiaLink>
+                                                </div>
+                                                <div>
+                                                    Difference:
+                                                    {request.requested_product.price - request.offered_product.price}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            ))
+                                ))
+                                :
+                                <h1 className={'display-1'}>No requests received! :(</h1>
                         }
                     </div>
                 </div>

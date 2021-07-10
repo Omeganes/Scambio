@@ -22,16 +22,13 @@ class ExchangeRequestController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param Product $product
      * @return InertiaResponse
      */
-    public function index(): InertiaResponse
+    public function index(Product $product): InertiaResponse
     {
-        auth()->user()->load(['exchangeRequests' => function($q) {
-            $q->orderBy('updated_at', 'desc');
-        }]);
-
         return Inertia::render('ExchangeRequests/Index', [
-            'requests' => auth()->user()->exchangeRequests
+            'product' => $product->load('exchangeRequests')
         ]);
     }
 

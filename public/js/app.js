@@ -9218,14 +9218,21 @@ function Dashboard(_ref) {
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
                     className: 'text-muted mb-5',
                     children: product.description
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                    className: "position-absolute bottom-0 start-0 m-3",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.InertiaLink, {
+                      href: route('products.requests.index', product.id),
+                      className: 'btn btn-outline-secondary',
+                      children: "Show exchange requests"
+                    })
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
                     className: "position-absolute bottom-0 end-0 m-3",
                     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-                      className: 'text-success mb-1',
+                      className: 'text-success mb-1 end-0',
                       children: [product.price, " LE"]
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.InertiaLink, {
                       href: route('products.edit', product.id),
-                      className: 'btn btn-outline-secondary',
+                      className: 'btn btn-outline-warning',
                       children: "Edit"
                     })]
                   })]
@@ -9409,7 +9416,8 @@ __webpack_require__.r(__webpack_exports__);
 
 function Index(_ref) {
   var auth = _ref.auth,
-      requests = _ref.requests;
+      product = _ref.product;
+  console.log(product);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Layouts_Authenticated__WEBPACK_IMPORTED_MODULE_1__.default, {
     auth: auth,
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
@@ -9466,9 +9474,9 @@ function Index(_ref) {
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
                   className: 'd-flex justify-content-center',
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.InertiaLink, {
-                    href: route('requests.index'),
+                    href: route('dashboard'),
                     className: 'btn btn-outline-info',
-                    children: "Show Exchange Requests"
+                    children: "Return to profile"
                   })
                 })]
               })
@@ -9477,10 +9485,13 @@ function Index(_ref) {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
           id: 'requests',
           className: 'col-8 container',
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("h1", {
             className: 'display-5 text-white',
-            children: "You Received these requests"
-          }), requests.map(function (request) {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              className: 'text-dark',
+              children: product.name
+            }), " received these exchange requests"]
+          }), product.exchange_requests.length !== 0 ? product.exchange_requests.map(function (request) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
                 className: "row g-0 bg-light rounded overflow-hidden flex-md-row mb-4 shadow-lg h-md-250 position-relative",
@@ -9511,6 +9522,9 @@ function Index(_ref) {
                 })
               })
             }, request.id);
+          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
+            className: 'display-1',
+            children: "No requests received! :("
           })]
         })]
       })
