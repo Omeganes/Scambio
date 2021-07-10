@@ -32,8 +32,8 @@ export default function Dashboard({auth, products}) {
                                     </div>
                                     <br className={'mb-2'} />
                                     <div className={'d-flex justify-content-center'}>
-                                        <InertiaLink href={route('requests.index')} className={'btn btn-outline-info'}>
-                                            Show Exchange Requests
+                                        <InertiaLink href={route('dashboard.edit')} className={'btn btn-outline-info'}>
+                                            Edit Profile
                                         </InertiaLink>
                                     </div>
                                 </div>

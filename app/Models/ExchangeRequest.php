@@ -24,7 +24,6 @@ class ExchangeRequest extends Model
 
     /**
      * The user who requested the exchange
-     * TODO: Review this
      */
     public function requestingUser()
     {

@@ -26,7 +26,6 @@ class ExchangeRequestController extends Controller
      */
     public function index(): InertiaResponse
     {
-//        TODO
         auth()->user()->load(['exchangeRequests' => function($q) {
             $q->orderBy('updated_at', 'desc');
         }]);
