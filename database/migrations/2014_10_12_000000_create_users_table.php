@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('phone')->nullable();
             $table->integer('exchanges_count')->default(0);
             $table->string('account_number')->nullable();
+            $table->unsignedBigInteger('credit')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });

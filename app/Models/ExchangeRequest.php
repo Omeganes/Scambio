@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOneThrough;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class ExchangeRequest extends Model
 {
@@ -81,5 +82,30 @@ class ExchangeRequest extends Model
         }
 
         return $validated;
+    }
+
+    /**
+     * Accepts the exchange deal
+     */
+    public function acceptDeal()
+    {
+        // TODO handle empty credits
+        if($this->differenceInPrice() > 100) {
+            auth()->user()->credit += $this->differenceInPrice();
+            Session::flash('success','Request accepted successfully and credit has been transferred to your account');
+        } else {
+//            TODO: implement voucher generating
+        }
+        auth()->user()->exchanges_count +=1;
+        auth()->user()->save();
+
+        $this->offeredProduct->delete();
+        $this->requestedProduct->delete();
+        $this->delete();
+    }
+
+    public function differenceInPrice()
+    {
+        return $this->requestedProduct->price - $this->offeredProduct->price;
     }
 }

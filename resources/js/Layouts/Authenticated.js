@@ -32,6 +32,14 @@ export default function Authenticated({ auth, children }) {
                                                 <hr className="dropdown-divider" />
                                             </li>
                                             <li><a className="dropdown-item" href={route('logout')}>Log out</a></li>
+                                            <li>
+                                                <hr className="dropdown-divider" />
+                                            </li>
+                                            <li>
+                                                <div className={'dropdown-item'}>Credit:
+                                                    <span className={'ms-1 text-primary'}>{auth.user.credit}</span>
+                                                </div>
+                                            </li>
                                         </ul>
                                     </div>
                                 </li>
@@ -39,9 +47,9 @@ export default function Authenticated({ auth, children }) {
                                     <form className="form-inline d-flex" action={route('products.index')}>
                                         <input className="form-control mr-sm-2 me-1" type="search" placeholder="Search"
                                                aria-label="Search" name="query" />
-                                            <button className="btn btn-outline-secondary my-2 my-sm-0"
-                                                    type="submit">Search
-                                            </button>
+                                        <button className="btn btn-outline-secondary my-2 my-sm-0"
+                                                type="submit">Search
+                                        </button>
                                     </form>
                                 </li>
 

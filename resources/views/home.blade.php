@@ -33,10 +33,14 @@
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                     <li><a class="dropdown-item" href={{route('dashboard')}}>Profile</a></li>
                                     <li><a class="dropdown-item" href={{route('dashboard.edit')}}>Edit Profile</a></li>
-                                    <li>
-                                        <hr class="dropdown-divider" />
-                                    </li>
+                                    <div class="dropdown-divider"></div>
                                     <li><a class="dropdown-item" href={{route('logout')}}>Log out</a></li>
+                                    <div class="dropdown-divider"></div>
+                                    <li>
+                                        <span class="dropdown-item">Credit:
+                                            <span class="text-primary">{{auth()->user()->credit}}</span>
+                                        </span>
+                                    </li>
                                 </ul>
                             </div>
                         </li>

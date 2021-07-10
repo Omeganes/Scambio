@@ -52,9 +52,8 @@ class ExchangeRequestPolicy
      * @param ExchangeRequest $exchangeRequest
      * @return Response
      */
-    public function update(User $user, ExchangeRequest $exchange_request)
+    public function update(User $user, ExchangeRequest $exchangeRequest): Response
     {
-        dd('hi');
         return $exchangeRequest->offeredUser->is($user)
             ? Response::allow()
             : Response::deny('This request is not to you!');
