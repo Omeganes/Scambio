@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Http\Request;
 
 class ExchangeRequest extends Model
@@ -33,22 +33,22 @@ class ExchangeRequest extends Model
     /**
      * Offered product for exchange
      */
-    public function offeredProduct(): HasOne
+    public function offeredProduct(): BelongsTo
     {
-        return $this->hasOne(Product::class, 'id', 'offered_product_id');
+        return $this->belongsTo(Product::class, 'offered_product_id', 'id');
     }
 
     /**
      * Requested product for exchange
      */
-    public function requestedProduct(): HasOne
+    public function requestedProduct(): BelongsTo
     {
-        return $this->hasOne(Product::class, 'id', 'requested_product_id');
+        return $this->belongsTo(Product::class, 'requested_product_id', 'id');
     }
 
     ####################################### Methods #######################################
 
-    public static function validate(Request $request)
+    public static function validate(Request $request): array
     {
         $validated = $request->validate([
             'offered_product_id' => 'required|exists:products,id',
