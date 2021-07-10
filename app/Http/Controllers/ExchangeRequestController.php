@@ -15,7 +15,7 @@ class ExchangeRequestController extends Controller
 
     public function __construct()
     {
-        $this->authorizeResource(ExchangeRequest::class, 'exchangeRequest');
+        $this->authorizeResource(ExchangeRequest::class);
         $this->middleware('auth');
     }
 
@@ -66,12 +66,14 @@ class ExchangeRequestController extends Controller
      * Update the specified resource in storage.
      *
      * @param Request $request
+     * @param Product $product
      * @param ExchangeRequest $exchangeRequest
      * @return Response
      */
-    public function update(Request $request, ExchangeRequest $exchangeRequest): Response
+    public function update(Request $request, Product $product, ExchangeRequest $exchangeRequest): Response
     {
-        //
+//        $this->authorize('update', $exchangeRequest);
+        dd($product);
     }
 
     /**

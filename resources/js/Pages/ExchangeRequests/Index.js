@@ -1,12 +1,19 @@
 import React from 'react';
 import Authenticated from "@/Layouts/Authenticated";
 import {InertiaLink} from "@inertiajs/inertia-react";
+import { Inertia } from '@inertiajs/inertia'
+import route from "../../../../vendor/tightenco/ziggy/src/js";
 
 
 export default function Index({auth, product}) {
 
+
+    const handleClick = async (ev) => {
+        const requestID = ev.target.value;
+        await Inertia.patch(route('products.requests.update', [product.id, requestID]))
+    }
+
     const renderDifference = (difference) => {
-        console.log(difference < 0)
         let color = "secondary"
         if(difference > 0) {
             color = "success"
@@ -92,13 +99,17 @@ export default function Index({auth, product}) {
                                                     </div>
 
                                                     <div className="btn-group">
-                                                        <button type="button" className="btn btn-warning">{request.status}</button>
+                                                        <a type="button" className="p-2 rounded-start bg-warning">Pending</a>
                                                         <button type="button" className="btn btn-warning dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
                                                             <span className="visually-hidden">Toggle Dropdown</span>
                                                         </button>
                                                         <ul className="dropdown-menu">
-                                                            <li><a className="dropdown-item bg-success text-white" href="#">accept</a></li>
-                                                            <li><a className="dropdown-item bg-danger text-white" href="#">reject</a></li>
+                                                            <li>
+                                                                <button className="dropdown-item bg-success text-white" value={request.id} onClick={handleClick}>
+                                                                    Accept
+                                                                </button>
+                                                            </li>
+                                                            <li><a className="dropdown-item bg-danger text-white" href="#">Reject</a></li>
                                                         </ul>
                                                     </div>
                                                 </div>

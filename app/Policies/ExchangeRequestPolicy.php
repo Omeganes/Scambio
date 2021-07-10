@@ -3,10 +3,9 @@
 namespace App\Policies;
 
 use App\Models\ExchangeRequest;
-use App\Models\Product;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
-use Illuminate\Http\Request;
+use Illuminate\Auth\Access\Response;
 
 class ExchangeRequestPolicy
 {
@@ -27,21 +26,21 @@ class ExchangeRequestPolicy
      * Determine whether the user can view the model.
      *
      * @param User $user
-     * @param  \App\Models\ExchangeRequest  $exchangeRequest
-     * @return mixed
+     * @param ExchangeRequest $exchangeRequest
+     * @return bool
      */
-    public function view(User $user, ExchangeRequest $exchangeRequest)
+    public function view(User $user, ExchangeRequest $exchangeRequest): bool
     {
-        //
+        return true;
     }
 
     /**
      * Determine whether the user can create models.
      *
      * @param User $user
-     * @return mixed
+     * @return bool
      */
-    public function create(User $user)
+    public function create(User $user): bool
     {
         return true;
     }
@@ -50,47 +49,26 @@ class ExchangeRequestPolicy
      * Determine whether the user can update the model.
      *
      * @param User $user
-     * @param  \App\Models\ExchangeRequest  $exchangeRequest
-     * @return mixed
+     * @param ExchangeRequest $exchangeRequest
+     * @return Response
      */
-    public function update(User $user, ExchangeRequest $exchangeRequest)
+    public function update(User $user, ExchangeRequest $exchange_request)
     {
-        //
+        dd('hi');
+        return $exchangeRequest->offeredUser->is($user)
+            ? Response::allow()
+            : Response::deny('This request is not to you!');
     }
 
     /**
      * Determine whether the user can delete the model.
      *
      * @param User $user
-     * @param  \App\Models\ExchangeRequest  $exchangeRequest
-     * @return mixed
+     * @param ExchangeRequest $exchangeRequest
+     * @return bool
      */
-    public function delete(User $user, ExchangeRequest $exchangeRequest)
+    public function delete(User $user, ExchangeRequest $exchangeRequest): bool
     {
-        //
-    }
-
-    /**
-     * Determine whether the user can restore the model.
-     *
-     * @param User $user
-     * @param  \App\Models\ExchangeRequest  $exchangeRequest
-     * @return mixed
-     */
-    public function restore(User $user, ExchangeRequest $exchangeRequest)
-    {
-        //
-    }
-
-    /**
-     * Determine whether the user can permanently delete the model.
-     *
-     * @param User $user
-     * @param  \App\Models\ExchangeRequest  $exchangeRequest
-     * @return mixed
-     */
-    public function forceDelete(User $user, ExchangeRequest $exchangeRequest)
-    {
-        //
+        return true;
     }
 }
