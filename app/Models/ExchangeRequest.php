@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOneThrough;
 use Illuminate\Http\Request;
 
 class ExchangeRequest extends Model
@@ -25,9 +26,29 @@ class ExchangeRequest extends Model
     /**
      * The user who requested the exchange
      */
-    public function requestingUser()
+    public function offeringUser(): HasOneThrough
     {
-        $this->hasOneThrough(User::class, Product::class, 'offered_product_id', 'user_id');
+        return $this->hasOneThrough(
+            User::class,
+            Product::class,
+            'id', 'id',
+            'offered_product_id',
+            'user_id'
+        );
+    }
+
+    /**
+     * The user who is offered the exchange
+     */
+    public function offeredUser(): HasOneThrough
+    {
+        return $this->hasOneThrough(
+            User::class,
+            Product::class,
+            'id', 'id',
+            'requested_product_id',
+            'user_id'
+        );
     }
 
     /**
