@@ -3,7 +3,7 @@ import React from 'react';
 import {InertiaLink} from "@inertiajs/inertia-react";
 
 export default function Dashboard({auth, products}) {
-    console.log(products)
+
     return (
         <Authenticated
             auth={auth}
@@ -32,9 +32,12 @@ export default function Dashboard({auth, products}) {
                                         <a href="#" className="card-link text-info">{auth.user.exchanges_count}</a>
                                     </div>
                                     <br className={'mb-2'} />
-                                    <div className={'d-flex justify-content-center'}>
-                                        <InertiaLink href={route('dashboard.edit')} className={'btn btn-outline-info'}>
-                                            Edit Profile
+                                    <div className={'d-flex justify-content-around'}>
+                                        <InertiaLink href={'#'} className={'btn btn-outline-info'}>
+                                            Add Credit
+                                        </InertiaLink>
+                                        <InertiaLink href={route('vouchers.index')} className={'btn btn-outline-success'}>
+                                            My Vouchers
                                         </InertiaLink>
                                     </div>
                                 </div>

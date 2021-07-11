@@ -3,6 +3,7 @@
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ExchangeRequestController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\VoucherController;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 
@@ -51,5 +52,12 @@ Route::resource('products', ProductController::class);;
 */
 Route::resource('products.requests', ExchangeRequestController::class)
     ->except(['show','edit']);
+
+/*
+|--------------------------------------------------------------------------
+| Vouchers Routes
+|--------------------------------------------------------------------------
+*/
+Route::resource('vouchers', VoucherController::class);
 
 require __DIR__.'/auth.php';
