@@ -116,31 +116,33 @@
 <!-- categ -->
 
 @foreach($categories as $category)
-    <section id="categ">
-        <h1 style="color:#011c14">{{$category->name}}</h1>
-        <div class="top-content">
-            <div class="container-fluid">
-                <div id="carousel-example-{{$category->id}}" class="carousel slide" data-ride="carousel" data-interval="false">
-                    <div class="carousel-inner row w-100 mx-auto" role="listbox">
-                        @for($i = 0; $i< 5; $i++)
-                            <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3 {{ $i != 0 ?: "active"}}">
-                                <img src="{{$category->products[$i]->images[0]}}" class="img-fluid mx-auto d-block" alt="img1">
-                            </div>
-                        @endfor
+    @if($category->products->count() >= 5)
+        <section id="categ">
+            <h1 style="color:#011c14"><a href="{{route('categories.products.index', $category->id)}}">{{$category->name}}</a></h1>
+            <div class="top-content">
+                <div class="container-fluid">
+                    <div id="carousel-example-{{$category->id}}" class="carousel slide" data-ride="carousel" data-interval="false">
+                        <div class="carousel-inner row w-100 mx-auto" role="listbox">
+                            @for($i = 0; $i< 5; $i++)
+                                <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3 {{ $i != 0 ?: "active"}}">
+                                    <img src="{{$category->products[$i]->images[0]}}" class="img-fluid mx-auto d-block" alt="img1">
+                                </div>
+                            @endfor
+                        </div>
+                        <a class="carousel-control-prev" href="#carousel-example-{{$category->id}}" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carousel-example-{{$category->id}}" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
                     </div>
-                    <a class="carousel-control-prev" href="#carousel-example-{{$category->id}}" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carousel-example-{{$category->id}}" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
                 </div>
-            </div>
 
-        </div>
-    </section>
+            </div>
+        </section>
+    @endif
 @endforeach
 
 

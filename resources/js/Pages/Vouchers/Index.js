@@ -34,11 +34,8 @@ export default function Index({auth, my_vouchers}) {
                                     </div>
                                     <br className={'mb-2'} />
                                     <div className={'d-flex justify-content-around'}>
-                                        <InertiaLink href={'#'} className={'btn btn-outline-info'}>
-                                            Add Credit
-                                        </InertiaLink>
                                         <InertiaLink href={route('dashboard')} className={'btn btn-outline-success'}>
-                                            Profile
+                                            Return to profile
                                         </InertiaLink>
                                     </div>
                                 </div>

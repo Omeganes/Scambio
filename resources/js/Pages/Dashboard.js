@@ -1,8 +1,24 @@
 import Authenticated from '@/Layouts/Authenticated';
 import React from 'react';
-import {InertiaLink} from "@inertiajs/inertia-react";
+import {InertiaLink, useForm} from "@inertiajs/inertia-react";
+import Input from "@/Components/Input";
+import Button from "@/Components/Button";
+
 
 export default function Dashboard({auth, products}) {
+
+    const { data, setData, post, processing } = useForm({
+        amount: 0,
+    });
+
+    const handleChange = (event) => {
+        setData(event.target.name, event.target.type === 'checkbox' ? event.target.checked : event.target.value);
+    };
+
+    const submit =  async (e) => {
+        e.preventDefault();
+        await post(route('dashboard.credit'));
+    };
 
     return (
         <Authenticated
@@ -33,13 +49,28 @@ export default function Dashboard({auth, products}) {
                                     </div>
                                     <br className={'mb-2'} />
                                     <div className={'d-flex justify-content-around'}>
-                                        <InertiaLink href={'#'} className={'btn btn-outline-info'}>
-                                            Add Credit
-                                        </InertiaLink>
                                         <InertiaLink href={route('vouchers.index')} className={'btn btn-outline-success'}>
                                             My Vouchers
                                         </InertiaLink>
                                     </div>
+                                    <br className={'mb-2'} />
+                                    <form onSubmit={submit}>
+                                        <label htmlFor="money" className="form-label">Money amount</label>
+                                        <Input
+                                            name={'amount'}
+                                            type="number"
+                                            className="form-control mb-2"
+                                            id="money"
+                                            value={data.amount}
+                                            min={'1'}
+                                            handleChange={handleChange}
+                                        />
+                                        <div className={'d-flex justify-content-around'}>
+                                            <Button processing={processing} className={'btn btn-info'}>
+                                                Add credits
+                                            </Button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>

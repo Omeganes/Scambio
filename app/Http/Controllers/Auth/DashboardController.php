@@ -58,4 +58,29 @@ class DashboardController extends Controller
         Session::flash('success','Profile updated successfully!');
         return Inertia::location(route('home'));
     }
+
+
+    /**
+     * add credit from your credit card
+     * @param Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function credit(Request $request): \Illuminate\Http\Response
+    {
+        $user = auth()->user();
+        if(!isset($user->account_number)) {
+            Session::flash('warning','You need to add a credit card first!');
+            return Inertia::location(route('home'));
+        }
+
+        $validated = $request->validate([
+           'amount' => 'required|numeric|min:1'
+        ]);
+
+        $user->credit += $validated['amount'];
+        $user->save();
+
+        Session::flash('success','Amount has been transferred successfully!');
+        return Inertia::location(route('home'));
+    }
 }
