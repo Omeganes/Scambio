@@ -1,13 +1,14 @@
-import Authenticated from '@/Layouts/Authenticated';
 import React from 'react';
+import Authenticated from "@/Layouts/Authenticated";
 import {InertiaLink} from "@inertiajs/inertia-react";
 
-export default function Dashboard({auth, products}) {
+export default function Index({auth, my_vouchers}) {
 
-    return (
+    return(
         <Authenticated
             auth={auth}
         >
+
             <div className={'container'}>
                 <div className={'row justify-content-center'}>
 
@@ -36,8 +37,8 @@ export default function Dashboard({auth, products}) {
                                         <InertiaLink href={'#'} className={'btn btn-outline-info'}>
                                             Add Credit
                                         </InertiaLink>
-                                        <InertiaLink href={route('vouchers.index')} className={'btn btn-outline-success'}>
-                                            My Vouchers
+                                        <InertiaLink href={route('dashboard')} className={'btn btn-outline-success'}>
+                                            Profile
                                         </InertiaLink>
                                     </div>
                                 </div>
@@ -48,22 +49,15 @@ export default function Dashboard({auth, products}) {
                     <div id={'products'} className={'col-8 container'}>
                         <h1 className={'display-3 text-white'}>Your items</h1>
                         {
-                            products.map( product => (
-                                <div key={product.id}>
-                                    <div className="row g-0 bg-light rounded overflow-hidden flex-md-row mb-4 shadow-lg h-md-250 position-relative">
-                                        <div className="col p-4 d-flex flex-column position-relative justify-content-center">
-                                            <InertiaLink href={route('products.show', product.id)} className="display-6">{product.name}</InertiaLink>
-                                            <p className={'text-muted mb-5'}>{product.description}</p>
-                                            <div className="position-absolute bottom-0 start-0 m-3">
-                                                <InertiaLink href={route('products.requests.index', product.id)} className={`btn btn-outline-${product.exchange_requests.length === 0 ? 'secondary' : 'primary'} ${product.exchange_requests.length === 0 && 'disabled'}`}>{product.exchange_requests.length} Exchange Requests</InertiaLink>
-                                            </div>
-                                            <div className="position-absolute bottom-0 end-0 m-3">
-                                                <div className={'text-success mb-1 end-0'}>{product.price} LE</div>
-                                                <InertiaLink href={route('products.edit', product.id)} className={'btn btn-outline-warning'}>Edit</InertiaLink>
-                                            </div>
+                            my_vouchers.map( voucher => (
+                                <div key={voucher.id}>
+                                    <div className="row g-0 bg-light overflow-hidden flex-md-row mb-4 shadow-lg p-5 voucher rounded-pill min-h-20 justify-content-around">
+                                        <div className={'col-md-6 d-flex flex-column justify-content-between'}>
+                                            <h1 className={'display-3 text-success'}>Voucher</h1>
+                                            <h6 className={'mt-3'}>Code: <span className={'text-primary'}>{voucher.code}</span></h6>
                                         </div>
-                                        <div className="col-auto d-none d-lg-block">
-                                            <img src={product.images[0]} className="bd-placeholder-img" width="200" height="250" alt={'category-image'}/>
+                                        <div className={'col-md-3'}>
+                                            <h1 className={'border display-6 border-warning p-2 text-center text-success'}>{voucher.value} LE</h1>
                                         </div>
                                     </div>
                                 </div>

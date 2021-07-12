@@ -36,9 +36,9 @@ export default function Authenticated({ auth, children }) {
                                                 <hr className="dropdown-divider" />
                                             </li>
                                             <li>
-                                                <div className={'dropdown-item'}>Credit:
+                                                <InertiaLink className={'dropdown-item'} href={route('vouchers.index')}>Credit:
                                                     <span className={'ms-1 text-primary'}>{auth.user.credit}</span>
-                                                </div>
+                                                </InertiaLink>
                                             </li>
                                         </ul>
                                     </div>
