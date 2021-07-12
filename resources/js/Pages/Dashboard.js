@@ -1,8 +1,25 @@
 import Authenticated from '@/Layouts/Authenticated';
 import React from 'react';
-import {InertiaLink} from "@inertiajs/inertia-react";
+import {InertiaLink, useForm} from "@inertiajs/inertia-react";
+import Input from "@/Components/Input";
+import Button from "@/Components/Button";
+
 
 export default function Dashboard({auth, products}) {
+
+    const { data, setData, post, processing } = useForm({
+        amount: 0,
+    });
+
+    const handleChange = (event) => {
+        setData(event.target.name, event.target.type === 'checkbox' ? event.target.checked : event.target.value);
+    };
+
+    const submit =  async (e) => {
+        e.preventDefault();
+        await post(route('dashboard.credit'));
+    };
+
     return (
         <Authenticated
             auth={auth}
@@ -31,9 +48,29 @@ export default function Dashboard({auth, products}) {
                                         <a href="#" className="card-link text-info">{auth.user.exchanges_count}</a>
                                     </div>
                                     <br className={'mb-2'} />
-                                    <InertiaLink href={route('dashboard.edit')} className={'btn btn-info text-white'}>
-                                        Edit
-                                    </InertiaLink>
+                                    <div className={'d-flex justify-content-around'}>
+                                        <InertiaLink href={route('vouchers.index')} className={'btn btn-outline-success'}>
+                                            My Vouchers
+                                        </InertiaLink>
+                                    </div>
+                                    <br className={'mb-2'} />
+                                    <form onSubmit={submit}>
+                                        <label htmlFor="money" className="form-label">Money amount</label>
+                                        <Input
+                                            name={'amount'}
+                                            type="number"
+                                            className="form-control mb-2"
+                                            id="money"
+                                            value={data.amount}
+                                            min={'1'}
+                                            handleChange={handleChange}
+                                        />
+                                        <div className={'d-flex justify-content-around'}>
+                                            <Button processing={processing} className={'btn btn-info'}>
+                                                Add credits
+                                            </Button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -44,14 +81,16 @@ export default function Dashboard({auth, products}) {
                         {
                             products.map( product => (
                                 <div key={product.id}>
-                                    <div
-                                        className="row g-0 bg-light rounded overflow-hidden flex-md-row mb-4 shadow-lg h-md-250 position-relative">
+                                    <div className="row g-0 bg-light rounded overflow-hidden flex-md-row mb-4 shadow-lg h-md-250 position-relative">
                                         <div className="col p-4 d-flex flex-column position-relative justify-content-center">
                                             <InertiaLink href={route('products.show', product.id)} className="display-6">{product.name}</InertiaLink>
                                             <p className={'text-muted mb-5'}>{product.description}</p>
+                                            <div className="position-absolute bottom-0 start-0 m-3">
+                                                <InertiaLink href={route('products.requests.index', product.id)} className={`btn btn-outline-${product.exchange_requests.length === 0 ? 'secondary' : 'primary'} ${product.exchange_requests.length === 0 && 'disabled'}`}>{product.exchange_requests.length} Exchange Requests</InertiaLink>
+                                            </div>
                                             <div className="position-absolute bottom-0 end-0 m-3">
-                                                <div className={'text-success mb-1'}>{product.price} LE</div>
-                                                <InertiaLink href={route('products.edit', product.id)} className={'btn btn-outline-secondary'}>Edit</InertiaLink>
+                                                <div className={'text-success mb-1 end-0'}>{product.price} LE</div>
+                                                <InertiaLink href={route('products.edit', product.id)} className={'btn btn-outline-warning'}>Edit</InertiaLink>
                                             </div>
                                         </div>
                                         <div className="col-auto d-none d-lg-block">

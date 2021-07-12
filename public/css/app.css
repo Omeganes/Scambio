@@ -10920,3 +10920,18 @@ a:hover {
     font-weight: bold;
 }
 
+.min-h-15 {
+    min-height: 15rem;
+}
+
+.min-h-20 {
+    min-height: 20rem;
+}
+
+.voucher {
+    border-style: outset;
+    border-width: 2rem;
+    border-color: orange;
+
+}
+

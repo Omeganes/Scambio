@@ -15,29 +15,38 @@ class ExchangeRequestController extends Controller
 
     public function __construct()
     {
-        $this->authorizeResource(ExchangeRequest::class, 'exchangeRequest');
+        $this->authorizeResource(ExchangeRequest::class, 'request');
         $this->middleware('auth');
     }
 
     /**
      * Display a listing of the resource.
      *
-     * @return Response
+     * @param Product $product
+     * @return InertiaResponse
      */
-    public function index(): Response
+    public function index(Product $product): InertiaResponse
     {
-        //
+        return Inertia::render('ExchangeRequests/Index', [
+            'product' => $product->load('exchangeRequests')
+        ]);
     }
 
     /**
      * Show the form for creating a new resource.
      *
      * @param Product $product
-     * @return InertiaResponse
+     * @return Response|InertiaResponse
      */
-    public function create(Product $product): InertiaResponse
+    public function create(Product $product): Response|InertiaResponse
     {
         $ownedProducts = auth()->user()->products;
+
+        if($ownedProducts->count() === 0) {
+            Session::flash('warning',"You don't have any items to exchange! :(");
+            return Inertia::location(route('home'));
+        }
+
         return Inertia::render('ExchangeRequests/Create', [
             'product' => $product,
             'ownedProducts' => $ownedProducts
@@ -60,47 +69,32 @@ class ExchangeRequestController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param ExchangeRequest $exchangeRequest
-     * @return Response
-     */
-    public function show(ExchangeRequest $exchangeRequest): Response
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param ExchangeRequest $exchangeRequest
-     * @return Response
-     */
-    public function edit(ExchangeRequest $exchangeRequest): Response
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
-     * @param ExchangeRequest $exchangeRequest
+     * @param Request $req
+     * @param Product $product
+     * @param ExchangeRequest $request
      * @return Response
      */
-    public function update(Request $request, ExchangeRequest $exchangeRequest): Response
+    public function update(Request $req, Product $product, ExchangeRequest $request): Response
     {
-        //
+        $request->acceptDeal();
+
+        return Inertia::location(route('home'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param ExchangeRequest $exchangeRequest
+     * @param Request $req
+     * @param Product $product
+     * @param ExchangeRequest $request
      * @return Response
      */
-    public function destroy(ExchangeRequest $exchangeRequest): Response
+    public function destroy(Request $req, Product $product, ExchangeRequest $request): Response
     {
-        //
+        $request->rejectDeal();
+
+        return Inertia::location(route('home'));
     }
 }

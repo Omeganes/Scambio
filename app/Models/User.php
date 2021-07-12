@@ -75,6 +75,16 @@ class User extends Authenticatable
         );
     }
 
+    /**
+     * relationship wih vouchers
+     *
+     * @return HasMany
+     */
+    public function vouchers(): HasMany
+    {
+        return $this->hasMany(Voucher::class);
+    }
+
 
     public static function validate($request): array
     {

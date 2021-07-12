@@ -67,3 +67,4 @@ Route::get('/logout', [AuthenticatedSessionController::class, 'destroy'])
 Route::get('/dashboard', [DashboardController::class, 'view'])->name('dashboard');
 Route::get('/dashboard/edit', [DashboardController::class, 'edit'])->name('dashboard.edit');
 Route::patch('/dashboard', [DashboardController::class, 'update'])->name('dashboard.update');
+Route::post('dashboard/credit', [DashboardController::class, 'credit'])->name('dashboard.credit');

