@@ -10861,12 +10861,18 @@ function Index(_ref) {
                       children: voucher.code
                     })]
                   })]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-                  className: 'col-md-3',
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("h1", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+                  className: 'col-md-3 d-flex flex-column justify-content-between',
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("h1", {
                     className: 'border display-6 border-warning p-2 text-center text-success',
                     children: [voucher.value, " LE"]
-                  })
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("h6", {
+                    className: 'mt-3',
+                    children: ["Sponsor: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                      className: 'text-success',
+                      children: voucher.sponsor
+                    })]
+                  })]
                 })]
               })
             }, voucher.id);
