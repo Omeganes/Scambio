@@ -17,6 +17,7 @@ class CreateVouchersTable extends Migration
             $table->id();
             $table->string('code');
             $table->unsignedBigInteger('value');
+            $table->string('sponsor');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });

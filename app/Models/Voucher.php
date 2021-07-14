@@ -46,6 +46,8 @@ class Voucher extends Model
     {
         static::creating(function ($voucher) {
             $voucher->code = Str::random(14);
+            $sponsors = ['Fathalla', 'Carrefour'];
+            $voucher->sponsor = $sponsors[rand(0,1)];
         });
     }
 

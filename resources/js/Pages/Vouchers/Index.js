@@ -53,8 +53,9 @@ export default function Index({auth, my_vouchers}) {
                                             <h1 className={'display-3 text-success'}>Voucher</h1>
                                             <h6 className={'mt-3'}>Code: <span className={'text-primary'}>{voucher.code}</span></h6>
                                         </div>
-                                        <div className={'col-md-3'}>
+                                        <div className={'col-md-3 d-flex flex-column justify-content-between'}>
                                             <h1 className={'border display-6 border-warning p-2 text-center text-success'}>{voucher.value} LE</h1>
+                                            <h6 className={'mt-3'}>Sponsor: <span className={'text-success'}>{voucher.sponsor}</span></h6>
                                         </div>
                                     </div>
                                 </div>

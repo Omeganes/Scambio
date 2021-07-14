@@ -16,24 +16,8 @@ export default function Show({auth, product, owner}) {
         <Authenticated
             auth={auth}
         >
-            <div className={'container d-flex justify-content-around align-items-center'}>
-                <div id="carouselExampleControls" className="left carousel slide mb-5" data-bs-ride="carousel" style={{maxWidth: "500px"}}>
-                    <div className="carousel-inner">
-                        {renderImages(product.images)}
-                    </div>
-                    <button className="carousel-control-prev" type="button"
-                            data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                        <span className="carousel-control-prev-icon" aria-hidden="true"/>
-                        <span className="visually-hidden">Previous</span>
-                    </button>
-                    <button className="carousel-control-next" type="button"
-                            data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                        <span className="carousel-control-next-icon" aria-hidden="true"/>
-                        <span className="visually-hidden">Next</span>
-                    </button>
-                </div>
-
-                <div className={'right bg-light p-5 shadow-lg p-3 mb-5 bg-body rounded position-relative'} style={{maxWidth: "50%"}}>
+            <div className={'container d-flex justify-content-between align-items-center mt-5'}>
+                <div className={'left bg-light p-5 shadow-lg p-3 mb-5 bg-body rounded position-relative'} style={{maxWidth: "50%"}}>
                     <h1 className={'display-1'}>{product.name}</h1>
                     <p className={'text-muted fs-3'}>{product.description}</p>
                     <h3>Category: <span className={'text-success'}>{product.category.name}</span></h3>
@@ -50,6 +34,23 @@ export default function Show({auth, product, owner}) {
                         }
                     </div>
                 </div>
+
+                <div id="carouselExampleControls" className="right carousel slide mb-5" data-bs-ride="carousel" style={{maxWidth: "500px"}}>
+                    <div className="carousel-inner">
+                        {renderImages(product.images)}
+                    </div>
+                    <button className="carousel-control-prev" type="button"
+                            data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                        <span className="carousel-control-prev-icon" aria-hidden="true"/>
+                        <span className="visually-hidden">Previous</span>
+                    </button>
+                    <button className="carousel-control-next" type="button"
+                            data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                        <span className="carousel-control-next-icon" aria-hidden="true"/>
+                        <span className="visually-hidden">Next</span>
+                    </button>
+                </div>
+
 
             </div>
         </Authenticated>
