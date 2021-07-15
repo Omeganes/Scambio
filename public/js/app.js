@@ -10655,44 +10655,9 @@ function Show(_ref) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Layouts_Authenticated__WEBPACK_IMPORTED_MODULE_1__.default, {
     auth: auth,
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-      className: 'container d-flex justify-content-around align-items-center',
+      className: 'container d-flex justify-content-between align-items-center mt-5',
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-        id: "carouselExampleControls",
-        className: "left carousel slide mb-5",
-        "data-bs-ride": "carousel",
-        style: {
-          maxWidth: "500px"
-        },
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-          className: "carousel-inner",
-          children: renderImages(product.images)
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("button", {
-          className: "carousel-control-prev",
-          type: "button",
-          "data-bs-target": "#carouselExampleControls",
-          "data-bs-slide": "prev",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-            className: "carousel-control-prev-icon",
-            "aria-hidden": "true"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-            className: "visually-hidden",
-            children: "Previous"
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("button", {
-          className: "carousel-control-next",
-          type: "button",
-          "data-bs-target": "#carouselExampleControls",
-          "data-bs-slide": "next",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-            className: "carousel-control-next-icon",
-            "aria-hidden": "true"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-            className: "visually-hidden",
-            children: "Next"
-          })]
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-        className: 'right bg-light p-5 shadow-lg p-3 mb-5 bg-body rounded position-relative',
+        className: 'left bg-light p-5 shadow-lg p-3 mb-5 bg-body rounded position-relative',
         style: {
           maxWidth: "50%"
         },
@@ -10743,6 +10708,41 @@ function Show(_ref) {
             type: "button",
             className: "btn btn-outline-info",
             children: "Request"
+          })]
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        id: "carouselExampleControls",
+        className: "right carousel slide mb-5",
+        "data-bs-ride": "carousel",
+        style: {
+          maxWidth: "500px"
+        },
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: "carousel-inner",
+          children: renderImages(product.images)
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("button", {
+          className: "carousel-control-prev",
+          type: "button",
+          "data-bs-target": "#carouselExampleControls",
+          "data-bs-slide": "prev",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+            className: "carousel-control-prev-icon",
+            "aria-hidden": "true"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+            className: "visually-hidden",
+            children: "Previous"
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("button", {
+          className: "carousel-control-next",
+          type: "button",
+          "data-bs-target": "#carouselExampleControls",
+          "data-bs-slide": "next",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+            className: "carousel-control-next-icon",
+            "aria-hidden": "true"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+            className: "visually-hidden",
+            children: "Next"
           })]
         })]
       })]
@@ -10861,12 +10861,18 @@ function Index(_ref) {
                       children: voucher.code
                     })]
                   })]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-                  className: 'col-md-3',
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("h1", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+                  className: 'col-md-3 d-flex flex-column justify-content-between',
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("h1", {
                     className: 'border display-6 border-warning p-2 text-center text-success',
                     children: [voucher.value, " LE"]
-                  })
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("h6", {
+                    className: 'mt-3',
+                    children: ["Sponsor: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                      className: 'text-success',
+                      children: voucher.sponsor
+                    })]
+                  })]
                 })]
               })
             }, voucher.id);
